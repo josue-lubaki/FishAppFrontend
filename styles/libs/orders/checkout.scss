@@ -1,0 +1,32 @@
+.checkout-page {
+  min-height: 500px;
+
+  button {
+    background-color: $primary-color;
+    border: 0;
+  }
+
+  .checkout {
+    &-form {
+      margin-top: 25px;
+    }
+
+    &-button {
+      margin-top: 20px;
+      button {
+        width: 100%;
+      }
+    }
+  }
+}
+
+
+@media only screen and (max-width: 640px){
+  .checkout-form{
+    flex-direction: column;
+
+    div{
+      width: 100%;
+    }
+  }
+}

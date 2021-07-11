@@ -1,0 +1,42 @@
+.order-summary {
+  background-color: var(--surface-0);
+  padding: 15px;
+  border: 1px solid $primary-color;
+
+  .summary-price {
+    display: flex;
+    margin: 15px 0;
+    span {
+      display: block;
+      width: 80%;
+
+      &:last-child {
+        width: 20%;
+        font-weight: 600;
+      }
+
+      &.free {
+        color: green;
+      }
+    }
+  }
+
+  .checkout-button {
+    button {
+      width: 100%;
+    }
+  }
+}
+
+@media only screen and (max-width:900px){
+  .summary-price span:first-child{
+    width: 75%;
+  }
+}
+
+
+@media only screen and (max-width:780px){
+  .summary-price span:first-child{
+    width: 68%;
+  }
+}

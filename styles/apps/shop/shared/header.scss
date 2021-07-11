@@ -1,0 +1,165 @@
+header{
+  .header-pGrid{
+    max-height: 100px;
+  }
+
+  .p-badge{
+    font-size: .6em;
+  }
+
+  .logo{
+
+    img{
+      width: 50%;
+      height: 85px;
+    }
+  }
+
+  .navigation{
+    padding-top: 3%;
+  }
+
+  .search{
+    padding-top: 2.5%;
+  }
+
+  .tools{
+   padding-top: 3%;
+   display: flex;
+
+    ngshop-nav #nav{
+      position: fixed;
+      width: 40%;
+      top: 0;
+      right: 0;
+      text-align: left;
+      background-color: rgb(36,41,44);
+      height: 100%;
+      z-index: 5;
+      padding-top: 2.5em;
+
+      ul{
+        margin: 0;
+      }
+
+        .exit-btn{
+          margin-top: -1.3em;
+          margin-bottom: 1.1em;
+          text-align: right;
+          padding: 0 1.2em;
+
+          a{
+            padding-left:85%;
+          }
+        }
+
+        li{
+          display: block;
+          color: white;
+
+          &:hover{
+            background-color: $primary-color-dark;
+
+          }
+
+          a{
+            text-decoration: none;
+            color: white;
+            font-size: 1.1em;
+            padding: 1em 1.2em;
+          }
+        }
+
+
+      }
+
+    .pi{
+      margin-right: 15%;
+      font-size: 1.2rem;
+    }
+
+  }
+
+  // .menu{
+  //   width: 25px;
+  //   margin-top: 5%;
+  // }
+
+
+  @media only screen and (max-width: 940px) {
+
+    .hide-desktop{
+      display: none;
+    }
+
+    .show-mobile{
+      display: inline-block;
+    }
+
+    .p-grid{
+      justify-content: space-between;
+    }
+
+    .header-pGrid .search{
+      width: 35%;
+      transition: all .7s ease-in-out;
+    }
+
+  }
+
+  @media only screen and (max-width: 650px) {
+
+    .pi{
+      font-size: 1rem !important;
+      transition: all .7s ease-in-out;
+    }
+
+    .header-pGrid .search{
+      width: 55%;
+      transition: all .7s ease-in-out;
+    }
+
+    .logo img{
+      width: 100%;
+      transition: all .7s ease-in-out;
+    }
+
+    .p-badge{
+      min-width: 1rem;
+      height: 1rem;
+      line-height: 1rem;
+    }
+
+  }
+
+  @media only screen and (max-width: 480px) {
+    .pi-user, .pi-shopping-cart{
+      display: none;
+    }
+
+    .pi{
+      font-size: 1.5em !important;
+    }
+
+    // .header-pGrid .search{
+    //   width: 55%;
+    // }
+
+    // .logo img{
+    //   width: 100%;
+    // }
+
+    .tools #menu{
+      font-size: 2.5em !important;
+      //padding: 0 15px;
+      margin-right: 0;
+    }
+
+  }
+
+
+
+
+
+
+}
