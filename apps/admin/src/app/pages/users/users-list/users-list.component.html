@@ -1,0 +1,68 @@
+<p-toast></p-toast> <!-- placer le Toast au top de la page -->
+<div class="admin-page">
+  <p-card header="Users" subheader="List of all users">
+    <div class="p-grid">
+      <div class="p-col-12">
+        <p-toolbar>
+          <div class="p-toolbar-group-left">
+             <p-button label="New" icon="pi pi-plus" styleClass="p-button-success" routerLink="form"></p-button>
+          </div>
+        </p-toolbar>
+      </div>
+    </div>
+    <div class="p-grid">
+      <div class="p-col-12">
+          <p-table [value]="users" styleClass="p-datatable-gridlines">
+              <ng-template pTemplate="header">
+                  <tr>
+                      <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon></th>
+                      <th>Email</th>
+                      <th>Is Admin</th>
+                      <th>Country</th>
+                      <th></th>
+                  </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-user>
+                  <tr>
+                      <td>{{user.name}}</td>
+                      <td>{{user.email}}</td>
+                      <td>
+                        <p-tag *ngIf="user.isAdmin" styleClass="p-mr-2" icon="pi pi-check" [rounded]="true" severity="success"></p-tag>
+                        <p-tag *ngIf="!user.isAdmin" styleClass="p-mr-2" icon="pi pi-times" [rounded]="true" severity="danger"></p-tag>
+                      </td>
+                      <td>{{ getCountryName(user.country)}}</td>
+                      <td>
+                        <p-button
+                          (click)="deleteUser(user)"
+                          styleClass="p-button-danger p-mr-2"
+                          icon="pi pi-trash">
+                        </p-button>
+                        <p-button
+                          (click)="updateUser(user.id)"
+                          styleClass="p-button-success"
+                          icon="pi pi-pencil">
+                        </p-button>
+                      </td>
+                  </tr>
+              </ng-template>
+          </p-table>
+      </div>
+    </div>
+  </p-card>
+</div>
+
+<!-- Dialog de Confirmation de Suppression -->
+
+<!-- 1ère Methode -->
+<!-- <p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text"></p-confirmDialog> -->
+
+<!-- 2ème Methode -->
+<p-confirmDialog #cd [style]="{width: '50vw'}">
+    <ng-template pTemplate="header">
+        <h3>Delete User</h3>
+    </ng-template>
+    <ng-template pTemplate="footer">
+        <p-button styleClass="p-button-success" type="button" icon="pi pi-times" label="No" (click)="cd.reject()"></p-button>
+        <p-button styleClass="p-button-danger" type="button" icon="pi pi-check" label="Yes" (click)="cd.accept()"></p-button>
+    </ng-template>
+</p-confirmDialog>

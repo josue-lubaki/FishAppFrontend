@@ -1,8 +1,4 @@
 {
-    "npmScope": "fish-app",
-    "affected": {
-        "defaultBase": "master"
-    },
     "implicitDependencies": {
         "package.json": {
             "dependencies": "*",
@@ -10,6 +6,10 @@
         },
         ".eslintrc.json": "*"
     },
+    "affected": {
+        "defaultBase": "master"
+    },
+    "npmScope": "ghost",
     "tasksRunnerOptions": {
         "default": {
             "runner": "@nrwl/workspace/tasks-runners/default",
@@ -17,14 +17,6 @@
                 "cacheableOperations": ["build", "lint", "test", "e2e"]
             }
         }
-    },
-    "targetDependencies": {
-        "build": [
-            {
-                "target": "build",
-                "projects": "dependencies"
-            }
-        ]
     },
     "projects": {
         "admin": {
@@ -34,12 +26,24 @@
             "tags": [],
             "implicitDependencies": ["admin"]
         },
-        "client": {
+        "ng-shop": {
             "tags": []
         },
-        "client-e2e": {
+        "ng-shop-e2e": {
             "tags": [],
-            "implicitDependencies": ["client"]
+            "implicitDependencies": ["ng-shop"]
+        },
+        "orders": {
+            "tags": []
+        },
+        "products": {
+            "tags": []
+        },
+        "ui": {
+            "tags": []
+        },
+        "users": {
+            "tags": []
         }
     }
 }

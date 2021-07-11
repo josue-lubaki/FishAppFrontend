@@ -1,0 +1,87 @@
+<p-toast></p-toast> <!-- placer le Toast au top de la page -->
+<div class="admin-page">
+  <p-card [header]="editMode ? 'Edit User' : 'Add User'" subheader="You can add or edit Users">
+    <div class="p-grid p-mb-4">
+      <div class="p-col-12">
+        <p-toolbar>
+          <div class="p-toolbar-group-left"></div>
+          <div class="p-toolbar-group-right">
+             <p-button [label]="editMode ? 'Update' : 'Create'" [icon]="editMode ? 'pi pi-pencil' :  'pi pi-plus'" styleClass="p-button-primary p-mr-2" (click)="onSubmit()"></p-button>
+             <p-button (click)="onCancel()" label="Cancel" icon="pi pi-arrow-circle-left" styleClass="p-button-secondary"></p-button>
+          </div>
+        </p-toolbar>
+      </div>
+    </div>
+    <div class="p-grid">
+      <div class="p-col-12">
+        <form [formGroup]="form">
+            <div class="p-fluid p-formgrid p-grid">
+                <div class="p-field p-col-4">
+                  <label for="name">Name</label>
+                  <input formControlName="name" id="name" type="text" pInputText>
+                  <small *ngIf="userForm.name.invalid && isSubmitted" class="p-error">Name is required</small>
+                </div>
+                <div class="p-field p-col-4">
+                  <label for="email">Email</label>
+                  <input formControlName="email" id="email" type="text" pInputText>
+                  <small *ngIf="userForm.email.invalid && isSubmitted" class="p-error">
+                    <span *ngIf="userForm.email.errors?.required">Email is required</span>
+                    <span *ngIf="userForm.email.errors?.email">Email is invalid</span>
+                  </small>
+
+                </div>
+                <div class="p-field p-col-4">
+                  <label for="password">Password</label>
+                  <p-password formControlName="password" [toggleMask]="true"></p-password>
+                  <small *ngIf="userForm.password.invalid && isSubmitted" class="p-error">Password is required</small>
+                </div>
+                <div class="p-field p-col-4">
+                      <label for="phone">Phone</label><br/>
+                      <p-inputMask
+                          formControlName="phone"
+                          mask="(999) 999-9999"
+                          [placeholder]="userForm.phone && userForm.phone.value !== '' ? userForm.phone.value : '(999) 999-9999'">
+                      </p-inputMask>
+                      <small *ngIf="userForm.phone.invalid && isSubmitted" class="p-error">Phone is required</small>
+                </div>
+                <div class="p-field p-col-4">
+                      <label for="isAdmin">Is Admin</label><br/>
+                      <p-inputSwitch formControlName="isAdmin"></p-inputSwitch>
+                </div>
+            </div>
+             <div class="p-fluid p-formgrid p-grid">
+                 <div class="p-field p-col-4">
+                    <label for="street">Street</label><br/>
+                     <input formControlName="street" id="street" type="text" pInputText>
+                  </div>
+                  <div class="p-field p-col-4">
+                    <label for="apartment">Apartment</label><br/>
+                     <input formControlName="apartment" id="apartment" type="text" pInputText>
+                  </div>
+                   <div class="p-field p-col-4">
+                    <label for="zip">ZipCode</label><br/>
+                     <input formControlName="zip" id="zip" type="text" pInputText>
+                  </div>
+                   <div class="p-field p-col-4">
+                    <label for="city">City</label><br/>
+                     <input formControlName="city" id="city" type="text" pInputText>
+                  </div>
+                  <div class="p-field p-col-4">
+                    <label for="country">Country</label><br/>
+                    <p-dropdown
+                        [options]="countries"
+                        formControlName="country"
+                        optionLabel="name"
+                        optionValue="id"
+                        [filter]="true"
+                        filterBy="name"
+                        [showClear]="true"
+                        placeholder="Select a Country">
+                    </p-dropdown>
+                  </div>
+             </div>
+        </form>
+      </div>
+    </div>
+  </p-card>
+</div>

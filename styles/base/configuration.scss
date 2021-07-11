@@ -1,0 +1,36 @@
+body, .p-component {
+  font-family: 'Open Sans', sans-serif;
+  font-size:.9em;
+
+  .show-mobile{
+    display: block;
+  }
+
+  .hide-desktop{
+    display:none;
+  }
+
+  .show-desktop{
+      display: block;
+  }
+
+  .hide-mobile{
+    display: none;
+  }
+
+}
+
+ul{
+  @include reset-list;
+}
+
+.container{
+    width: 100%;
+    padding: .8em 0;
+}
+
+a{
+  text-decoration: none;
+}
+
+

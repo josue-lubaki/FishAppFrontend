@@ -1,0 +1,27 @@
+<header>
+    <div class="p-grid header-pGrid">
+          <div class="p-col-3">
+            <div class="logo">
+              <img src="assets/images/logo.png" routerLink="/" class="animate__animated animate__zoomIn" alt="logo">
+            </div>
+          </div>
+          <div class="p-col-3 search">
+              <products-products-search></products-products-search>
+          </div>
+          <div class="p-col-4 navigation hide-desktop show-desktop">
+              <ngshop-nav></ngshop-nav>
+          </div>
+          <div class="p-col-2 tools">
+            <i class="pi pi-user p-text-secondary" style="font-size: 1.5rem" id="user" ></i>
+            <orders-cart-icon style="display:flex"></orders-cart-icon>
+            <i class="pi pi-bars hide-desktop show-mobile menu"
+              style="font-size: 1.5rem"
+              id="menu"
+              (click)="openMenuBar($event)"></i>
+
+            <div class="hide-desktop" id="blocMenu">
+              <ngshop-nav></ngshop-nav>
+            </div>
+          </div>
+      </div>
+</header>

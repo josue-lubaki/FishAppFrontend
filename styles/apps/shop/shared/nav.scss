@@ -1,0 +1,51 @@
+
+#nav{
+  //margin-top: 14%;
+
+  // Par default
+  .hide-desktop, .hide-menu{
+    display: none;
+  }
+
+  @media only screen and (max-width: 480px) {
+    li {
+      .show-menu{
+        display: block;
+      }
+    }
+  }
+
+
+
+  li{
+    list-style: none;
+    display: inline-block;
+    margin: 0 10px;
+    padding: 10px;
+
+    a{
+      display: block;
+    }
+
+    &:hover{
+      background-color: $primary-color;
+      font-weight: bold;
+      border-radius: 10px;
+
+       a{
+         color: #fff;
+       }
+    }
+  }
+
+  a{
+    color: var(--surface-900);
+    cursor: pointer;
+
+    &:hover{
+      color: $primary-color;
+    }
+  }
+}
+
+
