@@ -13,7 +13,7 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "fishApp",
+            "prefix": "admin",
             "style": "camelCase"
           }
         ],
@@ -21,10 +21,13 @@
           "error",
           {
             "type": "element",
-            "prefix": "fish-app",
+            "prefix": "admin",
             "style": "kebab-case"
           }
-        ]
+        ],
+        "no-empty-function": "off",
+        "@typescript-eslint/no-empty-function": "off",
+        "@typescript-eslint/no-explicit-any": "off"
       }
     },
     {
