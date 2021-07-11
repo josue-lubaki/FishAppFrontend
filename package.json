@@ -1,6 +1,6 @@
 {
   "name": "fish-app",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "license": "MIT",
   "scripts": {
     "ng": "nx",
@@ -57,7 +57,7 @@
     "@nrwl/linter": "12.5.7",
     "@nrwl/tao": "12.5.7",
     "@nrwl/workspace": "12.5.7",
-    "@types/jest": "26.0.8",
+    "@types/jest": "26.0.24",
     "@types/node": "14.14.33",
     "@typescript-eslint/eslint-plugin": "4.19.0",
     "@typescript-eslint/parser": "4.19.0",
@@ -67,7 +67,7 @@
     "eslint-config-prettier": "8.1.0",
     "eslint-plugin-cypress": "^2.10.3",
     "jest": "27.0.3",
-    "jest-preset-angular": "9.0.3",
+    "jest-preset-angular": "9.0.4",
     "prettier": "^2.3.1",
     "ts-jest": "27.0.3",
     "ts-node": "~10.1.0",
