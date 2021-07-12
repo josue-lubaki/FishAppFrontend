@@ -18,8 +18,7 @@ export class AuthGuard implements CanActivate {
     canActivate(): boolean {
         // Vérifier si un token valide est disponible
         const token = this.localstorageToken.getToken();
-
-        if (token) {
+        if (token && typeof token !== 'undefined') {
             // Décoder le token si existe
             const tokenDecode = JSON.parse(atob(token.split('.')[1]));
             if (tokenDecode.isAdmin && !this._tokenExpired(tokenDecode.exp)) {

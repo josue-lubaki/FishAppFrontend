@@ -3,7 +3,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CategoriesService, Product, ProductsService } from '@ghost/products';
 import { ConfirmationService, MessageService } from 'primeng/api';
-import { Subject } from 'rxjs/internal/Subject';
+import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 @Component({
