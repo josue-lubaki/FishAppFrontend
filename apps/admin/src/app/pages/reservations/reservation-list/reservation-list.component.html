@@ -1,0 +1,55 @@
+<p-toast></p-toast> <!-- placer le Toast au top de la page -->
+<div class="admin-page">
+  <p-card header="Reservations" subheader="List of all Reservations">
+    <div class="p-grid">
+      <div class="p-col-12">
+          <p-table [value]="reservations" styleClass="p-datatable-gridlines">
+              <ng-template pTemplate="header">
+                  <tr>
+                      <th pSortableColumn="name">User <p-sortIcon field="name"></p-sortIcon></th>
+                      <th pSortableColumn="totalPrice">Total Price <p-sortIcon field="totalPrice"></p-sortIcon></th>
+                      <th pSortableColumn="dateOrdered">Date Reservation <p-sortIcon field="dateReservated"></p-sortIcon></th>
+                      <th pSortableColumn="status">Status <p-sortIcon field="status"></p-sortIcon></th>
+                      <th></th>
+                  </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-reservation>
+                  <tr>
+                      <td>
+                        <span *ngIf="reservation.user && reservation.user.name !== ''">{{reservation.user.name}}</span>
+                        <span *ngIf="!reservation.user || reservation.user.name === ''">Unknown</span>
+                      </td>
+                      <td>{{reservation.totalPrice | currency}}</td>
+                      <td>{{reservation.dateReservated | date : "short"}}</td>
+                      <td>
+                        <p-tag
+                          [value]="reservationStatus[reservation.status].label"
+                          [severity]="reservationStatus[reservation.status].color">
+                        </p-tag></td>
+                      <td>
+                        <p-button (click)="deleteReservation(reservation.id)" styleClass="p-button-danger p-mr-2" icon="pi pi-trash"></p-button>
+                         <p-button (click)="showReservation(reservation.id)" styleClass="p-button-success" icon="pi pi-eye"></p-button>
+                      </td>
+                  </tr>
+              </ng-template>
+          </p-table>
+      </div>
+    </div>
+  </p-card>
+</div>
+
+<!-- Dialog de Confirmation de Suppression -->
+
+<!-- 1ère Methode -->
+<!-- <p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text"></p-confirmDialog> -->
+
+<!-- 2ème Methode -->
+<p-confirmDialog #cd [style]="{width: '50vw'}">
+    <ng-template pTemplate="header">
+        <h3>Delete Reservation</h3>
+    </ng-template>
+    <ng-template pTemplate="footer">
+        <p-button styleClass="p-button-success" type="button" icon="pi pi-times" label="No" (click)="cd.reject()"></p-button>
+        <p-button styleClass="p-button-danger" type="button" icon="pi pi-check" label="Yes" (click)="cd.accept()"></p-button>
+    </ng-template>
+</p-confirmDialog>

@@ -339,6 +339,31 @@
                 }
             }
         },
+        "reservation": {
+            "projectType": "library",
+            "root": "libs/reservation",
+            "sourceRoot": "libs/reservation/src",
+            "prefix": "reservation",
+            "architect": {
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "outputs": ["coverage/libs/reservation"],
+                    "options": {
+                        "jestConfig": "libs/reservation/jest.config.js",
+                        "passWithNoTests": true
+                    }
+                },
+                "lint": {
+                    "builder": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "libs/reservation/src/**/*.ts",
+                            "libs/reservation/src/**/*.html"
+                        ]
+                    }
+                }
+            }
+        },
         "ui": {
             "projectType": "library",
             "root": "libs/ui",
