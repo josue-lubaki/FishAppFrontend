@@ -14,7 +14,7 @@
                   </tr>
               </ng-template>
               <ng-template pTemplate="body" let-reservation>
-                  <tr>
+                  <tr class="animate__animated animate__fadeIn">
                       <td>
                         <span *ngIf="reservation.user && reservation.user.name !== ''">{{reservation.user.name}}</span>
                         <span *ngIf="!reservation.user || reservation.user.name === ''">Unknown</span>
