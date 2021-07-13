@@ -14,7 +14,7 @@
                   </tr>
               </ng-template>
               <ng-template pTemplate="body" let-order>
-                  <tr>
+                  <tr class="animate__animated animate__fadeIn">
                       <td>
                         <span *ngIf="order.user && order.user.name !== ''">{{order.user.name}}</span>
                         <span *ngIf="!order.user || order.user.name === ''">Unknown</span>

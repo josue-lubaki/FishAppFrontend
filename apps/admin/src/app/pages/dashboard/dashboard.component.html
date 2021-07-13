@@ -2,7 +2,7 @@
   <p-card header="Dashboard" subheader="Latest Updates">
     <div class="p-grid">
       <div class="p-col-3">
-        <p-card styleClass="d-orders">
+        <p-card styleClass="d-orders animate__animated animate__fadeIn">
           <div class="d-item">
             <div>
               <i class="pi pi-shopping-cart"></i><br/>
@@ -14,7 +14,7 @@
       </div>
 
       <div class="p-col-3">
-        <p-card styleClass="d-products">
+        <p-card styleClass="d-products animate__animated animate__fadeIn">
           <div class="d-item">
             <div>
               <i class="pi pi-briefcase"></i><br/>
@@ -26,7 +26,7 @@
       </div>
 
       <div class="p-col-3">
-        <p-card styleClass="d-users">
+        <p-card styleClass="d-users animate__animated animate__fadeIn">
           <div class="d-item">
             <div>
               <i class="pi pi-users"></i><br/>
@@ -38,13 +38,52 @@
       </div>
 
       <div class="p-col-3">
-        <p-card styleClass="d-totalsales">
+        <p-card styleClass="d-reservation animate__animated animate__fadeIn">
+          <div class="d-item">
+            <div>
+              <i class="pi pi-calendar"></i><br/>
+              <span class="name">Reservations</span>
+            </div>
+            <span class="number">{{ statistics[4] }}</span>
+          </div>
+        </p-card>
+      </div>
+    </div>
+
+
+    <div class="p-grid">
+      <div class="p-col-4">
+        <p-card styleClass="d-totalsales animate__animated animate__fadeIn">
           <div class="d-item">
             <div>
               <i class="pi pi-dollar"></i><br/>
-              <span class="name">TotalSales</span>
+              <span class="name">Total Vendus</span>
             </div>
             <span class="number">{{ statistics[3] | currency}}</span>
+          </div>
+        </p-card>
+      </div>
+
+      <div class="p-col-4">
+        <p-card styleClass="d-totalreserved animate__animated animate__fadeIn">
+          <div class="d-item">
+            <div>
+              <i class="pi pi-dollar"></i><br/>
+              <span class="name">Total Reserved</span>
+            </div>
+            <span class="number">{{ statistics[5] | currency}}</span>
+          </div>
+        </p-card>
+      </div>
+
+       <div class="p-col-4">
+        <p-card styleClass="d-totaux animate__animated animate__fadeInUpBig">
+          <div class="d-item">
+            <div>
+              <i class="pi pi-dollar"></i><br/>
+              <span class="name">Totaux</span>
+            </div>
+            <span class="number">{{ statistics[3] + statistics[5] | currency}}</span>
           </div>
         </p-card>
       </div>

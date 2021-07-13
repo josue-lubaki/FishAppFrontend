@@ -22,7 +22,7 @@
                   </tr>
               </ng-template>
               <ng-template pTemplate="body" let-category>
-                  <tr>
+                  <tr class="animate__animated animate__fadeIn">
                       <td>{{category.name}}</td>
                       <td><i class="pi" [ngClass]="'pi-'+ category.icon" style="font-size: 2rem"></i></td>
                       <td><i class="pi pi-circle-on" style='font-size: 2rem' [ngStyle]="{color: category.color}"></i></td>
