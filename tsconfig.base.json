@@ -18,6 +18,7 @@
             "@env/*": ["environments/*"],
             "@ghost/orders": ["libs/orders/src/index.ts"],
             "@ghost/products": ["libs/products/src/index.ts"],
+            "@ghost/reservation": ["libs/reservation/src/index.ts"],
             "@ghost/ui": ["libs/ui/src/index.ts"],
             "@ghost/users": ["libs/users/src/index.ts"]
         }

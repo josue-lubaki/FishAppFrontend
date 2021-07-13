@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-const TOKEN = 'jwtToken';
+const TOKEN = 'jwt-token';
 
 @Injectable({
     providedIn: 'root'

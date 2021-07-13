@@ -69,8 +69,8 @@ export class OrdersListComponent implements OnInit, OnDestroy {
     }
 
     /**
-     * Getter qui permet de reécupérer toutes les order
-     * @return Orders[]
+     * Getter qui permet de récupérer toutes les order
+     * @return void
      */
     private _getOrders() {
         this.ordersService

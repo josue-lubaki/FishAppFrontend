@@ -38,6 +38,8 @@ import { OrdersDetailComponent } from './pages/orders/orders-detail/orders-detai
 import { FieldsetModule } from 'primeng/fieldset';
 import { PasswordModule } from 'primeng/password';
 import { AppRoutingModule } from './app-routing.module';
+import { ReservationListComponent } from './pages/reservations/reservation-list/reservation-list.component';
+import { ReservationDetailComponent } from './pages/reservations/reservation-detail/reservation-detail.component';
 
 const UX_MODULE = [
     CardModule,
@@ -72,7 +74,9 @@ const UX_MODULE = [
         UsersListComponent,
         UsersFormComponent,
         OrdersListComponent,
-        OrdersDetailComponent
+        OrdersDetailComponent,
+        ReservationListComponent,
+        ReservationDetailComponent
     ],
     imports: [
         BrowserModule,
@@ -94,6 +98,6 @@ const UX_MODULE = [
             multi: true // Token utilisé pour toutes les requêtes
         }
     ], // ces services seront utilisés par dependance Injection
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent], exports: [ReservationListComponent, ReservationDetailComponent]
 })
 export class AppModule {}

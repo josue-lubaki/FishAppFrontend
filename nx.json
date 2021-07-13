@@ -39,6 +39,9 @@
         "products": {
             "tags": []
         },
+        "reservation": {
+            "tags": []
+        },
         "ui": {
             "tags": []
         },

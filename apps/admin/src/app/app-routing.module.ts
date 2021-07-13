@@ -10,6 +10,8 @@ import { ProductsFormComponent } from './pages/products/products-form/products-f
 import { ProductsListComponent } from './pages/products/products-list/products-list.component';
 import { UsersFormComponent } from './pages/users/users-form/users-form.component';
 import { UsersListComponent } from './pages/users/users-list/users-list.component';
+import { ReservationListComponent } from './pages/reservations/reservation-list/reservation-list.component';
+import { ReservationDetailComponent } from './pages/reservations/reservation-detail/reservation-detail.component';
 import { ShellComponent } from './shared/shell/shell.component';
 
 const routes: Routes = [
@@ -65,6 +67,14 @@ const routes: Routes = [
             {
                 path: 'orders/:id',
                 component: OrdersDetailComponent
+            },
+            {
+                path: 'reservations',
+                component: ReservationListComponent
+            },
+            {
+                path: 'reservations/:id',
+                component: ReservationDetailComponent
             }
         ]
     },
