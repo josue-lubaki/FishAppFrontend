@@ -1,6 +1,6 @@
 
 
-# Ghost
+# Fish-App
 
 This project was generated using [Nx](https://nx.dev).
 
@@ -15,6 +15,14 @@ This project was generated using [Nx](https://nx.dev).
 [10-minute video showing all Nx features](https://nx.dev/angular/getting-started/what-is-nx)
 
 [Interactive Tutorial](https://nx.dev/angular/tutorial/01-create-application)
+
+## To start the project
+
+You need the Backend if you want to see products and bookings, unfortunately the backend of the project in a private repository
+
+- command to launch the administrator application : `ng serve admin`
+
+- command to launch the client application (default) : `ng serve`
 
 ## Adding capabilities to your workspace
 
