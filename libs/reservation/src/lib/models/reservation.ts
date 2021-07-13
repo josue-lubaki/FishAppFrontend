@@ -1,4 +1,5 @@
 export class Reservation {
+    id?: string;
     user?: any;
     orderItems?: any;
     status?: number;
