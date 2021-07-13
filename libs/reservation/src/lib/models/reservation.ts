@@ -6,4 +6,10 @@ export class Reservation {
     note?: string;
     totalPrice?: string;
     dateReservated?: string;
+    avenue!: string;
+    quartier!: string;
+    commune!: string;
+    apartment!: string;
+    city!: string;
+    country!: string;
 }

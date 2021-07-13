@@ -10,7 +10,7 @@ import { MessageService } from 'primeng/api';
     styles: []
 })
 export class ReservationDetailComponent implements OnInit {
-    reservation!: Reservation;
+    reservation?: Reservation;
     reservationStatuses: any = [];
     selectedStatus: any;
 
@@ -59,7 +59,7 @@ export class ReservationDetailComponent implements OnInit {
      */
     onStatusChange(event: any) {
         this.reservationService
-            .updateReservation({ status: event.value }, this.reservation.id || '')
+            .updateReservation({ status: event.value }, this.reservation?.id || '')
             .subscribe(
                 () => {
                     this.messageService.add({
