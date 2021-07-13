@@ -62,14 +62,14 @@
 
   <p-fieldset legend="Reservation Address" [toggleable]="true"  styleClass="p-mb-4">
     <div class="p-grid">
-       <div class="p-col-4">
+       <div class="p-col-4" *ngIf="reservation">
         <h5>Reservation Address</h5>
         <p>
-          #{{reservation.user.apartment}}, {{reservation.user.avenue}}<br/>
-          {{reservation.user.quartier}}<br/>
-          {{reservation.user.commune}}<br/>
-          {{reservation.user.city}}<br/>
-          {{reservation.user.country}}<br/>
+          #{{reservation.apartment}}, {{reservation.avenue}}<br/>
+          {{reservation.quartier}}<br/>
+          {{reservation.commune}}<br/>
+          {{reservation.city}}<br/>
+          {{reservation.country}}<br/>
         </p>
       </div>
 
