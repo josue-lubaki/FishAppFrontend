@@ -1,18 +1,13 @@
 <div class="banner">
-  <div class="p-grid banner-pGrid">
-    <div class="p-col-5 p-offset-1 banner-text">
-      <h1>The best Products</h1>
-      <h2>in every Category</h2>
-      <p-button
-        styleClass="p-mt-4 banner-button"
-        label="See More"
-        icon="pi pi-chevron-right"
-        iconPos="right">
-      </p-button>
-    </div>
-
-    <div class="p-col-6 banner-image animate__animated animate__slideInLeft">
-      <img src="assets/images/banner-image.svg" alt="">
-    </div>
-  </div>
+    <p-galleria [(value)]="imagesBanners" [responsiveOptions]="responsiveOptions" [numVisible]="1"
+        [showThumbnails]="false" [autoPlay]="true" [transitionInterval]="3000" [showIndicators]="true" [circular]="true" [changeItemOnIndicatorHover]="true" [showIndicatorsOnItem]="true">
+        <ng-template pTemplate="item" let-item>
+            <img [src]="item.image" style="width: 100vw; display: block;" />
+        </ng-template>
+        <ng-template pTemplate="thumbnail" let-item>
+            <div class="p-grid p-nogutter p-justify-center">
+                <img [src]="item.image" style="display: block;" />
+            </div>
+        </ng-template>
+    </p-galleria>
 </div>

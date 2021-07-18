@@ -40,6 +40,7 @@ import { PasswordModule } from 'primeng/password';
 import { AppRoutingModule } from './app-routing.module';
 import { ReservationListComponent } from './pages/reservations/reservation-list/reservation-list.component';
 import { ReservationDetailComponent } from './pages/reservations/reservation-detail/reservation-detail.component';
+import { GalleriaModule } from 'primeng/galleria';
 
 const UX_MODULE = [
     CardModule,
@@ -96,8 +97,10 @@ const UX_MODULE = [
             provide: HTTP_INTERCEPTORS,
             useClass: JwtInterceptor,
             multi: true // Token utilisé pour toutes les requêtes
-        }
+        },
+        GalleriaModule
     ], // ces services seront utilisés par dependance Injection
-    bootstrap: [AppComponent], exports: [ReservationListComponent, ReservationDetailComponent]
+    bootstrap: [AppComponent],
+    exports: [ReservationListComponent, ReservationDetailComponent]
 })
 export class AppModule {}

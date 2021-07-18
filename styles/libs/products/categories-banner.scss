@@ -1,5 +1,6 @@
 .categories-banner{
   margin-top: 50px;
+  text-align: center;
 
   h3{
     margin-bottom: 20px;
@@ -29,6 +30,10 @@
     }
   }
 }
+
+.categories-pGrid{
+    justify-content: center;
+  }
 
 @media only screen and (max-width: 480px)  {
   .categories-pGrid{
