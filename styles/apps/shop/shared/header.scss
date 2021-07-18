@@ -1,6 +1,14 @@
 header{
+
+  background-color: $primary-color-blue-dark;
+
   .header-pGrid{
-    max-height: 100px;
+    //max-height: 100px;
+    text-align: center;
+
+    .p-col-2{
+      width: auto;
+    }
   }
 
   .p-badge{
@@ -30,7 +38,7 @@ header{
     ngshop-nav #nav{
       position: fixed;
       width: 40%;
-      top: 0;
+      top: 9px;
       right: 0;
       text-align: left;
       background-color: rgb(36,41,44);
@@ -76,6 +84,8 @@ header{
     .pi{
       margin-right: 15%;
       font-size: 1.2rem;
+      color: #fff;
+      margin-left: 5px;
     }
 
   }
@@ -86,7 +96,14 @@ header{
   // }
 
 
-  @media only screen and (max-width: 940px) {
+  @media only screen and (max-width: 1120px) {
+
+    .header-pGrid{
+
+      .p-col-2{
+        width: 20%;
+      }
+    }
 
     .hide-desktop{
       display: none;
@@ -107,16 +124,18 @@ header{
 
   }
 
-  @media only screen and (max-width: 650px) {
+  @media only screen and (max-width: 720px) {
 
     .pi{
-      font-size: 1rem !important;
+      font-size: 1.2rem !important;
       transition: all .7s ease-in-out;
+      align-self: center;
     }
 
     .header-pGrid .search{
       width: 55%;
       transition: all .7s ease-in-out;
+
     }
 
     .logo img{
@@ -132,26 +151,22 @@ header{
 
   }
 
-  @media only screen and (max-width: 480px) {
+  @media only screen and (max-width: 620px) {
     .pi-user, .pi-shopping-cart{
       display: none;
     }
 
     .pi{
       font-size: 1.5em !important;
+      align-self: center;
     }
 
-    // .header-pGrid .search{
-    //   width: 55%;
-    // }
-
-    // .logo img{
-    //   width: 100%;
-    // }
+    .tools{
+      width: 16.67% !important;
+    }
 
     .tools #menu{
       font-size: 2.5em !important;
-      //padding: 0 15px;
       margin-right: 0;
     }
 

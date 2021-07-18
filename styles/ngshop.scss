@@ -32,12 +32,16 @@
 @import './libs/products/products.scss';
 @import './libs/orders/orders.scss';
 
+html{
+  scroll-behavior: smooth;
+  background-color: var(--surface-300);
+}
 
 .container{
   max-width: 1200px;
   padding: 15px;
   margin: 0 auto;
-  background-color: var(--surface-300);
+  border: 2px solid white;
 }
 
 @media only screen and (max-width: 480px){

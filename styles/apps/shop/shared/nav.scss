@@ -39,8 +39,9 @@
   }
 
   a{
-    color: var(--surface-900);
+    color: var(--surface-a);
     cursor: pointer;
+    font-weight: bold;
 
     &:hover{
       color: $primary-color;
