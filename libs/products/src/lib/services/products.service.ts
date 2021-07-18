@@ -45,7 +45,7 @@ export class ProductsService {
     }
 
     /**
-     * Methode qui permet de créer une Categorie
+     * Methode qui permet de créer un produit
      * @param productData le Produit à créer
      * @returns void
      */

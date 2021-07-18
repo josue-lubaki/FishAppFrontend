@@ -1,6 +1,6 @@
 .banner{
-  margin: 15px auto;
-  height:280px;
+  margin: 12px auto;
+  height:100vh;
   width:100%;
   background-color: #d7effb;
   border-radius: 15px;
@@ -25,7 +25,7 @@
 
   &-image{
     text-align: center;
-    padding: 15px 0 0 0;
+    padding: 0 8px;
   }
 
   &-button{
@@ -49,13 +49,8 @@
 @media only screen and (max-width: 650px)  {
   .banner{
     height: auto;
-
-    &-pGrid{
-      flex-direction: column;
-
-      .banner-image{
-        padding: 15px 0 0 25px;
-      }
+    &-image{
+      padding: 15px 0 0 25px;
     }
   }
 

@@ -18,6 +18,7 @@ import { OrdersModule } from '@ghost/orders';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { MessagesComponent } from './shared/messages/messages.component';
+import { GalleriaModule } from 'primeng/galleria';
 
 const routes: Routes = [{ path: '', component: HomePageComponent }];
 
@@ -39,9 +40,10 @@ const routes: Routes = [{ path: '', component: HomePageComponent }];
         ProductsModule,
         UiModule,
         OrdersModule,
-        ToastModule
+        ToastModule,
+        GalleriaModule
     ],
-    providers: [FormBuilder, NgbModal, NgModel, MessageService],
+    providers: [FormBuilder, NgbModal, NgModel, MessageService, GalleriaModule],
     bootstrap: [AppComponent],
     exports: [MessagesComponent]
 })
