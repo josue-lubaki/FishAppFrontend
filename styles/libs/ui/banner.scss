@@ -1,8 +1,9 @@
 .banner{
-  margin: 3px auto;
+  //margin: 3px auto;
+  margin-top: 2px;
   height:auto;
   width:100%;
-  background-color: #d7effb;
+  background-color: $primary-color-footer;
   border-radius: 5px;
   overflow: hidden;
 
@@ -51,8 +52,6 @@
 
 
 }
-
-
 
 @media only screen and (max-width: 650px)  {
   .banner{

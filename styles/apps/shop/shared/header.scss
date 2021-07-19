@@ -21,6 +21,7 @@ header{
     img{
       width: 50%;
       height: 85px;
+      clip-path: circle(49%);
     }
   }
 
@@ -44,7 +45,7 @@ header{
       text-align: left;
       background-color: rgb(36,41,44);
       height: 100%;
-      z-index: 5;
+      z-index: 25;
       padding-top: 2.5em;
 
       ul{
