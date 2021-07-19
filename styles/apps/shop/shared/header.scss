@@ -1,6 +1,7 @@
 header{
 
   background-color: $primary-color-blue-dark;
+  border-radius: 0 0 5px 5px;
 
   .header-pGrid{
     //max-height: 100px;
@@ -38,7 +39,7 @@ header{
     ngshop-nav #nav{
       position: fixed;
       width: 40%;
-      top: 9px;
+      top: 0;
       right: 0;
       text-align: left;
       background-color: rgb(36,41,44);
