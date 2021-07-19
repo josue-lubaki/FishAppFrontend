@@ -1,18 +1,25 @@
 footer {
   background-color: $primary-color-footer;
   min-height: 50px;
-  padding: 10px 25px;
+  padding: 75px 25px 10px 25px;
   width: 100%;
+  position: relative;
 
   .footer-wrapper {
     align-items: center;
+    display:flex;
+    justify-content: space-between;
+    position: relative;
+    padding: 10px;
 
-    .social {
-      margin-top: 15px;
-      text-align: right;
-      .nav {
+
+    &-social {
+      z-index: 15;
+
+      &-nav {
         display: flex;
         justify-content: flex-end;
+
 
         .pi{
           margin-right: 7.5px;
@@ -20,5 +27,36 @@ footer {
         }
       }
     }
+
+    &-logo{
+      width:60px;
+      height: auto;
+      position: relative;
+      clip-path: circle(45%);
+      z-index: 5;
+    }
   }
+}
+
+footer:before{
+  content: "";
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  background-color: $primary-color-blue-dark;
+  z-index: 3;
+  top: -1px;
+  right: 0;
+}
+
+footer:after{
+  content: "";
+  width: 160px;
+  height: 160px;
+  position: absolute;
+  background-color: $primary-color-footer;
+  z-index: 3;
+  border-radius: 50%;
+  top: 0;
+  right: 0;
 }

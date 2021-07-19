@@ -19,8 +19,13 @@ import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { MessagesComponent } from './shared/messages/messages.component';
 import { GalleriaModule } from 'primeng/galleria';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 const routes: Routes = [{ path: '', component: HomePageComponent }];
+
+// register plugins
+gsap.registerPlugin(ScrollTrigger);
 
 @NgModule({
     declarations: [

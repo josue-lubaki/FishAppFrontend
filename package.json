@@ -44,6 +44,7 @@
         "animate.css": "^4.1.1",
         "aos": "^3.0.0-beta.6",
         "bootstrap": "^5.0.0-beta3",
+        "gsap": "^3.7.1",
         "i18n-iso-countries": "^6.7.0",
         "jquery": "^3.6.0",
         "ngx-bootstrap": "^6.2.0",
