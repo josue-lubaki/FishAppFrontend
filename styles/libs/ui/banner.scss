@@ -1,9 +1,10 @@
 .banner{
-  margin: 12px auto;
-  height:100vh;
+  margin: 3px auto;
+  height:auto;
   width:100%;
   background-color: #d7effb;
-  border-radius: 15px;
+  border-radius: 5px;
+  overflow: hidden;
 
   &-text{
     color: var(--surface--700);
@@ -23,9 +24,15 @@
 
   }
 
-  &-image{
+  img{
     text-align: center;
-    padding: 0 8px;
+    max-height:525px;
+    width:100%;
+    transition: all 0.6s ease-in-out;
+  }
+
+  img:hover{
+    transform: scale(1.025);
   }
 
   &-button{
@@ -44,6 +51,7 @@
 
 
 }
+
 
 
 @media only screen and (max-width: 650px)  {

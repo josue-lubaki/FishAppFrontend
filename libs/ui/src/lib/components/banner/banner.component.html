@@ -1,8 +1,8 @@
 <div class="banner">
     <p-galleria [(value)]="imagesBanners" [responsiveOptions]="responsiveOptions" [numVisible]="1"
-        [showThumbnails]="false" [autoPlay]="true" [transitionInterval]="3000" [showIndicators]="true" [circular]="true" [changeItemOnIndicatorHover]="true" [showIndicatorsOnItem]="true">
+        [showThumbnails]="false" [autoPlay]="true" [transitionInterval]="5000" [showIndicators]="true" [circular]="true" [changeItemOnIndicatorHover]="false" [showIndicatorsOnItem]="true">
         <ng-template pTemplate="item" let-item>
-            <img [src]="item.image" style="width: 100vw; display: block;" />
+            <img [src]="item.image" style="display: block;" />
         </ng-template>
         <ng-template pTemplate="thumbnail" let-item>
             <div class="p-grid p-nogutter p-justify-center">

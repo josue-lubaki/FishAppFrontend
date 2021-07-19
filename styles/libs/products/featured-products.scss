@@ -10,10 +10,12 @@
       display: flex;
       justify-content: center;
       flex-direction: column;
+      text-align: -webkit-center;
+
 
       div{
-        width: 100%;
-
+        width: 90%;
+        align-self: center;
       }
 
       .product-item-wrapper{

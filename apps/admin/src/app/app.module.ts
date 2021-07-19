@@ -41,6 +41,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ReservationListComponent } from './pages/reservations/reservation-list/reservation-list.component';
 import { ReservationDetailComponent } from './pages/reservations/reservation-detail/reservation-detail.component';
 import { GalleriaModule } from 'primeng/galleria';
+import { Aos } from 'aos';
 
 const UX_MODULE = [
     CardModule,
