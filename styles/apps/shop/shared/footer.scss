@@ -1,11 +1,11 @@
-footer {
+.footer {
   background-color: $primary-color-footer;
   min-height: 50px;
   padding: 75px 25px 10px 25px;
   width: 100%;
   position: relative;
 
-  .footer-wrapper {
+  &-wrapper {
     align-items: center;
     display:flex;
     justify-content: space-between;
@@ -34,11 +34,15 @@ footer {
       position: relative;
       clip-path: circle(45%);
       z-index: 5;
+
+      img{
+        width:100%;
+      }
     }
   }
 }
 
-footer:before{
+.footer:before{
   content: "";
   width: 80px;
   height: 80px;
@@ -49,7 +53,7 @@ footer:before{
   right: 0;
 }
 
-footer:after{
+.footer:after{
   content: "";
   width: 160px;
   height: 160px;
@@ -59,4 +63,22 @@ footer:after{
   border-radius: 50%;
   top: 0;
   right: 0;
+}
+
+
+@media (max-width: 420px){
+  .footer{
+    padding-top: 35px;
+    overflow:unset;
+
+    &-wrapper{
+      flex-direction: column-reverse;
+      z-index: 5;
+
+      &-logo{
+        margin: 5px 0px;
+      }
+    }
+
+  }
 }

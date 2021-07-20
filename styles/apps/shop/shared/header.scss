@@ -4,12 +4,7 @@ header{
   border-radius: 0 0 5px 5px;
 
   .header-pGrid{
-    //max-height: 100px;
     text-align: center;
-
-    .p-col-2{
-      width: auto;
-    }
   }
 
   .p-badge{
@@ -19,9 +14,8 @@ header{
   .logo{
 
     img{
-      width: 50%;
-      height: 85px;
-      clip-path: circle(49%);
+      width: 90px;
+      clip-path: circle(44.75%);
     }
   }
 
@@ -92,12 +86,6 @@ header{
 
   }
 
-  // .menu{
-  //   width: 25px;
-  //   margin-top: 5%;
-  // }
-
-
   @media only screen and (max-width: 1120px) {
 
     .header-pGrid{
@@ -124,6 +112,7 @@ header{
       transition: all .7s ease-in-out;
     }
 
+
   }
 
   @media only screen and (max-width: 720px) {
@@ -138,11 +127,6 @@ header{
       width: 55%;
       transition: all .7s ease-in-out;
 
-    }
-
-    .logo img{
-      width: 100%;
-      transition: all .7s ease-in-out;
     }
 
     .p-badge{
@@ -163,9 +147,9 @@ header{
       align-self: center;
     }
 
-    .tools{
-      width: 16.67% !important;
-    }
+    // .tools{
+    //   width: 16.67% !important;
+    // }
 
     .tools #menu{
       font-size: 2.5em !important;
@@ -173,6 +157,23 @@ header{
     }
 
   }
+
+    @media only screen and (max-width: 290px) {
+
+
+      .header{
+         &-pGrid{
+          .p-col-2{
+            width: 24%;
+          }
+        }
+      }
+
+      ngshop-nav #nav{
+        width: 50% !important;
+      }
+
+    }
 
 
 

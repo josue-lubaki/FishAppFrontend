@@ -1,5 +1,10 @@
 img{
   z-index: 0;
+  //width: 60px;
+}
+
+.products-page{
+
 }
 
 @media only screen and (max-width: 960px){
@@ -16,13 +21,25 @@ img{
 
 @media only screen and (max-width: 650px){
 
+  .products-page{
+    .p-grid{
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &-categories{
+      width: 60%;
+      margin: 0 auto;
+    }
+  }
+
   .list-product-pGrid{
     flex-direction: column;
     align-items: center;
 
     div{
       width: 90%;
-      margin-left: 15px;
+      //margin-left: 15px;
 
       .product-item{
         width: 100%;
@@ -38,10 +55,10 @@ img{
     align-items: center;
 
     div{
-      width: 95%;
-        .product-item{
-            width: 90%;
-        }
+      width: 100%;
+        // .product-item{
+        //     width: 90%;
+        // }
       }
   }
 }
