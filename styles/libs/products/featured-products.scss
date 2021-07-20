@@ -1,9 +1,15 @@
  .featured-products{
    background-color: $primary-color-blue-dark;
    position: relative;
+   text-align: center;
+
     &-pGrid{
       justify-content: center;
       padding-bottom: 30px;
+
+      div{
+        z-index: 5;
+      }
     }
  }
 
@@ -81,12 +87,24 @@
       }
 
       .product-item-wrapper{
-        width:100%;
+        //width:100%;
 
         img{
           width: auto;
         }
       }
     }
+  }
+}
+
+@media only screen and (max-width: 780px)  {
+  .featured-products{
+      .product-item-wrapper{
+        width:100%;
+
+        img{
+          width: 80%;
+        }
+      }
   }
 }

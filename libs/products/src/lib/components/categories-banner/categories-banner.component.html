@@ -2,10 +2,7 @@
   <h3>Categories</h3>
   <div class="p-grid categories-pGrid">
     <div class="p-col-2 categories-pGrid-pCol2" *ngFor="let category of categories">
-      <div class="category" [routerLink]="'/category/'+ category.id" [ngStyle]="{}">
-        <div class="category-icon">
-          <i class="pi pi-{{ category.icon }}"></i>
-        </div>
+      <div class="category" [routerLink]="'/category/'+ category.id" [style]="{'--color-category': category.color || '#fff'}">
         <div class="category-name">
           {{category.name}}
         </div>
@@ -13,3 +10,5 @@
     </div>
   </div>
 </div>
+
+<!-- backgroundColor: category.color -->

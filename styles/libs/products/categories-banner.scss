@@ -1,5 +1,4 @@
 .categories-banner{
-  //margin: 5px;
   padding: 10px;
   text-align: center;
   background-color: $primary-color-yellow;
@@ -23,6 +22,7 @@
     flex-direction: column;
     color: #fff;
     cursor: pointer;
+    overflow: hidden;
 
     &-icon{
       .pi{
@@ -34,8 +34,6 @@
     &-name{
       font-size: 1em;
     }
-
-
   }
 }
 
@@ -69,7 +67,35 @@
     div{
       z-index: 15;
     }
-  }
+}
+
+.category{
+     position: relative;
+}
+
+.category:before{
+  content: "";
+  font-size: 1.5em;
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background-color: var(--color-category);
+  right: 0px;
+  bottom: 0px;
+  border-radius: 14px;
+}
+
+.category:after{
+  content: "";
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background-color: $primary-color-blue-dark;
+  bottom: 0px;
+  right: 0px;
+  z-index: 2;
+}
 
 @media only screen and (max-width: 480px)  {
   .categories-pGrid{
