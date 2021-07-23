@@ -1,7 +1,7 @@
 .footer {
   background-color: $primary-color-footer;
   min-height: 50px;
-  padding: 75px 25px 10px 25px;
+  padding: 35px 25px 10px 25px;
   width: 100%;
   position: relative;
 
@@ -12,24 +12,30 @@
     position: relative;
     padding: 10px;
 
+    &-copyright{
+      &-title{
+
+      }
+
+      &-link{
+        color: rgba(0, 0, 0, 0.7);
+        font-weight: 600;
+      }
+    }
+
 
     &-social {
       z-index: 15;
 
-      &-nav {
-        display: flex;
-        justify-content: flex-end;
-
-
-        .pi{
-          margin-right: 7.5px;
-          color: $primary-color-blue-dark;
-        }
+      i{
+        margin-right: 7.5px;
+        color: $primary-color-blue-dark;
+        font-size: 20px;
       }
     }
 
     &-logo{
-      width:60px;
+      width:90px;
       height: auto;
       position: relative;
       clip-path: circle(45%);
