@@ -3,7 +3,20 @@
  * @param {*} e : l'evenement declencheure (click)
  */
 function toggleMenu(e) {
-    var blocMenu = document.getElementById('blocMenu');
+    const blocMenu = document.getElementById('blocMenu');
     blocMenu.classList.toggle('show-mobile');
     e.preventDefault();
 }
+
+// // Les differents liens
+// const navLink = document.querySelectorAll('.nav_link');
+// function linkAction(e) {
+//     const blocMenu = document.getElementById('blocMenu');
+//     navLink.forEach((n) => n.classList.remove('active'));
+//     this.classList.add('click', 'active');
+
+//     blocMenu.classList.remove('show-mobile');
+//     e.preventDefault();
+// }
+
+// navLink.forEach((n) => n.addEventListener('click', linkAction));
