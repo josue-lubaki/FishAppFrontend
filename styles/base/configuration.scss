@@ -1,6 +1,7 @@
-body{
-  margin: 0px 8px;
-  backdrop-filter: blur(10px);
+html{
+  background-image: url('https://images.unsplash.com/photo-1605499907240-d4240d766581?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80');
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 body, .p-component {
@@ -35,5 +36,11 @@ a{
 
 .active {
   color: var(--first-color);
+}
+
+@media (max-width: 1200px){
+  body{
+    margin: 0 8px;
+  }
 }
 
