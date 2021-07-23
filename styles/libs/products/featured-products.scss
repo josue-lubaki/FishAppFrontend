@@ -5,7 +5,7 @@
 
     &-pGrid{
       justify-content: center;
-      padding-bottom: 30px;
+      padding: 0px 10px 30px 30px;
 
       div{
         z-index: 5;
@@ -16,7 +16,7 @@
  .featured-products h3 {
    padding: 30px 0 0 0;
    margin-top: 0px;
-   margin-bottom:0;
+   margin-bottom:10px;
    color: $primary-color-yellow;
    font-weight: bold;
    z-index: 5;
@@ -79,31 +79,26 @@
 
       .p-col-3{
         z-index: 5;
+        margin : 0 auto 1.3em auto;
       }
 
       div{
-        width: 90%;
+        width: 85%;
         align-self: center;
       }
-
-      .product-item-wrapper{
-        //width:100%;
-
-        img{
-          width: auto;
-        }
-      }
     }
+
   }
 }
 
-@media only screen and (max-width: 780px)  {
+@media only screen and (max-width: 650px)  {
   .featured-products{
       .product-item-wrapper{
         width:100%;
 
         img{
-          width: 80%;
+          width: 75%;
+          height: auto;
         }
       }
   }

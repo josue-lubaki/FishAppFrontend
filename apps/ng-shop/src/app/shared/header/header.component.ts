@@ -2,7 +2,7 @@
 import { Component } from '@angular/core';
 
 /* Fonction qui permet à l'icône "Hamburger" d'afficher la barre de menu */
-declare function toggleMenu(event: any): void;
+declare function showMenu(navId: any): void;
 
 @Component({
     selector: 'ngshop-header',
@@ -10,7 +10,7 @@ declare function toggleMenu(event: any): void;
     styleUrls: []
 })
 export class HeaderComponent {
-    openMenuBar(event: any) {
-        toggleMenu(event);
+    openMenuBar() {
+        showMenu('blocMenu');
     }
 }

@@ -1,9 +1,9 @@
 <ul id="nav" class="nav__list">
-  <li class="exit-btn hide-desktop nav__item" id="exit" (click)="openMenuBar($event)">
+  <li class="exit-btn hide-desktop nav__item" id="exit" (click)="openMenuBar()">
     <a> <i class="pi pi-times"></i></a>
 	</li>
-  <li class="nav__item"><a routerLink='/' class="nav__link">Home</a></li>
-  <li class="nav__item"><a routerLink='/products' class="nav__link">Products</a></li>
-  <li class="nav__item"><a routerLink='/' class="nav__link show-menu hide-menu">Compte</a></li>
-  <li class="nav__item"><a routerLink='/cart' class="nav__link show-menu hide-menu">Panier</a></li>
+  <li class="nav__item" (click)="closeMenuBar()"><a routerLink='/' class="nav__link">Home</a></li>
+  <li class="nav__item" (click)="closeMenuBar()"><a routerLink='/products' class="nav__link">Products</a></li>
+  <li class="nav__item" (click)="closeMenuBar()"><a routerLink='/' class="nav__link show-menu hide-menu">Compte</a></li>
+  <li class="nav__item" (click)="closeMenuBar()"><a routerLink='/cart' class="nav__link show-menu hide-menu">Panier</a></li>
 </ul>
