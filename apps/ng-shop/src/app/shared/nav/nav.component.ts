@@ -2,8 +2,8 @@
 import { Component } from '@angular/core';
 
 /* Fonction qui permet à l'icône "Hamburger" d'afficher la barre de menu */
-declare function toggleMenu(event: any): void;
-declare function linkAction(event: any): void;
+declare function showMenu(navId: any): void;
+declare function linkAction(): void;
 
 @Component({
     selector: 'ngshop-nav',
@@ -11,11 +11,12 @@ declare function linkAction(event: any): void;
     styles: []
 })
 export class NavComponent {
-    openMenuBar(event: any) {
-        toggleMenu(event);
+    openMenuBar() {
+        showMenu('blocMenu');
     }
 
-    // closeMenuBar(event: any) {
-    //     linkAction(event);
-    // }
+    closeMenuBar() {
+        const navLink = document.querySelectorAll('.nav__link');
+        navLink.forEach((n) => n.addEventListener('click', linkAction));
+    }
 }

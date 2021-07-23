@@ -81,7 +81,6 @@ header{
 
         .nav__item:not(:first-child){
           display: block;
-          padding: 1.5em;
 
           &:hover{
             background-color: $primary-color-yellow;
@@ -95,7 +94,8 @@ header{
             text-decoration: none;
             color: white;
             font-size: 1.1em;
-            padding: 2em 1.2em;
+            padding: 1em 1.2em;
+            display: block;
           }
         }
 
