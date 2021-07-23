@@ -66,6 +66,25 @@
   line-height: 1.6;
 }
 
+.products-page-categories{
+  padding: 1em;
+}
+
+
+.products-page-categories{
+  width: 22.5%;
+}
+
+.list-product-pGrid div{
+  //margin: 5px;
+  //width:30%;
+}
+
+.product-item{
+  // padding: .7em;
+}
+
+
 
 @media only screen and (max-width: 650px)  {
   .product{
@@ -76,6 +95,14 @@
         width: 100%;
       }
     }
+  }
+
+  .products-page-categories{
+    width: 100%;
+  }
+
+  .products-page-categories div{
+    align-content: center;
   }
 
 }
