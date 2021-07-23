@@ -1,10 +1,13 @@
 header{
-
+  margin: 0;
   background-color: $primary-color-blue-dark;
   border-radius: 0 0 5px 5px;
 
   .header-pGrid{
     text-align: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2.5em 0 1em;
   }
 
   .p-badge{
@@ -14,13 +17,32 @@ header{
   .logo{
 
     img{
-      width: 90px;
-      clip-path: circle(44.75%);
+      width: 60px;
+      clip-path: circle(45.75%);
     }
   }
 
   .navigation{
-    padding-top: 3%;
+    display: flex;
+    align-items: center;
+
+    ngshop-nav .nav__list{
+      display:flex;
+      justify-content: space-between;
+
+      .hide-menu{
+        display: none;
+      }
+
+      .nav__item{
+        margin: 10px;
+
+        a{
+           color: #fff;
+        }
+
+      }
+    }
   }
 
   .search{
@@ -28,49 +50,52 @@ header{
   }
 
   .tools{
-   padding-top: 3%;
+   align-items: center;
    display: flex;
 
-    ngshop-nav #nav{
+    ngshop-nav .nav__list{
       position: fixed;
       width: 40%;
       top: 0;
       right: 0;
       text-align: left;
-      background-color: rgb(36,41,44);
+      background-color: rgba(36,41,44,.3);
       height: 100%;
       z-index: 25;
       padding-top: 2.5em;
-
-      ul{
-        margin: 0;
-      }
+      backdrop-filter: blur(10px);
 
         .exit-btn{
+          display: block;
+          color: white;
+          margin: 1em;
           margin-top: -1.3em;
           margin-bottom: 1.1em;
           text-align: right;
           padding: 0 1.2em;
 
           a{
-            padding-left:85%;
+            padding-left:90%;
           }
         }
 
-        li{
+        .nav__item:not(:first-child){
           display: block;
-          color: white;
+          padding: 1.5em;
 
           &:hover{
-            background-color: $primary-color-dark;
-
+            background-color: $primary-color-yellow;
+            a{
+              color: black;
+              font-weight: bold;
+            }
           }
 
           a{
             text-decoration: none;
             color: white;
             font-size: 1.1em;
-            padding: 1em 1.2em;
+            padding: 2em 1.2em;
           }
         }
 
@@ -146,10 +171,6 @@ header{
       font-size: 1.5em !important;
       align-self: center;
     }
-
-    // .tools{
-    //   width: 16.67% !important;
-    // }
 
     .tools #menu{
       font-size: 2.5em !important;

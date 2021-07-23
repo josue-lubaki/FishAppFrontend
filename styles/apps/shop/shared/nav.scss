@@ -1,5 +1,7 @@
 
-#nav{
+.nav_list{
+
+
 
   // Par default
   .hide-desktop, .hide-menu{
@@ -7,7 +9,7 @@
   }
 
   @media only screen and (max-width: 620px) {
-    li {
+    .nav__item {
       .show-menu{
         display: block;
       }
@@ -16,14 +18,24 @@
 
 
 
-  li{
+  .nav__item{
+    position: relative;
+    display: table;
     list-style: none;
     display: inline-block;
-    margin: 0 10px;
+    margin: 15px 10px;
     padding: 10px;
 
     a{
+      position: relative;
+      color: var(--surface-a);
+      cursor: pointer;
+      font-weight: bold;
       display: block;
+
+      &:hover{
+        color: $primary-color;
+      }
     }
 
     &:hover{
@@ -37,15 +49,7 @@
     }
   }
 
-  a{
-    color: var(--surface-a);
-    cursor: pointer;
-    font-weight: bold;
 
-    &:hover{
-      color: $primary-color;
-    }
-  }
 }
 
 

@@ -61,8 +61,12 @@
 }
 
 .categories-pGrid{
-    justify-content: center;
+    justify-content: space-evenly;
     margin-bottom: 20px;
+
+    &-pCol2{
+      width: 20%;
+    }
 
     div{
       z-index: 15;
@@ -115,7 +119,6 @@
       }
     }
 
-
 }
 
 @media only screen and (max-width:600px){
@@ -126,3 +129,4 @@
   }
 
 }
+
