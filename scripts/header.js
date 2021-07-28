@@ -12,3 +12,18 @@ function linkAction() {
     const blocMenu = document.getElementById('blocMenu');
     blocMenu.classList.remove('show-mobile');
 }
+
+function startTimer(duration, display) {
+    var timer = duration,
+        seconds;
+    setInterval(function () {
+        seconds = parseInt(timer % 15, 10);
+        seconds = seconds < 10 ? '0' + seconds : seconds;
+
+        document.getElementById(display).innerText(seconds);
+
+        if (--timer < 0) {
+            timer = duration;
+        }
+    }, 1000);
+}

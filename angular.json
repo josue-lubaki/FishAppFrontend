@@ -175,7 +175,9 @@
                             "apps/ng-shop/src/assets"
                         ],
                         "styles": ["apps/ng-shop/src/styles.scss"],
-                        "scripts": ["./scripts/header.js"]
+                        "scripts": [
+                          "./scripts/header.js"
+                        ]
                     },
                     "configurations": {
                         "production": {

@@ -1,11 +1,13 @@
 .banner{
-  //margin: 3px auto;
   margin-top: 2px;
   height:550px;
   width:100%;
-  background-color: $primary-color-footer;
   border-radius: 5px;
   overflow: hidden;
+  background-image: url(../../../libs/ui/src/lib/assets/images/banner_0.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-attachment: fixed;
 
   &-text{
     color: var(--surface--700);

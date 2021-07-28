@@ -13,10 +13,15 @@ import { Product } from '../../models/product';
 export class ProductItemComponent implements OnInit {
     @Input()
     product!: Product;
+    skeletonNumber?: number[];
 
     constructor(private cartService: CartService) {}
 
-    ngOnInit(): void {}
+    ngOnInit(): void {
+        this.skeletonNumber = Array(4)
+            .fill(0)
+            .map((x, i) => i);
+    }
 
     addProductToCart() {
         const cartItem: CartItem = {

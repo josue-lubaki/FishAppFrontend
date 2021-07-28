@@ -16,6 +16,8 @@
 
       &-title{
         font-size: 1.2em;
+        z-index: 25;
+        position: relative;
       }
 
       &-link{
@@ -114,4 +116,14 @@
     }
 
   }
+
+
 }
+
+ @media (max-width: 900px){
+
+    .footer-wrapper-copyright h2{
+      color: #fff;
+    }
+
+  }

@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
 import { Category } from '../../models/category';
 import { CategoriesService } from '../../services/categories.service';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
     selector: 'products-categories-banner',
@@ -12,16 +12,28 @@ import { CategoriesService } from '../../services/categories.service';
 export class CategoriesBannerComponent implements OnInit, OnDestroy {
     categories: Category[] = [];
     endSubs$: Subject<any> = new Subject();
-
+    countdown?: number;
+    value = 20;
     constructor(private categoriesService: CategoriesService) {}
 
-    ngOnInit(): void {
+    ngOnInit(): void {  
         this.categoriesService
             .getCategories()
             .pipe(takeUntil(this.endSubs$))
             .subscribe((categories) => {
                 this.categories = categories;
             });
+
+        console.log('Taille : ' + this.categories.length);
+
+        if (this.categories.length <= 0) {
+            setInterval(() => {
+                if (this.value > 0) this.value--;
+                else if (this.value === 0) {
+                    location.reload();
+                }
+            }, 1000);
+        }
     }
 
     ngOnDestroy(): void {

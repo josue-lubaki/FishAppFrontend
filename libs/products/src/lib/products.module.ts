@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { ProductPageComponent } from './pages/product-page/product-page.component';
 import { RatingModule } from 'primeng/rating';
 import { InputNumberModule } from 'primeng/inputnumber';
+import { SkeletonModule } from 'primeng/skeleton';
 import { UiModule } from '@ghost/ui';
 
 const routes: Routes = [
@@ -37,6 +38,7 @@ const routes: Routes = [
         FormsModule,
         RatingModule,
         InputNumberModule,
+        SkeletonModule,
         UiModule
     ],
     declarations: [

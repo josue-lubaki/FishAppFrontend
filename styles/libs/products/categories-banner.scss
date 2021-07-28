@@ -28,6 +28,8 @@
     margin-bottom: 20px;
     color: $primary-color-blue-dark;
     font-weight: bold;
+    z-index: 30;
+    position: relative;
   }
 
   .category{
@@ -147,5 +149,11 @@
     }
   }
 
+
 }
 
+@media only screen and (max-width:900px){
+  #avertissement{
+    color: #fff !important;
+  }
+}
