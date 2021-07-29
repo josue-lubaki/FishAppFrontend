@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    apiURL: 'http://localhost:3000/api/v1/'
+    apiURL: 'https://fish-sales-application.herokuapp.com/api/v1/'
 };
