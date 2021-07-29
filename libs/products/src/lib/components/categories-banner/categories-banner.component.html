@@ -16,6 +16,7 @@
     <h3>Les Données du Serveurs sont indisponibles, Patientez un petit instant...</h3>
     <p id="avertissement" style="font-size:1.2rem;z-index:50; position:relative; color:#523d08; font-weight:600">
       Si dans <span style="font-weight:600;color:darkred;font-size: 1.2em;">{{ (value > 0) ? value : 0 }}</span> secondes le serveur ne démarre pas, alors revenez plus tard.
+      <span (click)="reloadNavigator()" *ngIf="value===0" style="font-size:1.1rem;cursor:pointer;color:blue; text-decoration:underline">Réessayer</span>
     </p>
 
   </div>
