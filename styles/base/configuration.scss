@@ -4,9 +4,43 @@ html{
   background-attachment: fixed;
 }
 
+.p-card-body{
+  background-color: rgba(255, 255, 255, 0.175);
+  backdrop-filter: blur(5px);
+}
+
+.p-component *{
+  color: #000;
+  font-weight: 400;
+}
+
+.p-card,
+.p-paginator .p-paginator-first,
+.p-paginator .p-paginator-prev,
+.p-paginator .p-paginator-next,
+.p-paginator .p-paginator-last,
+.p-card .p-card-subtitle,
+input{
+  color: #000;
+  background-color: transparent;
+}
+
+.p-toolbar {
+  background-color: transparent;
+}
+
+.p-inputtext, .p-dropdown{
+  background-color: rgba(196, 196, 196, 0.504);
+}
+
+.p-editor-container .p-editor-content .ql-editor{
+  background-color: #fffff0;
+}
+
 body, .p-component {
   font-family: 'Open Sans', sans-serif;
   font-size:.9em;
+
 
   .show-mobile{
     display: block;
