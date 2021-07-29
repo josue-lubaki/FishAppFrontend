@@ -19,7 +19,7 @@ export class ProductsListComponent implements OnInit, OnDestroy {
     categories: Category[] = [];
     iscategoryPage!: boolean;
     subs$: Subject<any> = new Subject();
-    value = 20;
+    value = 15;
 
     constructor(
         private productsService: ProductsService,
@@ -39,19 +39,18 @@ export class ProductsListComponent implements OnInit, OnDestroy {
         });
         this._getCategories();
 
-        if (this.categories.length <= 0) {
-            setInterval(() => {
-                if (this.value > 0) this.value--;
-                else if (this.value === 0) {
-                    location.reload();
-                }
-            }, 1000);
-        }
+        setInterval(() => {
+            if (this.value > 0) this.value--;
+        }, 1000);
     }
 
     ngOnDestroy(): void {
         this.subs$.next();
         this.subs$.complete();
+    }
+
+    reloadNavigator() {
+        location.reload();
     }
 
     /**

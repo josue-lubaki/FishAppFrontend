@@ -13,10 +13,10 @@ export class CategoriesBannerComponent implements OnInit, OnDestroy {
     categories: Category[] = [];
     endSubs$: Subject<any> = new Subject();
     countdown?: number;
-    value = 20;
+    value = 15;
     constructor(private categoriesService: CategoriesService) {}
 
-    ngOnInit(): void {  
+    ngOnInit(): void {
         this.categoriesService
             .getCategories()
             .pipe(takeUntil(this.endSubs$))
@@ -24,20 +24,17 @@ export class CategoriesBannerComponent implements OnInit, OnDestroy {
                 this.categories = categories;
             });
 
-        console.log('Taille : ' + this.categories.length);
-
-        if (this.categories.length <= 0) {
-            setInterval(() => {
-                if (this.value > 0) this.value--;
-                else if (this.value === 0) {
-                    location.reload();
-                }
-            }, 1000);
-        }
+        setInterval(() => {
+            if (this.value > 0) this.value--;
+        }, 1000);
     }
 
     ngOnDestroy(): void {
         this.endSubs$.next();
         this.endSubs$.complete();
+    }
+
+    reloadNavigator() {
+        location.reload();
     }
 }
