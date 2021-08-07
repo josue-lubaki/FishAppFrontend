@@ -6,9 +6,10 @@ export class User {
     phone?: string;
     token?: string;
     isAdmin?: boolean;
-    street?: string;
+    avenue?: string;
     apartment?: string;
-    zip?: string;
+    quartier?: string;
+    commune?: string;
     city?: string;
     country?: string;
 }

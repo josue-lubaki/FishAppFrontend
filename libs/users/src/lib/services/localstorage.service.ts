@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-const TOKEN = 'jwt-token';
+const TOKEN = 'jwt-token-fishApp';
 
 @Injectable({
     providedIn: 'root'

@@ -1,10 +1,11 @@
 export class Order {
     id?: string;
     orderItems?: any;
-    shippingAddress1?: string;
-    shippingAddress2?: string;
+    avenue?: string;
+    apartment?: string;
     city?: string;
-    zip?: string;
+    quartier?: string;
+    commune?: string;
     country?: string;
     phone?: string;
     status?: number;
