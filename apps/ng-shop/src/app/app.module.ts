@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
+import { UsersModule, JwtInfoUser } from '@ghost/users';
 
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
@@ -9,11 +10,12 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { ProductsModule } from '@ghost/products';
 import { UiModule } from '@ghost/ui';
 import { AccordionModule } from 'primeng/accordion';
+import { FieldsetModule } from 'primeng/fieldset';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavComponent } from './shared/nav/nav.component';
 import { FormBuilder, NgModel } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { OrdersModule } from '@ghost/orders';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
@@ -21,8 +23,19 @@ import { MessagesComponent } from './shared/messages/messages.component';
 import { GalleriaModule } from 'primeng/galleria';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { UserPageComponent } from './pages/user-page/user-page.component';
 
-const routes: Routes = [{ path: '', component: HomePageComponent }];
+const routes: Routes = [
+    {
+        path: '',
+        component: HomePageComponent
+    },
+    {
+        path: 'compte',
+        component: UserPageComponent
+    },
+    { path: '**', redirectTo: '' }
+];
 
 // register plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -34,7 +47,8 @@ gsap.registerPlugin(ScrollTrigger);
         HeaderComponent,
         FooterComponent,
         NavComponent,
-        MessagesComponent
+        MessagesComponent,
+        UserPageComponent
     ],
     imports: [
         BrowserModule,
@@ -46,10 +60,23 @@ gsap.registerPlugin(ScrollTrigger);
         UiModule,
         OrdersModule,
         ToastModule,
-        GalleriaModule
+        GalleriaModule,
+        UsersModule,
+        FieldsetModule
     ],
-    providers: [FormBuilder, NgbModal, NgModel, MessageService, GalleriaModule],
+    providers: [
+        FormBuilder,
+        NgbModal,
+        NgModel,
+        MessageService,
+        GalleriaModule,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: JwtInfoUser,
+            multi: true // Token utilisé pour toutes les requêtes
+        }
+    ],
     bootstrap: [AppComponent],
-    exports: [MessagesComponent]
+    exports: [MessagesComponent, UserPageComponent]
 })
 export class AppModule {}

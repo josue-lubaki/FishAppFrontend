@@ -17,35 +17,35 @@
         <form [formGroup]="form">
             <div class="p-fluid p-formgrid p-grid">
                 <div class="p-field p-col-4">
-                  <label for="name">Name</label>
+                  <label for="name">Nom Complet</label>
                   <input formControlName="name" id="name" type="text" pInputText>
-                  <small *ngIf="userForm.name.invalid && isSubmitted" class="p-error">Name is required</small>
+                  <small *ngIf="userForm.name.invalid && isSubmitted" class="p-error">Name est obligatoire</small>
                 </div>
                 <div class="p-field p-col-4">
                   <label for="email">Email</label>
                   <input formControlName="email" id="email" type="text" pInputText>
                   <small *ngIf="userForm.email.invalid && isSubmitted" class="p-error">
-                    <span *ngIf="userForm.email.errors?.required">Email is required</span>
+                    <span *ngIf="userForm.email.errors?.required">Email est obligatoire</span>
                     <span *ngIf="userForm.email.errors?.email">Email is invalid</span>
                   </small>
 
                 </div>
                 <div class="p-field p-col-4">
-                  <label for="password">Password</label>
+                  <label for="password">Mot de passe</label>
                   <p-password formControlName="password" [toggleMask]="true"></p-password>
-                  <small *ngIf="userForm.password.invalid && isSubmitted" class="p-error">Password is required</small>
+                  <small *ngIf="userForm.password.invalid && isSubmitted" class="p-error">Mot de passe est obligatoire</small>
                 </div>
                 <div class="p-field p-col-4">
-                      <label for="phone">Phone</label><br/>
+                      <label for="phone">Téléphone</label><br/>
                       <p-inputMask
                           formControlName="phone"
                           mask="(999) 999-9999"
                           [placeholder]="userForm.phone && userForm.phone.value !== '' ? userForm.phone.value : '(999) 999-9999'">
                       </p-inputMask>
-                      <small *ngIf="userForm.phone.invalid && isSubmitted" class="p-error">Phone is required</small>
+                      <small *ngIf="userForm.phone.invalid && isSubmitted" class="p-error">Phone est obligatoire</small>
                 </div>
                 <div class="p-field p-col-4">
-                      <label for="isAdmin">Is Admin</label><br/>
+                      <label for="isAdmin">Est Administrateur</label><br/>
                       <p-inputSwitch formControlName="isAdmin"></p-inputSwitch>
                 </div>
             </div>
@@ -67,11 +67,11 @@
                      <input formControlName="commune" id="commune" type="text" pInputText>
                   </div>
                    <div class="p-field p-col-4">
-                    <label for="city">City</label><br/>
+                    <label for="city">Ville</label><br/>
                      <input formControlName="city" id="city" type="text" pInputText>
                   </div>
                   <div class="p-field p-col-4">
-                    <label for="country">Country</label><br/>
+                    <label for="country">Pays</label><br/>
                     <p-dropdown
                         [options]="countries"
                         formControlName="country"
@@ -80,7 +80,7 @@
                         [filter]="true"
                         filterBy="name"
                         [showClear]="true"
-                        placeholder="Select a Country">
+                        placeholder="Selectionner un Pays">
                     </p-dropdown>
                   </div>
              </div>

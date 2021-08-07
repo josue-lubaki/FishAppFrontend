@@ -16,7 +16,7 @@ export class UsersService {
 
     constructor(private http: HttpClient) {
         // eslint-disable-next-line @typescript-eslint/no-var-requires
-        countriesLib.registerLocale(require('i18n-iso-countries/langs/en.json'));
+        countriesLib.registerLocale(require('i18n-iso-countries/langs/fr.json'));
     }
 
     /**
@@ -77,7 +77,7 @@ export class UsersService {
      * @returns string[]
      */
     getCountries(): { id: string; name: string }[] {
-        return Object.entries(countriesLib.getNames('en', { select: 'official' })).map(
+        return Object.entries(countriesLib.getNames('fr', { select: 'official' })).map(
             (entry) => {
                 return {
                     id: entry[0],
@@ -94,5 +94,13 @@ export class UsersService {
      */
     getCountry(countryKey: string): string {
         return countriesLib.getName(countryKey, 'en');
+    }
+
+    /**
+     * Methode qui permet de vérifier si l'utilisateur existe ou pas
+     * @return boolean
+     */
+    existUser(usersId: string): Observable<any> {
+        return this.http.get<any>(`${this.apiURLUsers}/exist/${usersId}`);
     }
 }

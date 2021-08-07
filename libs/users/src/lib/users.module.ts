@@ -23,6 +23,7 @@ export const usersRoutes: Route[] = [
         FormsModule,
         ReactiveFormsModule
     ],
-    declarations: [LoginComponent]
+    declarations: [LoginComponent],
+    exports: []
 })
 export class UsersModule {}

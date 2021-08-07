@@ -11,14 +11,14 @@
             <label for="name">Name</label>
             <input formControlName="name" id="name" type="text" pInputText />
             <small *ngIf="checkoutForm.name.invalid && isSubmitted" class="p-error"
-              >Name is required</small
+              >Name est obligatoire</small
             >
           </div>
           <div class="p-field p-col-4">
             <label for="email">Email</label>
             <input formControlName="email" id="email" type="text" pInputText />
             <small *ngIf="checkoutForm.email.invalid && isSubmitted" class="p-error"
-              ><span *ngIf="checkoutForm.email.errors?.required">email is required</span>
+              ><span *ngIf="checkoutForm.email.errors?.required">email est obligatoire</span>
               <span *ngIf="checkoutForm.email.errors?.email">email is invalid</span></small
             >
           </div>
@@ -30,7 +30,7 @@
               placeholder="(999) 999-9999"
             ></p-inputMask>
             <small *ngIf="checkoutForm.phone.invalid && isSubmitted" class="p-error"
-              >phone is required</small
+              >phone est obligatoire</small
             >
           </div>
         </div>
@@ -39,21 +39,21 @@
             <label for="avenue">Avenue</label>
             <input formControlName="avenue" id="avenue" type="text" pInputText />
             <small *ngIf="checkoutForm.avenue.invalid && isSubmitted" class="p-error"
-              >Street is required</small
+              >Avenue est obligatoire</small
             >
           </div>
           <div class="p-field p-col-4">
-            <label for="avenue">Apartment (Numero)</label>
-            <input formControlName="apartment" id="apartment" type="text" pInputText />
+            <label for="apartment"> Apartment (Numero)</label>
+            <input formControlName="apartment" id="apartment" type="text" pInputText class="tooltip tooltiptext"/>
             <small *ngIf="checkoutForm.apartment.invalid && isSubmitted" class="p-error"
-              >Apartment is required</small
+              >Apartment est obligatoire</small
             >
           </div>
           <div class="p-field p-col-4">
             <label for="quartier">Quartier</label>
             <input formControlName="quartier" id="quartier" type="text" pInputText />
             <small *ngIf="checkoutForm.quartier.invalid && isSubmitted" class="p-error"
-              >Quartier is required</small
+              >Quartier est obligatoire</small
             >
           </div>
 
@@ -61,7 +61,7 @@
             <label for="commune">Commune</label>
             <input formControlName="commune" id="commune" type="text" pInputText />
             <small *ngIf="checkoutForm.commune.invalid && isSubmitted" class="p-error"
-              >Commune is required</small
+              >Commune est obligatoire</small
             >
           </div>
 
@@ -69,7 +69,7 @@
             <label for="city">City</label>
             <input formControlName="city" id="city" type="text" pInputText />
             <small *ngIf="checkoutForm.city.invalid && isSubmitted" class="p-error"
-              >City is required</small
+              >City est obligatoire</small
             >
           </div>
           <div class="p-field p-col-4">
@@ -85,7 +85,7 @@
               placeholder="Select a Country"
             ></p-dropdown>
             <small *ngIf="checkoutForm.country.invalid && isSubmitted" class="p-error"
-              >Country is required</small
+              >Country est obligatoire</small
             >
           </div>
         </div>
