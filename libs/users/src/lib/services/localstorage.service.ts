@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
 const TOKEN = 'jwt-token-fishApp';
+const IDUSER = 'id-user-current-fishApp';
 
 @Injectable({
     providedIn: 'root'
@@ -23,6 +24,17 @@ export class LocalstorageService {
      */
     getToken() {
         return localStorage.getItem(TOKEN);
+    }
+
+    /**
+     * Methode qui permet de récupèrer l'Id de l'utilisateur courant
+     */
+    getUserCurrent() {
+        return localStorage.getItem(IDUSER);
+    }
+
+    setUserCurrent(userId: any) {
+        localStorage.setItem(IDUSER, userId);
     }
 
     /**
