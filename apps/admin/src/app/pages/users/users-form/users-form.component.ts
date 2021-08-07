@@ -53,9 +53,10 @@ export class UsersFormComponent implements OnInit {
             password: ['', Validators.required],
             phone: ['', [Validators.required]],
             isAdmin: [false],
-            street: [''],
+            avenue: [''],
             apartment: [''],
-            zip: [''],
+            quartier: [''],
+            commune: [''],
             city: [''],
             country: ['']
         });
@@ -77,10 +78,11 @@ export class UsersFormComponent implements OnInit {
                     this.userForm.name.setValue(user.name);
                     this.userForm.email.setValue(user.email);
                     this.userForm.isAdmin.setValue(user.isAdmin);
-                    this.userForm.street.setValue(user.street);
+                    this.userForm.avenue.setValue(user.avenue);
                     this.userForm.apartment.setValue(user.apartment);
                     this.userForm.phone.setValue(user.phone);
-                    this.userForm.zip.setValue(user.zip);
+                    this.userForm.quartier.setValue(user.quartier);
+                    this.userForm.commune.setValue(user.commune);
                     this.userForm.city.setValue(user.city);
                     this.userForm.country.setValue(user.country);
 
@@ -112,9 +114,10 @@ export class UsersFormComponent implements OnInit {
             password: this.userForm.password.value,
             phone: this.userForm.phone.value,
             isAdmin: this.userForm.isAdmin.value,
-            street: this.userForm.street.value,
+            avenue: this.userForm.avenue.value,
             apartment: this.userForm.apartment.value,
-            zip: this.userForm.zip.value,
+            quartier: this.userForm.quartier.value,
+            commune: this.userForm.commune.value,
             city: this.userForm.city.value,
             country: this.userForm.country.value
         };

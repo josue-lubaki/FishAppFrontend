@@ -38,9 +38,10 @@ export class CheckoutPageComponent implements OnInit {
             phone: ['', Validators.required],
             city: ['', Validators.required],
             country: ['', Validators.required],
-            zip: ['', Validators.required],
+            quartier: ['', Validators.required],
+            commune: ['', Validators.required],
             apartment: ['', Validators.required],
-            street: ['', Validators.required]
+            avenue: ['', Validators.required]
         });
     }
 
@@ -83,10 +84,11 @@ export class CheckoutPageComponent implements OnInit {
 
         const order: Order = {
             orderItems: this.orderItems,
-            shippingAddress1: this.checkoutForm.street.value,
-            shippingAddress2: this.checkoutForm.apartment.value,
+            avenue: this.checkoutForm.avenue.value,
+            apartment: this.checkoutForm.apartment.value,
             city: this.checkoutForm.city.value,
-            zip: this.checkoutForm.zip.value,
+            quartier: this.checkoutForm.quartier.value,
+            commune: this.checkoutForm.commune.value,
             country: this.checkoutForm.country.value,
             phone: this.checkoutForm.phone.value,
             status: 0,

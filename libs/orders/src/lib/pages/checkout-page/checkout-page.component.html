@@ -36,26 +36,35 @@
         </div>
         <div class="p-fluid p-formgrid p-grid">
           <div class="p-field p-col-4">
-            <label for="street">Street</label>
-            <input formControlName="street" id="street" type="text" pInputText />
-            <small *ngIf="checkoutForm.street.invalid && isSubmitted" class="p-error"
+            <label for="avenue">Avenue</label>
+            <input formControlName="avenue" id="avenue" type="text" pInputText />
+            <small *ngIf="checkoutForm.avenue.invalid && isSubmitted" class="p-error"
               >Street is required</small
             >
           </div>
           <div class="p-field p-col-4">
-            <label for="street">Apartment</label>
+            <label for="avenue">Apartment (Numero)</label>
             <input formControlName="apartment" id="apartment" type="text" pInputText />
             <small *ngIf="checkoutForm.apartment.invalid && isSubmitted" class="p-error"
               >Apartment is required</small
             >
           </div>
           <div class="p-field p-col-4">
-            <label for="street">Zip Code</label>
-            <input formControlName="zip" id="zip" type="text" pInputText />
-            <small *ngIf="checkoutForm.zip.invalid && isSubmitted" class="p-error"
-              >Zip is required</small
+            <label for="quartier">Quartier</label>
+            <input formControlName="quartier" id="quartier" type="text" pInputText />
+            <small *ngIf="checkoutForm.quartier.invalid && isSubmitted" class="p-error"
+              >Quartier is required</small
             >
           </div>
+
+          <div class="p-field p-col-4">
+            <label for="commune">Commune</label>
+            <input formControlName="commune" id="commune" type="text" pInputText />
+            <small *ngIf="checkoutForm.commune.invalid && isSubmitted" class="p-error"
+              >Commune is required</small
+            >
+          </div>
+
           <div class="p-field p-col-4">
             <label for="city">City</label>
             <input formControlName="city" id="city" type="text" pInputText />
@@ -85,7 +94,10 @@
     <div class="p-col-4">
       <orders-order-summary></orders-order-summary>
       <div class="checkout-button">
-        <p-button label="Place-Order" (onClick)="placeOrder()"></p-button>
+        <p-button label="Réserver" (onClick)="placeOrder()"></p-button>
+      </div>
+      <div class="checkout-button">
+        <p-button label="Acheter Maintenant"></p-button>
       </div>
     </div>
   </div>
