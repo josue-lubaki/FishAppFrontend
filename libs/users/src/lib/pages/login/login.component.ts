@@ -37,6 +37,10 @@ export class LoginComponent implements OnInit {
         return this.loginFormGroup.controls;
     }
 
+    /**
+     * Methode qui permet de vérifier la connexion de l'Utilisateur
+     * @returns void
+     */
     onSubmit() {
         this.isSubmitted = true;
 
@@ -50,6 +54,7 @@ export class LoginComponent implements OnInit {
                     this.authError = false;
                     // save the token in my Local stockage
                     this.localstorageService.setToken(user.token);
+                    this.localstorageService.setUserCurrent(user.id);
                     this.router.navigate(['/']);
                 },
                 (error) => {

@@ -29,11 +29,12 @@ export class AuthService {
     }
 
     /**
-     * Methode qui permet de déconnecter un Utilisateur, en supprimant également son token
+     * Methode qui permet de déconnecter un Utilisateur, en supprimant également son token et ID
      * @return void
      */
     logout() {
         this.localstorage.removeToken();
+        this.localstorage.removeUserCurrent();
         this.router.navigate(['/login']);
     }
 }

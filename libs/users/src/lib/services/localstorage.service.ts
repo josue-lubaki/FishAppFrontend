@@ -45,6 +45,13 @@ export class LocalstorageService {
     }
 
     /**
+     * Methode qui permet de supprimer l'ID de l'utilisateur current
+     */
+    removeUserCurrent() {
+        localStorage.removeItem(IDUSER);
+    }
+
+    /**
      * Methode qui permet de supprimer tous les tokens dans le localStorage de l'utilisateur
      */
     clearToken() {
