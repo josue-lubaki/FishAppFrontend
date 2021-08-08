@@ -26,7 +26,9 @@ export class JwtInfoUser implements HttpInterceptor {
         const isAPIUrl = request.url.startsWith(environment.infoUser);
 
         if (!idUser && isAPIUrl) {
-            this.router.navigate(['login']);
+            this.router.navigate(['login'], { queryParams: { compte: true } });
+        } else if (idUser && isAPIUrl) {
+            this.router.navigate(['compte']);
         }
 
         return next.handle(request);
