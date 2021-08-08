@@ -16,13 +16,24 @@ export class UserPageComponent implements OnInit {
 
     ngOnInit(): void {
         this._bindUser();
-        console.log('User', this.user);
     }
 
     _bindUser() {
-        const id = this.localstorage.getUserCurrent() || '60e40dfee3da709f18177a39';
-        this.userService.getUser(id).subscribe((user: User) => {
+        const idUser = this.localstorage.getUserCurrent();
+        this.userService.getUser(idUser).subscribe((user: User) => {
             this.user = user;
+            console.log('User', this.user);
         });
+    }
+
+    /**
+     * Methode qui permet de récupérer le full name d'un pays grâce à sa clé
+     * @param countryKey la clé qui repésente un pays
+     * @returns string
+     */
+    getCountryName(countryKey: string) {
+        if (countryKey) {
+            return this.userService.getCountry(countryKey);
+        } else return countryKey;
     }
 }

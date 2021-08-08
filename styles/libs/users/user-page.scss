@@ -1,0 +1,38 @@
+
+.compte{
+  .card{
+    .p-grid{
+      .p-col-5, .compte-profile-content{
+        transition: width .6s ease;
+      }
+
+      .p-col-5 span{
+        font-weight: bold;
+        font-size: .9rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 550px) {
+  .compte{
+    .card{
+      .p-grid{
+        flex-direction: column;
+        align-items: center;
+
+        .p-col-5{
+          width: 90%;
+        }
+
+        .p-col-2{
+          display: none;
+        }
+
+         .compte-profile-content{
+            width: 100%;
+          }
+      }
+    }
+  }
+}

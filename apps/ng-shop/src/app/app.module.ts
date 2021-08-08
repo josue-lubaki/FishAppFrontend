@@ -23,6 +23,7 @@ import { MessagesComponent } from './shared/messages/messages.component';
 import { GalleriaModule } from 'primeng/galleria';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { DividerModule } from 'primeng/divider';
 import { UserPageComponent } from './pages/user-page/user-page.component';
 
 const routes: Routes = [
@@ -62,7 +63,8 @@ gsap.registerPlugin(ScrollTrigger);
         ToastModule,
         GalleriaModule,
         UsersModule,
-        FieldsetModule
+        FieldsetModule,
+        DividerModule
     ],
     providers: [
         FormBuilder,

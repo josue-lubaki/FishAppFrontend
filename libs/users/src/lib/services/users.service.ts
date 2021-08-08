@@ -32,7 +32,7 @@ export class UsersService {
      * @param usersId l'ID de l'Utilisateur à récupérer
      * @returns Observable<Users>
      */
-    getUser(usersId: string): Observable<User> {
+    getUser(usersId: any): Observable<User> {
         return this.http.get<User>(`${this.apiURLUsers}/${usersId}`);
     }
 
@@ -93,7 +93,7 @@ export class UsersService {
      * @returns string
      */
     getCountry(countryKey: string): string {
-        return countriesLib.getName(countryKey, 'en');
+        return countriesLib.getName(countryKey, 'fr');
     }
 
     /**
