@@ -4,6 +4,7 @@
   background-color: $primary-color-yellow;
   display: block;
   position: relative;
+  transition: all .6s ease-in-out;
 
   &-arrowDown{
     padding-bottom: 10px;

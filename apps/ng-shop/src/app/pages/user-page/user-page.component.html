@@ -1,8 +1,50 @@
+<div class="compte">
+  <!-- Mes informations -->
+  <p-fieldset legend="Mes Informations" [toggleable]="true"  styleClass="p-my-4" class="compte-profile" *ngIf="user">
+    <div class="card">
+      <div class="p-grid">
+        <div class="p-col-5">
+          <div class="compte-profile-content">
+              <p-divider type="dashed" align="center">
+                <div class="p-d-inline-flex p-ai-center">
+                  <i class="pi pi-user p-mr-2"></i>
+                  <b>Profil</b>
+                </div>
+              </p-divider>
+              <p><span>ID Client</span> : {{user.id}}</p>
+              <p><span>Noms</span> : {{user.name}}</p>
+              <p><span>Email</span> : {{user.email}}</p>
+              <p><span>Téléphone</span> : {{user.phone}}</p>
+          </div>
+        </div>
 
-<p-fieldset legend="Mes Informations" [toggleable]="true"  styleClass="p-my-4">
+        <div class="p-col-2">
+            <p-divider layout="vertical">
+            </p-divider>
+        </div>
 
-</p-fieldset>
+        <div class="p-col-5">
+          <div class="compte-profile-content">
+            <p-divider type="dashed" align="center">
+            <div class="p-d-inline-flex p-ai-center">
+              <i class="pi pi-map-marker p-mr-2"></i>
+              <b>Adresse</b>
+            </div>
+            </p-divider>
+            <p *ngIf="user.avenue"><span>Avenue</span> : #{{user.apartment}} {{user.avenue}}</p>
+            <p *ngIf="user.quartier"><span>Quartier</span>: {{user.quartier}}</p>
+            <p *ngIf="user.commune"><span>Commune</span> : {{user.commune}}</p>
+            <p *ngIf="user.city"><span>Ville</span> : {{user.city}}</p>
+            <p *ngIf="user.country"><span>Pays</span> : {{getCountryName(user.country)}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </p-fieldset>
 
-<p-fieldset legend="Mes Commandes" [toggleable]="true"  styleClass="p-my-4">
+  <!-- Mes Commandes -->
+  <p-fieldset legend="Mes Commandes" [toggleable]="true"  styleClass="p-my-4">
 
-</p-fieldset>
+  </p-fieldset>
+</div>
+
