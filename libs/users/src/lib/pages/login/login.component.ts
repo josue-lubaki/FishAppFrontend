@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { LocalstorageService } from '../../services/localstorage.service';
 
@@ -14,16 +14,21 @@ export class LoginComponent implements OnInit {
     isSubmitted = false;
     authError = false;
     authErrorMessage = 'Email or Password are wrong';
+    goToCompte: any;
 
     constructor(
         private formBuilder: FormBuilder,
         private auth: AuthService,
         private localstorageService: LocalstorageService,
-        private router: Router
+        private router: Router,
+        private route: ActivatedRoute
     ) {}
 
     ngOnInit(): void {
         this._initLoginForm();
+        this.route.queryParamMap.subscribe((params) => {
+            this.goToCompte = params || false;
+        });
     }
 
     private _initLoginForm() {
@@ -55,7 +60,12 @@ export class LoginComponent implements OnInit {
                     // save the token in my Local stockage
                     this.localstorageService.setToken(user.token);
                     this.localstorageService.setUserCurrent(user.id);
-                    this.router.navigate(['/']);
+
+                    if (this.goToCompte.params.compte) {
+                        this.router.navigate(['compte']);
+                    } else {
+                        this.router.navigate(['/']);
+                    }
                 },
                 (error) => {
                     this.authError = true;
