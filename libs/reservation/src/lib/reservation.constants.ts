@@ -1,6 +1,6 @@
 export const RESERVATION_STATUS = [
     {
-        label: 'Pending',
+        label: 'En attente',
         color: 'primary'
     },
     {
@@ -8,11 +8,11 @@ export const RESERVATION_STATUS = [
         color: 'warning'
     },
     {
-        label: 'Accepted',
+        label: 'Acceptée',
         color: 'success'
     },
     {
-        label: 'Refused',
+        label: 'Refusée',
         color: 'danger'
     }
 ];
