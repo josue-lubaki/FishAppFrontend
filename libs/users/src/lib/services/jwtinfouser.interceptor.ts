@@ -23,9 +23,9 @@ export class JwtInfoUser implements HttpInterceptor {
 
         // Aller chercher l'addresse de base de l'API dans l'environnement
         // Intercepte toutes les requêtes qui commencent par 'http://localhost:3000/api/v1/users/exist'
-        const isAPIUrl = request.url.startsWith(environment.infoUser);
+        const isInfoUser = request.url.startsWith(environment.infoUser);
 
-        if (!idUser && isAPIUrl) {
+        if (!idUser && isInfoUser) {
             switch (this.router.url) {
                 case '/compte':
                     this.router.navigate(['login'], { queryParams: { compte: true } });

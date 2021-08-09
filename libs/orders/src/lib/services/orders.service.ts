@@ -51,6 +51,15 @@ export class OrdersService {
     }
 
     /**
+     * Methode qui permet la récupération une order depuis le Backend via son ID
+     * @param orderId l'ID de la order à récupérer
+     * @returns Observable<Order>
+     */
+    getOrdersUser(userId: string): Observable<Order[]> {
+        return this.http.get<Order[]>(`${this.apiURLOrders}/get/userorder/${userId}`);
+    }
+
+    /**
      * Methode qui permet de créer une Commande
      * @param order la order à créer
      * @returns void

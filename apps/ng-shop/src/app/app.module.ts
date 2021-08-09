@@ -24,6 +24,10 @@ import { GalleriaModule } from 'primeng/galleria';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { DividerModule } from 'primeng/divider';
+import { TableModule } from 'primeng/table';
+import { CardModule } from 'primeng/card';
+import { ButtonModule } from 'primeng/button';
+import { TagModule } from 'primeng/tag';
 import { UserPageComponent } from './pages/user-page/user-page.component';
 
 const routes: Routes = [
@@ -64,7 +68,11 @@ gsap.registerPlugin(ScrollTrigger);
         GalleriaModule,
         UsersModule,
         FieldsetModule,
-        DividerModule
+        DividerModule,
+        TableModule,
+        CardModule,
+        ButtonModule,
+        TagModule
     ],
     providers: [
         FormBuilder,

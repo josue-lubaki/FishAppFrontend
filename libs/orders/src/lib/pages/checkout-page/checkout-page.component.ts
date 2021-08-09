@@ -119,7 +119,7 @@ export class CheckoutPageComponent implements OnInit {
             country: this.checkoutForm.country.value,
             phone: this.checkoutForm.phone.value,
             status: 0,
-            user: this.userService.getUser(this.localstorage.getUserCurrent()),
+            user: this.localstorage.getUserCurrent(),
             dateOrdered: `${Date.now()}`
         };
 

@@ -45,6 +45,42 @@
   <!-- Mes Commandes -->
   <p-fieldset legend="Mes Commandes" [toggleable]="true"  styleClass="p-my-4">
 
+    <p-card header="Commandes effectuées" subheader="Liste de toutes mes commandes">
+    <div class="p-grid">
+      <div class="p-col-12">
+          <p-table [value]="commandes" styleClass="p-datatable-gridlines">
+              <ng-template pTemplate="header">
+                  <tr>
+                      <th pSortableColumn="id">ID Commande <p-sortIcon field="id"></p-sortIcon></th>
+                      <th pSortableColumn="totalPrice">Total <p-sortIcon field="totalPrice"></p-sortIcon></th>
+                      <th pSortableColumn="dateOrdered">Date <p-sortIcon field="dateOrdered"></p-sortIcon></th>
+                      <th pSortableColumn="status">Status <p-sortIcon field="status"></p-sortIcon></th>
+                      <th></th>
+                  </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-commande>
+                  <tr class="animate__animated animate__fadeIn">
+                      <td>
+                        <span *ngIf="commande && commande.id !== ''">{{commande.id}}</span>
+                        <span *ngIf="!commande.user || commande.user.name === ''">Unknown</span>
+                      </td>
+                      <td>{{commande.totalPrice | currency}}</td>
+                      <td>{{commande.dateOrdered | date : "short"}}</td>
+                      <td>
+                        <p-tag
+                          [value]="commandeStatus[commande.status].label"
+                          [severity]="commandeStatus[commande.status].color">
+                        </p-tag></td>
+                      <td>
+                         <p-button (click)="showOrder(commande.id)" styleClass="p-button-success" icon="pi pi-eye"></p-button>
+                      </td>
+                  </tr>
+              </ng-template>
+          </p-table>
+      </div>
+    </div>
+  </p-card>
+
   </p-fieldset>
 </div>
 

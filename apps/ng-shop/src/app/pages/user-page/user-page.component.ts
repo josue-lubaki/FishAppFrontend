@@ -1,21 +1,36 @@
 /* eslint-disable @angular-eslint/no-empty-lifecycle-method */
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Order, OrdersService, ORDER_STATUS } from '@ghost/orders';
 import { User, UsersService, LocalstorageService } from '@ghost/users';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
     selector: 'ngshop-user-page',
     templateUrl: './user-page.component.html',
     styles: []
 })
-export class UserPageComponent implements OnInit {
-    constructor(
-        private userService: UsersService,
-        private localstorage: LocalstorageService
-    ) {}
+export class UserPageComponent implements OnInit, OnDestroy {
+    commandes: Order[] = [];
+    commandeStatus = ORDER_STATUS;
+    endSubs$: Subject<any> = new Subject();
     user!: User;
+    constructor(
+        private ordersService: OrdersService,
+        private userService: UsersService,
+        private localstorage: LocalstorageService,
+        private router: Router
+    ) {}
 
     ngOnInit(): void {
         this._bindUser();
+        this._getOrdersCurrentUser();
+    }
+
+    ngOnDestroy(): void {
+        this.endSubs$.next();
+        this.endSubs$.complete();
     }
 
     _bindUser() {
@@ -36,5 +51,22 @@ export class UserPageComponent implements OnInit {
         if (countryKey) {
             return this.userService.getCountry(countryKey);
         } else return countryKey;
+    }
+
+    private _getOrdersCurrentUser() {
+        const idUser = this.localstorage.getUserCurrent();
+
+        if (idUser && idUser !== null) {
+            this.ordersService
+                .getOrdersUser(idUser)
+                .pipe(takeUntil(this.endSubs$))
+                .subscribe((order) => {
+                    this.commandes = order;
+                });
+        }
+    }
+
+    showOrder(orderId: string) {
+        this.router.navigateByUrl(`orders/${orderId}`);
     }
 }
