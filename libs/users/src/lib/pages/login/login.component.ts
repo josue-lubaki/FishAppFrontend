@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
@@ -9,12 +9,12 @@ import { LocalstorageService } from '../../services/localstorage.service';
     templateUrl: './login.component.html',
     styles: []
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
     loginFormGroup!: FormGroup;
     isSubmitted = false;
     authError = false;
     authErrorMessage = 'Email or Password are wrong';
-    goToCompte: any;
+    goToAnotherPage: any;
 
     constructor(
         private formBuilder: FormBuilder,
@@ -27,8 +27,13 @@ export class LoginComponent implements OnInit {
     ngOnInit(): void {
         this._initLoginForm();
         this.route.queryParamMap.subscribe((params) => {
-            this.goToCompte = params || false;
+            this.goToAnotherPage = params || false;
         });
+    }
+
+    @HostListener('unload')
+    ngOnDestroy(): void {
+        console.log('Login is destroy successful');
     }
 
     private _initLoginForm() {
@@ -61,8 +66,10 @@ export class LoginComponent implements OnInit {
                     this.localstorageService.setToken(user.token);
                     this.localstorageService.setUserCurrent(user.id);
 
-                    if (this.goToCompte.params.compte) {
+                    if (this.goToAnotherPage.params.compte) {
                         this.router.navigate(['compte']);
+                    } else if (this.goToAnotherPage.params.checkout) {
+                        this.router.navigate(['checkout']);
                     } else {
                         this.router.navigate(['/']);
                     }
