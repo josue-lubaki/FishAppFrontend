@@ -100,7 +100,7 @@ export class UsersService {
      * Methode qui permet de vérifier si l'utilisateur existe ou pas
      * @return boolean
      */
-    existUser(usersId: string): Observable<any> {
+    existUser(usersId: any): Observable<boolean> {
         return this.http.get<any>(`${this.apiURLUsers}/exist/${usersId}`);
     }
 }

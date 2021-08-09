@@ -20,9 +20,10 @@ export class UserPageComponent implements OnInit {
 
     _bindUser() {
         const idUser = this.localstorage.getUserCurrent();
+        // Vérifier si l'Utilisateur existe
+        this.userService.existUser(idUser).subscribe(() => {});
         this.userService.getUser(idUser).subscribe((user: User) => {
             this.user = user;
-            console.log('User', this.user);
         });
     }
 

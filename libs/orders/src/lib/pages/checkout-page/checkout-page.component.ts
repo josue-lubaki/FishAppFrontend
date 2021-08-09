@@ -2,7 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UsersService } from '@ghost/users';
+import { LocalstorageService, User, UsersService } from '@ghost/users';
 import { CartService, Order, OrderItem, OrdersService } from '@ghost/orders';
 
 @Component({
@@ -14,19 +14,21 @@ export class CheckoutPageComponent implements OnInit {
     checkoutFormGroup!: FormGroup;
     isSubmitted = false;
     orderItems: OrderItem[] = [];
-    userId = '60d4755efdb5caaf845f15a3';
     countries: unknown[] = [];
+    user: any;
 
     constructor(
         private router: Router,
         private userService: UsersService,
         private formBuilder: FormBuilder,
         private cartService: CartService,
-        private orderService: OrdersService
+        private orderService: OrdersService,
+        private localstorage: LocalstorageService
     ) {}
 
     ngOnInit(): void {
         this.initCheckoutForm();
+        this._bindUser();
         this._getCartItems();
         this._getCountries();
     }
@@ -43,6 +45,31 @@ export class CheckoutPageComponent implements OnInit {
             apartment: ['', Validators.required],
             avenue: ['', Validators.required]
         });
+    }
+
+    private _bindUser() {
+        const idUser = this.localstorage.getUserCurrent();
+        this.userService.existUser(idUser).subscribe(() => {});
+        if (idUser && idUser !== null) {
+            this.userService.getUser(idUser).subscribe((user: User) => {
+                this.user = user;
+                this._autoComplete();
+            });
+        }
+    }
+
+    private _autoComplete() {
+        if (this.localstorage.getUserCurrent() && this.user) {
+            this.checkoutForm.name.setValue(this.user.name);
+            this.checkoutForm.email.setValue(this.user.email);
+            this.checkoutForm.phone.setValue(this.user.phone);
+            this.checkoutForm.avenue.setValue(this.user.avenue);
+            this.checkoutForm.apartment.setValue(this.user.apartment);
+            this.checkoutForm.quartier.setValue(this.user.quartier);
+            this.checkoutForm.commune.setValue(this.user.commune);
+            this.checkoutForm.city.setValue(this.user.city);
+            this.checkoutForm.country.setValue(this.user.country);
+        }
     }
 
     private _getCartItems() {
@@ -92,7 +119,7 @@ export class CheckoutPageComponent implements OnInit {
             country: this.checkoutForm.country.value,
             phone: this.checkoutForm.phone.value,
             status: 0,
-            user: this.userId,
+            user: this.userService.getUser(this.localstorage.getUserCurrent()),
             dateOrdered: `${Date.now()}`
         };
 
