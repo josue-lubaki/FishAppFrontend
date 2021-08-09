@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '@ghost/users';
 
 @Component({
@@ -7,12 +8,13 @@ import { AuthService } from '@ghost/users';
     styleUrls: []
 })
 export class SidebarComponent {
-    constructor(private authService: AuthService) {}
+    constructor(private router: Router, private authService: AuthService) {}
 
     /**
      * Methode qi permet de déconnecter un utilisateur
      */
     logoutUser() {
         this.authService.logout();
+        this.router.navigate(['/login']);
     }
 }

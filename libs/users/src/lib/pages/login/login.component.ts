@@ -1,4 +1,4 @@
-import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
@@ -9,7 +9,7 @@ import { LocalstorageService } from '../../services/localstorage.service';
     templateUrl: './login.component.html',
     styles: []
 })
-export class LoginComponent implements OnInit, OnDestroy {
+export class LoginComponent implements OnInit {
     loginFormGroup!: FormGroup;
     isSubmitted = false;
     authError = false;
@@ -29,11 +29,6 @@ export class LoginComponent implements OnInit, OnDestroy {
         this.route.queryParamMap.subscribe((params) => {
             this.goToAnotherPage = params || false;
         });
-    }
-
-    @HostListener('unload')
-    ngOnDestroy(): void {
-        console.log('Login is destroy successful');
     }
 
     private _initLoginForm() {
