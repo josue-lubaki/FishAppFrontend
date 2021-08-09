@@ -2,7 +2,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Order, OrdersService, ORDER_STATUS } from '@ghost/orders';
-import { User, UsersService, LocalstorageService } from '@ghost/users';
+import { User, UsersService, LocalstorageService, AuthService } from '@ghost/users';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
@@ -17,6 +17,7 @@ export class UserPageComponent implements OnInit, OnDestroy {
     endSubs$: Subject<any> = new Subject();
     user!: User;
     constructor(
+        private authService: AuthService,
         private ordersService: OrdersService,
         private userService: UsersService,
         private localstorage: LocalstorageService,
@@ -37,9 +38,11 @@ export class UserPageComponent implements OnInit, OnDestroy {
         const idUser = this.localstorage.getUserCurrent();
         // Vérifier si l'Utilisateur existe
         this.userService.existUser(idUser).subscribe(() => {});
-        this.userService.getUser(idUser).subscribe((user: User) => {
-            this.user = user;
-        });
+        if (idUser && idUser !== null) {
+            this.userService.getUser(idUser).subscribe((user: User) => {
+                this.user = user;
+            });
+        }
     }
 
     /**
@@ -68,5 +71,13 @@ export class UserPageComponent implements OnInit, OnDestroy {
 
     showOrder(orderId: string) {
         this.router.navigateByUrl(`orders/${orderId}`);
+    }
+
+    /**
+     * Methode qi permet de déconnecter un utilisateur
+     */
+    logoutUser() {
+        this.authService.logout();
+        location.reload();
     }
 }

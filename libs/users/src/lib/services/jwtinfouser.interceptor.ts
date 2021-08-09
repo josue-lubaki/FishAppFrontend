@@ -39,9 +39,6 @@ export class JwtInfoUser implements HttpInterceptor {
                     break;
             }
         }
-        // else if (idUser && isAPIUrl) {
-        //     this.router.navigate(['compte']);
-        // }
 
         return next.handle(request);
     }

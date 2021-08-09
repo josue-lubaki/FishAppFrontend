@@ -10,7 +10,16 @@
               <ngshop-nav></ngshop-nav>
           </div>
           <div class="tools">
-            <span class="show-name hide-name" *ngIf="myName" style="color: #EAC362; font-weight: bold; font-size:1rem; text-transform:capitalize">{{myName}}</span>
+            <span routerLink="/compte"
+              class="show-name hide-name"
+              *ngIf="myName"
+              style="color: #EAC362;
+                font-weight: bold;
+                font-size:1rem;
+                text-transform:capitalize;
+                cursor: pointer;">
+                {{myName}}
+            </span>
             <i class="pi pi-user p-text-secondary" style="font-size: 1.5rem;color: #fff; padding-left:.4rem" id="user" [routerLink]="['/compte']" routerLinkActive="router-link-active" ></i>
             <orders-cart-icon style="display:flex"></orders-cart-icon>
             <i class="pi pi-bars hide-desktop show-mobile menu"
