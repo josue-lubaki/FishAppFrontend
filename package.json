@@ -77,7 +77,7 @@
         "@nrwl/jest": "12.6.5",
         "@nrwl/linter": "12.6.3",
         "@nrwl/tao": "12.6.5",
-        "@nrwl/workspace": "12.6.3",
+        "@nrwl/workspace": "12.6.6",
         "@types/aos": "^3.0.4",
         "@types/jest": "26.0.24",
         "@types/jquery": "^3.5.6",
