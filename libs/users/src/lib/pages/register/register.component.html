@@ -1,0 +1,109 @@
+<p-toast></p-toast> <!-- placer le Toast au top de la page -->
+<div class="register-page">
+  <p-card [header]="'Création du compte'">
+    <div class="p-grid p-mb-4">
+      <div class="p-col-12">
+        <p-toolbar>
+          <div class="p-toolbar-group-left"></div>
+          <div class="p-toolbar-group-right">
+             <p-button (click)="onCancel()" label="Annuler" icon="pi pi-arrow-circle-left" styleClass="p-button-secondary p-mr-2"></p-button>
+             <p-button [label]="'S\'inscrire'" [icon]="'pi pi-plus'" styleClass="p-button-primary" (click)="onSubmit()"></p-button>
+          </div>
+        </p-toolbar>
+      </div>
+    </div>
+    <div class="p-grid">
+      <div class="p-col-12">
+        <form [formGroup]="form">
+            <div class="p-fluid p-formgrid p-grid p-jc-center">
+                <div class="p-field p-sm-6">
+                  <label for="name">Nom Complet</label>
+                  <input formControlName="name" id="name" type="text" pInputText>
+                  <small *ngIf="userForm.name.invalid && isSubmitted" class="p-error" style="color:red">Name est obligatoire</small>
+                </div>
+                <div class="p-field p-sm-6">
+                  <label for="email">Email</label>
+                  <input formControlName="email" id="email" type="text" pInputText>
+
+                </div>
+                <div class="p-field p-sm-6">
+                  <label for="password">Mot de passe</label>
+                  <p-password formControlName="password" [toggleMask]="true"></p-password>
+                  <small *ngIf="userForm.password.invalid && isSubmitted" class="p-error" style="color:red">Mot de passe est obligatoire</small>
+                </div>
+                <div class="p-field p-sm-6">
+                      <label for="phone">Téléphone</label><br/>
+                      <p-inputMask
+                          formControlName="phone"
+                          mask="+(999) 9999-99-999"
+                          [unmask]="false"
+                          autocomplete
+                          [placeholder]="userForm.phone && userForm.phone.value !== '' ? userForm.phone.value : '+(code pays) 9999-99-999'">
+                      </p-inputMask>
+                      <small *ngIf="userForm.phone.invalid && isSubmitted" class="p-error" style="color:red">Phone est obligatoire</small>
+                </div>
+                <!-- <div class="p-field p-col-4">
+                      <label for="isAdmin">Est Administrateur</label><br/>
+                      <p-inputSwitch formControlName="isAdmin"></p-inputSwitch>
+                </div> -->
+            </div>
+
+            <div style="font-size: 1.1rem;font-weight: 600;text-align: center;text-decoration: underline;padding:1.2rem 0">
+              Informations Importantes en cas des Livraisons
+            </div>
+
+             <div class="p-fluid p-formgrid p-grid">
+                 <div class="p-field p-sm-4">
+                    <label for="avenue">Avenue</label><br/>
+                     <input formControlName="avenue" id="avenue" type="text" pInputText>
+                  </div>
+                  <div class="p-field p-sm-2">
+                    <label for="apartment">Numero</label><br/>
+                     <input formControlName="apartment" id="apartment" type="text" pInputText>
+                  </div>
+                   <div class="p-field p-sm-6">
+                    <label for="quartier">Quartier</label><br/>
+                     <input formControlName="quartier" id="quartier" type="text" pInputText>
+                  </div>
+                   <div class="p-field p-sm-6">
+                    <label for="commune">Commune</label><br/>
+                     <input formControlName="commune" id="commune" type="text" pInputText>
+                  </div>
+                   <div class="p-field p-sm-6">
+                    <label for="city">Ville</label><br/>
+                     <input formControlName="city" id="city" type="text" pInputText>
+                  </div>
+                  <div class="p-field p-sm-4">
+                    <label for="country">Pays</label><br/>
+                    <p-dropdown
+                        [options]="countries"
+                        formControlName="country"
+                        optionLabel="name"
+                        optionValue="id"
+                        [filter]="true"
+                        filterBy="name"
+                        [showClear]="true"
+                        placeholder="Selectionner un Pays">
+                    </p-dropdown>
+                  </div>
+             </div>
+
+            <div style="font-size: 1.1rem;font-weight: 600;text-align: center;text-decoration: underline;padding:1.2rem 0">
+              Informations Importantes en cas d'oublie de mot de passe
+            </div>
+            <div class="p-fluid p-formgrid p-grid">
+              <div class="p-field p-col-12">
+                    <label for="question">Question de Sécurité</label><br/>
+                     <input formControlName="question" id="question" type="text" pInputText placeholder="Entrer une question de votre choix">
+                  </div>
+                  <div class="p-field p-col-9">
+                    <label for="reponse">Réponse</label><br/>
+                     <input formControlName="reponse" id="reponse" type="text" pInputText placeholder="Enter la réponse à la question">
+                  </div>
+            </div>
+
+        </form>
+      </div>
+    </div>
+  </p-card>
+</div>

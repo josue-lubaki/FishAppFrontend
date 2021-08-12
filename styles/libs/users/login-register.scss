@@ -18,22 +18,36 @@
     .full-btn{
       width: 100%;
     }
+
+    a:active{
+      color:$primary-color-yellow
+    }
+
+    a:visited{
+      color:$primary-color
+    }
+
+    a:hover{
+      color: #f3aa0d;
+    }
   }
 }
 
 @media (max-width: 650px) {
   .login-register{
+    //max-height: 600px;
     &-panel{
       width: 325px;
       height: auto;
       background-color: transparent;
       left: calc(50% - 160px);
+      top: calc(30% - 140px);
 
       .p-grid{
         flex-direction: column;
 
         > .p-col-6{
-          max-height: 200px;
+          max-height: 120px;
           text-align: center;
           width: auto;
         }
@@ -59,8 +73,8 @@
   }
 }
 
-users-login .login-register{
-  max-height: 600px;
-}
+// users-login .login-register{
+//   max-height: 600px;
+// }
 
 
