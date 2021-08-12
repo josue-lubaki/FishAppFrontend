@@ -1,0 +1,13 @@
+.register-page{
+    .p-grid{
+      transition: all 0.6s ease-in-out
+    }
+  }
+
+@media (max-width: 575px){
+  .register-page{
+    .p-grid{
+      flex-direction: column;
+    }
+  }
+}

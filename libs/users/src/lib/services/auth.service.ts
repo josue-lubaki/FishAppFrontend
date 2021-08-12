@@ -29,6 +29,15 @@ export class AuthService {
     }
 
     /**
+     * Methode qui permet d'enregistrer un nouvel Utilisateur
+     * @param user l'Utilisateur à enregistrer
+     * @returns void
+     */
+    registerUser(user: User): Observable<User> {
+        return this.http.post<User>(`${this.apiURLUsers}/register`, user);
+    }
+
+    /**
      * Methode qui permet de déconnecter un Utilisateur, en supprimant également son token et ID
      * @return void
      */
