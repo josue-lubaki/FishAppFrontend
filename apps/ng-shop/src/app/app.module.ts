@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { UsersModule, JwtInfoUser } from '@ghost/users';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
@@ -28,7 +29,9 @@ import { TableModule } from 'primeng/table';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { TagModule } from 'primeng/tag';
+import { DropdownModule } from 'primeng/dropdown';
 import { UserPageComponent } from './pages/user-page/user-page.component';
+import { UserOrdersComponent } from './pages/user-orders/user-orders.component';
 
 const routes: Routes = [
     {
@@ -38,6 +41,14 @@ const routes: Routes = [
     {
         path: 'compte',
         component: UserPageComponent
+    },
+    {
+        path: 'compte/orders',
+        redirectTo: 'compte'
+    },
+    {
+        path: 'compte/orders/:id',
+        component: UserOrdersComponent
     },
     { path: '**', redirectTo: '' }
 ];
@@ -53,7 +64,8 @@ gsap.registerPlugin(ScrollTrigger);
         FooterComponent,
         NavComponent,
         MessagesComponent,
-        UserPageComponent
+        UserPageComponent,
+        UserOrdersComponent
     ],
     imports: [
         BrowserModule,
@@ -72,7 +84,10 @@ gsap.registerPlugin(ScrollTrigger);
         TableModule,
         CardModule,
         ButtonModule,
-        TagModule
+        TagModule,
+        DropdownModule,
+        FormsModule,
+        ReactiveFormsModule
     ],
     providers: [
         FormBuilder,
@@ -87,6 +102,6 @@ gsap.registerPlugin(ScrollTrigger);
         }
     ],
     bootstrap: [AppComponent],
-    exports: [MessagesComponent, UserPageComponent]
+    exports: [MessagesComponent, UserPageComponent, UserOrdersComponent]
 })
 export class AppModule {}

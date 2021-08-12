@@ -69,8 +69,12 @@ export class UserPageComponent implements OnInit, OnDestroy {
         }
     }
 
+    /**
+     * Methode qui permet d'aller vers la page contenant les details d'une commande
+     * @param orderId : identifdfiant de la commande à visionner
+     */
     showOrder(orderId: string) {
-        this.router.navigateByUrl(`orders/${orderId}`);
+        this.router.navigateByUrl(`compte/orders/${orderId}`);
     }
 
     /**
