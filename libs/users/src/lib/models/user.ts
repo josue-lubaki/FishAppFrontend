@@ -12,4 +12,6 @@ export class User {
     commune?: string;
     city?: string;
     country?: string;
+    question?: string;
+    reponse?: string;
 }
