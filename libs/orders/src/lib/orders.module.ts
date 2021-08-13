@@ -13,6 +13,7 @@ import { CheckoutPageComponent } from './pages/checkout-page/checkout-page.compo
 import { InputMaskModule } from 'primeng/inputmask';
 import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
+import { ToastModule } from 'primeng/toast';
 import { ThankYouComponent } from './pages/thank-you/thank-you.component';
 
 const routes: Routes = [
@@ -41,7 +42,8 @@ const routes: Routes = [
         ReactiveFormsModule,
         InputMaskModule,
         InputTextModule,
-        DropdownModule
+        DropdownModule,
+        ToastModule
     ],
     declarations: [
         CartIconComponent,

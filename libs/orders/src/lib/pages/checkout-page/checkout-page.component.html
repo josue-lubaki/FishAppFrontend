@@ -1,4 +1,4 @@
-
+<p-toast></p-toast>
 <div class="checkout-page p-mt-3">
   <div>
     <p-button label="Back to cart" icon="pi pi-arrow-left" (onClick)="backToCart()"></p-button>
@@ -94,10 +94,10 @@
     <div class="p-col-4">
       <orders-order-summary></orders-order-summary>
       <div class="checkout-button">
-        <p-button label="Réserver" (onClick)="placeOrder()"></p-button>
+        <p-button label="Réserver" (onClick)="placeReservation()"></p-button>
       </div>
       <div class="checkout-button">
-        <p-button label="Acheter Maintenant"></p-button>
+        <p-button label="Acheter Maintenant" (onClick)="placeOrder()"></p-button>
       </div>
     </div>
   </div>

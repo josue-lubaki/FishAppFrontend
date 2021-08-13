@@ -48,7 +48,7 @@
       }
 
       &-info{
-        //text-align: left;
+        text-align: center;
       }
 
       &-subtotal{
@@ -68,13 +68,21 @@
     &-pGrid{
       flex-direction: column;
 
-      div{
-        width:90%;
+      .p-col-8, .p-col-4{
+        width: 100%;
       }
     }
 
     .cart{
       &-item{
+
+        &-pGrid{
+          flex-direction: column;
+
+          .p-col-3, .p-col-6{
+            width: 100%;
+          }
+        }
 
         &-info{
           text-align: center;
@@ -82,6 +90,11 @@
 
         &-image{
           text-align: center;
+
+          img{
+            height: 200px;
+          }
+
         }
 
       }
