@@ -1,7 +1,13 @@
+@media (min-width: 650px){
+  .products-page{
+    margin-top: .8rem;
+    transition: all .6s ease-in-out;
+  }
+}
+
 .product {
   &-name{
     font-size: 2em;
-
   }
 
   &-description{
@@ -54,7 +60,7 @@
   }
 
   &-details{
-    padding: 25px;
+    padding: 0 25px 25px 25px;
   }
 
   &-images{
@@ -77,12 +83,22 @@
 
 @media only screen and (max-width: 650px)  {
   .product{
+    transition: all 0.6s ease-in-out;
      &-pGrid{
       flex-direction: column;
+      justify-content: center;
 
       .p-col-6{
         width: 100%;
       }
+    }
+
+    &-details{
+      text-align: center;
+    }
+
+    &-rich-description{
+        padding: 0 .8rem;
     }
   }
 

@@ -18,7 +18,7 @@ export class MessagesComponent implements OnInit {
             this.messageService.add({
                 severity: 'success',
                 summary: 'Success',
-                detail: 'Article Updated'
+                detail: 'Panier Modifié'
             });
         });
     }
