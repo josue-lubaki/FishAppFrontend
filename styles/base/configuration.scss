@@ -9,20 +9,18 @@ html{
   backdrop-filter: blur(5px);
 }
 
-.p-component *{
+.p-card{
+  background-color: #ffffff00;
   color: #000;
-  font-weight: 400;
 }
 
-.p-card,
 .p-paginator .p-paginator-first,
 .p-paginator .p-paginator-prev,
 .p-paginator .p-paginator-next,
 .p-paginator .p-paginator-last,
-.p-card .p-card-subtitle,
+.p-card-subtitle,
 input{
   color: #000;
-  background-color: var(--surface-200);
 }
 
 .p-toolbar {

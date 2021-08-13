@@ -38,13 +38,16 @@
     border-radius: 14px;
     text-align: center;
     display: flex;
-    background-color: $primary-color-blue-dark;
+    background-color: $primary-color-blue-dark-alt;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     color: #fff;
     cursor: pointer;
     overflow: hidden;
+    position: relative;
+    box-shadow: 0px 3px 2px 3px var(--color-category);
+    transition: all 0.5s ease-in-out;
 
     &-icon{
       .pi{
@@ -56,6 +59,10 @@
     &-name{
       font-size: 1em;
     }
+  }
+
+  .category:hover{
+    background-color: $primary-color-blue-dark;
   }
 }
 
@@ -93,10 +100,6 @@
     div{
       z-index: 15;
     }
-}
-
-.category{
-     position: relative;
 }
 
 .category:before{
