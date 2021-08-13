@@ -32,6 +32,7 @@ import { TagModule } from 'primeng/tag';
 import { DropdownModule } from 'primeng/dropdown';
 import { UserPageComponent } from './pages/user-page/user-page.component';
 import { UserOrdersComponent } from './pages/user-orders/user-orders.component';
+import { UserReservationsComponent } from './pages/user-reservations/user-reservations.component';
 
 const routes: Routes = [
     {
@@ -50,6 +51,10 @@ const routes: Routes = [
         path: 'compte/orders/:id',
         component: UserOrdersComponent
     },
+    {
+        path: 'compte/reservation/:id',
+        component: UserReservationsComponent
+    },
     { path: '**', redirectTo: '' }
 ];
 
@@ -65,7 +70,8 @@ gsap.registerPlugin(ScrollTrigger);
         NavComponent,
         MessagesComponent,
         UserPageComponent,
-        UserOrdersComponent
+        UserOrdersComponent,
+        UserReservationsComponent
     ],
     imports: [
         BrowserModule,
@@ -102,6 +108,11 @@ gsap.registerPlugin(ScrollTrigger);
         }
     ],
     bootstrap: [AppComponent],
-    exports: [MessagesComponent, UserPageComponent, UserOrdersComponent]
+    exports: [
+        MessagesComponent,
+        UserPageComponent,
+        UserOrdersComponent,
+        UserReservationsComponent
+    ]
 })
 export class AppModule {}
