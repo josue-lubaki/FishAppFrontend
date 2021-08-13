@@ -4,11 +4,15 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LocalstorageService, User, UsersService } from '@ghost/users';
 import { CartService, Order, OrderItem, OrdersService } from '@ghost/orders';
+import { Reservation } from '../../models/reservation';
+import { ReservationService } from '@ghost/reservation';
+import { MessageService } from 'primeng/api';
 
 @Component({
     selector: 'orders-checkout-page',
     templateUrl: './checkout-page.component.html',
-    styles: []
+    styles: [],
+    providers: [MessageService]
 })
 export class CheckoutPageComponent implements OnInit {
     checkoutFormGroup!: FormGroup;
@@ -23,7 +27,9 @@ export class CheckoutPageComponent implements OnInit {
         private formBuilder: FormBuilder,
         private cartService: CartService,
         private orderService: OrdersService,
-        private localstorage: LocalstorageService
+        private reservationService: ReservationService,
+        private localstorage: LocalstorageService,
+        private messageService: MessageService
     ) {}
 
     ngOnInit(): void {
@@ -133,6 +139,50 @@ export class CheckoutPageComponent implements OnInit {
                 // display some message to user
             }
         );
+    }
+
+    showWarn() {
+        this.messageService.add({
+            severity: 'warn',
+            summary: 'Attention',
+            detail: 'Le Panier est Vide'
+        });
+    }
+
+    /**
+     * Methode qui permet de passer une reservation
+     * @returns void
+     */
+    placeReservation() {
+        this.isSubmitted = true;
+        if (this.checkoutFormGroup.invalid) {
+            return;
+        }
+
+        // Vérifier que le panier ait au moins un article de
+        if (this.orderItems.length <= 0) {
+            this.showWarn();
+            return;
+        }
+
+        const reservation: Reservation = {
+            orderItems: this.orderItems,
+            avenue: this.checkoutForm.avenue.value,
+            apartment: this.checkoutForm.apartment.value,
+            city: this.checkoutForm.city.value,
+            quartier: this.checkoutForm.quartier.value,
+            commune: this.checkoutForm.commune.value,
+            country: this.checkoutForm.country.value,
+            status: 0,
+            user: this.localstorage.getUserCurrent(),
+            dateReservated: `${Date.now()}`
+        };
+
+        this.reservationService.createReservation(reservation).subscribe(() => {
+            // redirect to thank you page
+            this.router.navigate(['/success']);
+            this.cartService.emptyCart();
+        });
     }
 
     /**

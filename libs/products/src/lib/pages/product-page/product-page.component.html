@@ -11,16 +11,16 @@
       <p class="product-description">
         {{ product.description }}
       </p>
-      <div class="product-rating">
+      <!-- <div class="product-rating">
         <p-rating [(ngModel)]="product.rating" [disabled]="true" [cancel]="false"></p-rating>
-      </div>
+      </div> -->
       <div class="product-price" *ngIf="product.price">
         {{ product.price | currency }}
         <span class="price-before">{{ product.price + 28 | currency }}</span>
       </div>
       <div class="product-quantity">
         <div class="p-field p-col-12 p-md-3 p-sm-1 p-p-0">
-          <label for="quantity">Quantity</label>
+          <label for="quantity">Quantité</label>
           <p-inputNumber
             [(ngModel)]="quantity"
             mode="decimal"
@@ -37,14 +37,14 @@
             pButton
             pRipple
             type="button"
-            label="Buy Now"
+            label="Acheter"
           ></button>
           <button
             class="p-button-rounded"
             pButton
             pRipple
             type="button"
-            label="Add to Cart"
+            label="Ajouter au Panier"
             (click)="addProductToCart()"
           ></button>
       </div>

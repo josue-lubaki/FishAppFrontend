@@ -1,7 +1,6 @@
 .d-item{
   display:flex;
   text-align: center;
-  color: var(--surface-a);
   justify-content: space-between;
 
   .pi{
@@ -11,6 +10,7 @@
 
   .name{
     font-size: 1.4em;
+    font-weight: 600;
   }
 
   .number{
@@ -68,4 +68,30 @@
     font-size: 1.75em;
   }
 }
+
+.p-card .p-card-subtitle {
+  color: $primary-color-black-alt;
+}
+
+.p-datatable .p-datatable-tbody > tr{
+  color: $primary-color-black;
+}
+
+.p-datatable .p-datatable-thead > tr > th {
+  background: $primary-color-footer;
+  color: $primary-color-black;
+  font-weight: 600;
+  font-size: .8rem;
+}
+
+.p-datatable .p-datatable-thead > tr > th:hover {
+  background: $primary-color-yellow-alt;
+  color: $primary-color-black;
+}
+
+.p-datatable .p-sortable-column:not(.p-highlight):hover {
+  background: $primary-color-yellow-alt;
+  color: $primary-color-black;
+}
+
 

@@ -17,12 +17,12 @@
       </div>
       <div class="cart-item p-mb-3 animate__animated animate__zoomIn" *ngFor="let cartItem of cartItemdetails">
         <div class="p-grid cart-item-pGrid p-fluid">
-          <div class="p-col-2 cart-item-image">
+          <div class="p-col-3 cart-item-image">
             <img
             [src]="cartItem.product.image"
             [attr.alt]="cartItem.product.name">
           </div>
-          <div class="p-col-7 cart-item-info">
+          <div class="p-col-6 cart-item-info">
             <div class="cart-item-name">{{ cartItem.product.name }}</div>
             <div class="cart-item-price">{{ cartItem.product.price | currency }}</div>
             <div class="cart-item-remove">
