@@ -31,6 +31,17 @@ export class ReservationService {
     }
 
     /**
+     * Methode qui permet la récupération de la liste des reservations faites par un utilisateur depuis le Backend via son ID
+     * @param userId l'ID de l'Utilisateur
+     * @returns Observable<Reservations>
+     */
+    getReservationsUserById(userId: string): Observable<Reservation[]> {
+        return this.http.get<Reservation[]>(
+            `${this.apiURLReservation}/get/user/${userId}`
+        );
+    }
+
+    /**
      * methode qui permet de récuper la somme totale des commandes vendues
      * @returns number
      */

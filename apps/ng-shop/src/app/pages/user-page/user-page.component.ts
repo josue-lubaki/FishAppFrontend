@@ -2,6 +2,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Order, OrdersService, ORDER_STATUS } from '@ghost/orders';
+import { ReservationService, Reservation } from '@ghost/reservation';
 import { User, UsersService, LocalstorageService, AuthService } from '@ghost/users';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -13,12 +14,15 @@ import { takeUntil } from 'rxjs/operators';
 })
 export class UserPageComponent implements OnInit, OnDestroy {
     commandes: Order[] = [];
+    reservations: Reservation[] = [];
     commandeStatus = ORDER_STATUS;
+    reservationStatus = ORDER_STATUS;
     endSubs$: Subject<any> = new Subject();
     user!: User;
     constructor(
         private authService: AuthService,
         private ordersService: OrdersService,
+        private reservationService: ReservationService,
         private userService: UsersService,
         private localstorage: LocalstorageService,
         private router: Router
@@ -27,6 +31,7 @@ export class UserPageComponent implements OnInit, OnDestroy {
     ngOnInit(): void {
         this._bindUser();
         this._getOrdersCurrentUser();
+        this._getReservationsCurrentUser();
     }
 
     ngOnDestroy(): void {
@@ -56,6 +61,9 @@ export class UserPageComponent implements OnInit, OnDestroy {
         } else return countryKey;
     }
 
+    /**
+     * Methode qui récupère toutes les commandes de l'Utilisateur
+     */
     private _getOrdersCurrentUser() {
         const idUser = this.localstorage.getUserCurrent();
 
@@ -70,11 +78,35 @@ export class UserPageComponent implements OnInit, OnDestroy {
     }
 
     /**
+     * Methode qui récupère toutes les reservations de l'Utilisateur
+     */
+    private _getReservationsCurrentUser() {
+        const idUser = this.localstorage.getUserCurrent();
+
+        if (idUser && idUser !== null) {
+            this.reservationService
+                .getReservationsUserById(idUser)
+                .pipe(takeUntil(this.endSubs$))
+                .subscribe((reservation) => {
+                    this.reservations = reservation;
+                });
+        }
+    }
+
+    /**
      * Methode qui permet d'aller vers la page contenant les details d'une commande
-     * @param orderId : identifdfiant de la commande à visionner
+     * @param orderId : identifiant de la commande à visionner
      */
     showOrder(orderId: string) {
         this.router.navigateByUrl(`compte/orders/${orderId}`);
+    }
+
+    /**
+     * Methode qui permet d'aller vers la page contenant les details d'une reservation
+     * @param reserrvationId : identifiant de la reservation à visionner
+     */
+    showReservation(reserrvationId: string) {
+        this.router.navigateByUrl(`compte/reservation/${reserrvationId}`);
     }
 
     /**
