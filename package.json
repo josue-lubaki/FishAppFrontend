@@ -74,7 +74,7 @@
         "@nrwl/cli": "12.7.0",
         "@nrwl/cypress": "12.6.5",
         "@nrwl/eslint-plugin-nx": "12.5.9",
-        "@nrwl/jest": "12.6.5",
+        "@nrwl/jest": "12.7.1",
         "@nrwl/linter": "12.6.6",
         "@nrwl/tao": "12.6.5",
         "@nrwl/workspace": "12.6.6",
