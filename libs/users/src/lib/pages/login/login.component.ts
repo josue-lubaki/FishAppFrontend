@@ -112,6 +112,12 @@ export class LoginComponent implements OnInit {
                     this.localstorageService.setToken(user.token);
                     this.localstorageService.setUserCurrent(user.id);
 
+                    this.messageService.add({
+                        severity: 'success',
+                        summary: 'Connexion Réussie',
+                        detail: `Bienvenue ${user.name}`
+                    });
+
                     if (this.goToAnotherPage.params.compte) {
                         this.router.navigate(['compte']);
                     } else if (this.goToAnotherPage.params.checkout) {
