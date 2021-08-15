@@ -118,15 +118,15 @@ export class UserPageComponent implements OnInit, OnDestroy {
      */
     logoutUser() {
         this.confirmationService.confirm({
-            message: 'Voulez-vous vraiment Quitter ?',
+            message: `<b>${this.user.name}</b>, Voulez-vous vraiment Quitter ?`,
             header: 'Déconnexion',
             icon: 'pi pi-exclamation-triangle',
             accept: () => {
                 this.authService.logout();
                 this.messageService.add({
                     severity: 'success',
-                    summary: 'Success',
-                    detail: 'Déconnexion réussi'
+                    summary: 'Déconnexion',
+                    detail: `Bye ${this.user.name}`
                 });
                 timer(1500)
                     .toPromise()
@@ -142,27 +142,6 @@ export class UserPageComponent implements OnInit, OnDestroy {
                 };
             },
             reject: () => {}
-        });
-    }
-
-    confirm() {
-        this.confirmationService.confirm({
-            message: 'Voulez-vous vraiment Quitter ?',
-            header: 'Déconnexion',
-            icon: 'pi pi-exclamation-triangle',
-            accept: () => {
-                this.authService.logout();
-                this.messageService.add({
-                    severity: 'success',
-                    summary: 'Success',
-                    detail: 'Déconnexion réussi'
-                });
-                timer(1500)
-                    .toPromise()
-                    .then(() => {
-                        this.router.navigate(['/login']);
-                    });
-            }
         });
     }
 }
