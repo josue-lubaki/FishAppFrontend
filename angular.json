@@ -164,6 +164,7 @@
                     "builder": "@angular-devkit/build-angular:browser",
                     "outputs": ["{options.outputPath}"],
                     "options": {
+                        "aot": true,
                         "outputPath": "dist/apps/ng-shop",
                         "index": "apps/ng-shop/src/index.html",
                         "main": "apps/ng-shop/src/main.ts",

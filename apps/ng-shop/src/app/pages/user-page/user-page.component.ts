@@ -4,13 +4,15 @@ import { Router } from '@angular/router';
 import { Order, OrdersService, ORDER_STATUS } from '@ghost/orders';
 import { ReservationService, Reservation } from '@ghost/reservation';
 import { User, UsersService, LocalstorageService, AuthService } from '@ghost/users';
-import { Subject } from 'rxjs';
+import { ConfirmationService, MessageService } from 'primeng/api';
+import { Subject, timer } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 @Component({
     selector: 'ngshop-user-page',
     templateUrl: './user-page.component.html',
-    styles: []
+    styles: [],
+    providers: [ConfirmationService]
 })
 export class UserPageComponent implements OnInit, OnDestroy {
     commandes: Order[] = [];
@@ -25,7 +27,9 @@ export class UserPageComponent implements OnInit, OnDestroy {
         private reservationService: ReservationService,
         private userService: UsersService,
         private localstorage: LocalstorageService,
-        private router: Router
+        private router: Router,
+        private confirmationService: ConfirmationService,
+        private messageService: MessageService
     ) {}
 
     ngOnInit(): void {
@@ -40,7 +44,7 @@ export class UserPageComponent implements OnInit, OnDestroy {
     }
 
     _bindUser() {
-        const idUser = this.localstorage.getUserCurrent();
+        const idUser = this.localstorage.getUserCurrent() || 0;
         // Vérifier si l'Utilisateur existe
         this.userService.existUser(idUser).subscribe(() => {});
         if (idUser && idUser !== null) {
@@ -113,7 +117,52 @@ export class UserPageComponent implements OnInit, OnDestroy {
      * Methode qi permet de déconnecter un utilisateur
      */
     logoutUser() {
-        this.authService.logout();
-        location.reload();
+        this.confirmationService.confirm({
+            message: 'Voulez-vous vraiment Quitter ?',
+            header: 'Déconnexion',
+            icon: 'pi pi-exclamation-triangle',
+            accept: () => {
+                this.authService.logout();
+                this.messageService.add({
+                    severity: 'success',
+                    summary: 'Success',
+                    detail: 'Déconnexion réussi'
+                });
+                timer(1500)
+                    .toPromise()
+                    .then(() => {
+                        location.reload();
+                    });
+                () => {
+                    this.messageService.add({
+                        severity: 'error',
+                        summary: 'Error',
+                        detail: 'Impossible de se déconnecter'
+                    });
+                };
+            },
+            reject: () => {}
+        });
+    }
+
+    confirm() {
+        this.confirmationService.confirm({
+            message: 'Voulez-vous vraiment Quitter ?',
+            header: 'Déconnexion',
+            icon: 'pi pi-exclamation-triangle',
+            accept: () => {
+                this.authService.logout();
+                this.messageService.add({
+                    severity: 'success',
+                    summary: 'Success',
+                    detail: 'Déconnexion réussi'
+                });
+                timer(1500)
+                    .toPromise()
+                    .then(() => {
+                        this.router.navigate(['/login']);
+                    });
+            }
+        });
     }
 }
