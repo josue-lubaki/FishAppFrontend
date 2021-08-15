@@ -20,6 +20,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { OrdersModule } from '@ghost/orders';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { MessagesComponent } from './shared/messages/messages.component';
 import { GalleriaModule } from 'primeng/galleria';
 import { gsap } from 'gsap';
@@ -93,7 +94,8 @@ gsap.registerPlugin(ScrollTrigger);
         TagModule,
         DropdownModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        ConfirmDialogModule
     ],
     providers: [
         FormBuilder,

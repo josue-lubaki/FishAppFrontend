@@ -101,7 +101,10 @@ export class LoginComponent implements OnInit {
             return;
 
         this.auth
-            .login(this.loginForm.email.value, this.loginForm.password.value)
+            .login(
+                this.loginForm.email.value.toLowerCase(),
+                this.loginForm.password.value
+            )
             .subscribe(
                 (user) => {
                     this.authError = false;
