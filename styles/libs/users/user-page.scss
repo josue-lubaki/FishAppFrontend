@@ -12,6 +12,11 @@
       }
     }
   }
+
+  .p-datatable .p-datatable-tbody > tr > td{
+      text-align: center;
+      overflow: hidden;
+    }
 }
 
 @media (max-width: 550px) {
@@ -33,6 +38,15 @@
             width: 100%;
           }
       }
+    }
+
+    .p-datatable.p-datatable-gridlines .p-datatable-thead > tr > th:nth-child(1),
+    .p-datatable.p-datatable-gridlines .p-datatable-tbody > tr > td:nth-child(1){
+      display: none;
+    }
+
+    .p-datatable .p-datatable-tbody > tr > td{
+      text-align: center;
     }
   }
 }

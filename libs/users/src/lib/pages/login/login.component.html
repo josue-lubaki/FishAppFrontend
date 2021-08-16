@@ -36,9 +36,9 @@
               <small class="p-error" *ngIf="authError">{{authErrorMessage}}</small>
             </div>
 
-            <div class="p-col-12">
-              <i class="pi pi-facebook" (click)="submitLogin()"></i>
+            <div class="p-col-12" style="text-align:left">
               <p>Si vous n'avez pas de compte, <a routerLink="../register">S'incrire</a></p>
+              <p>Mot de passe <a routerLink="../forgot">oublié</a></p>
             </div>
           </div>
         </form>
