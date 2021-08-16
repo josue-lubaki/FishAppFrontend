@@ -44,7 +44,7 @@ export class UserPageComponent implements OnInit, OnDestroy {
     }
 
     _bindUser() {
-        const idUser = this.localstorage.getUserCurrent() || 0;
+        const idUser = this.localstorage.getUserCurrent();
         // Vérifier si l'Utilisateur existe
         this.userService.existUser(idUser).subscribe(() => {});
         if (idUser && idUser !== null) {

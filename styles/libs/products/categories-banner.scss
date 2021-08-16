@@ -126,23 +126,23 @@
   z-index: 2;
 }
 
-@media only screen and (max-width: 480px)  {
+@media only screen and (max-width: 560px)  {
   .categories-pGrid{
     display: flex;
     justify-content: center;
     flex-direction: column;
 
-    &-pCol2{
+    &-pCol2, .p-col-2{
       width: 90%;
       align-self: center;
     }
   }
 
-    .categories-banner{
-      .category-name{
-        font-size: 1.1em !important;
-      }
+  .categories-banner{
+    .category-name{
+      font-size: 1.1em !important;
     }
+  }
 
 }
 
