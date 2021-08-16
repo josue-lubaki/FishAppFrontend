@@ -77,7 +77,7 @@
         "@nrwl/eslint-plugin-nx": "12.5.9",
         "@nrwl/jest": "12.7.1",
         "@nrwl/linter": "12.7.1",
-        "@nrwl/tao": "12.6.5",
+        "@nrwl/tao": "12.7.1",
         "@nrwl/workspace": "12.6.6",
         "@types/aos": "^3.0.4",
         "@types/jest": "27.0.1",
