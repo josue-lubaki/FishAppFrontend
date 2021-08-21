@@ -1,17 +1,24 @@
-<div class="featured-products">
-  <div class="courbe">
-      <h3>Produits en vedette</h3>
-      <div class="p-grid featured-products-pGrid">
-        <div class="p-col-3" *ngFor="let product of featuredProducts">
-          <products-product-item [product]="product"></products-product-item>
-        </div>
+<div class="featured-products animate__animated animate__fadeInRight">
+    <div class="courbe">
+        <h3>Produits en vedette</h3>
+        <div class="p-grid featured-products-pGrid">
+            <div class="p-col-3" *ngFor="let product of featuredProducts">
+                <products-product-item [product]="product"></products-product-item>
+            </div>
 
-        <div>
-          <p-button styleClass="p-button-danger p-button p-mt-3" routerLink="/products">
-              <img alt="logo" src="assets/images/logoO.svg" style="width: 1.5rem; transform:scale(2.8)"/>
-              <span class="p-ml-2 p-text-bold">Voir tous les produits</span>
-          </p-button>
+            <div>
+                <p-button
+                    styleClass="p-button-danger p-button p-mt-3"
+                    routerLink="/products"
+                >
+                    <img
+                        alt="logo"
+                        src="assets/images/logoO.svg"
+                        style="width: 1.5rem; transform: scale(2.8)"
+                    />
+                    <span class="p-ml-2 p-text-bold">Voir tous les produits</span>
+                </p-button>
+            </div>
         </div>
-      </div>
-  </div>
+    </div>
 </div>
