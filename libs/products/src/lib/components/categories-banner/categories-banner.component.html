@@ -1,24 +1,53 @@
-<div class="categories-banner">
-  <div class="categories-banner-arrowDown">
-    <i class='bx bxs-down-arrow-circle' style='color:#37464c'  ></i>
-  </div>
-  <h3>Categories</h3>
-  <div class="p-grid categories-pGrid" *ngIf="categories">
-    <div class="p-col-2 categories-pGrid-pCol2" *ngFor="let category of categories">
-      <div class="category" [routerLink]="'/category/'+ category.id" [style]="{'--color-category': category.color || '#fff'}">
-        <div class="category-name">
-          {{category.name}}
-        </div>
-      </div>
+<div class="categories-banner animate__animated animate__fadeInLeft">
+    <div class="categories-banner-arrowDown">
+        <i class="bx bxs-down-arrow-circle" style="color: #37464c"></i>
     </div>
-  </div>
-  <div class="container" *ngIf="categories.length <= 0">
-    <img src="assets/images/Infinity-2s-200px.svg" style="max-height:8vh; border-radius: 50%;"/>
-    <h3>Les Données du Serveurs sont indisponibles, Patientez un petit instant...</h3>
-    <p id="avertissement" style="font-size:1.2rem;z-index:50; position:relative; color:#523d08; font-weight:600">
-      Si dans <span style="font-weight:600;color:darkred;font-size: 1.2em;">{{ (value > 0) ? value : 0 }}</span> secondes le serveur ne démarre pas, alors revenez plus tard.
-      <span (click)="reloadNavigator()" *ngIf="value===0" style="font-size:1.1rem;cursor:pointer;color:blue; text-decoration:underline">Réessayer</span>
-    </p>
-
-  </div>
+    <h3>Categories</h3>
+    <div class="p-grid categories-pGrid" *ngIf="categories">
+        <div class="p-col-2 categories-pGrid-pCol2" *ngFor="let category of categories">
+            <div
+                class="category"
+                [routerLink]="'/category/' + category.id"
+                [style]="{ '--color-category': category.color || '#fff' }"
+            >
+                <div class="category-name">
+                    {{ category.name }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" *ngIf="categories.length <= 0">
+        <img
+            src="assets/images/Infinity-2s-200px.svg"
+            style="max-height: 8vh; border-radius: 50%"
+        />
+        <h3>Les Données du Serveurs sont indisponibles, Patientez un petit instant...</h3>
+        <p
+            id="avertissement"
+            style="
+                font-size: 1.2rem;
+                z-index: 50;
+                position: relative;
+                color: #523d08;
+                font-weight: 600;
+            "
+        >
+            Si dans
+            <span style="font-weight: 600; color: darkred; font-size: 1.2em">{{
+                value > 0 ? value : 0
+            }}</span>
+            secondes le serveur ne démarre pas, alors revenez plus tard.
+            <span
+                (click)="reloadNavigator()"
+                *ngIf="value === 0"
+                style="
+                    font-size: 1.1rem;
+                    cursor: pointer;
+                    color: blue;
+                    text-decoration: underline;
+                "
+                >Réessayer</span
+            >
+        </p>
+    </div>
 </div>

@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { UsersModule, JwtInfoUser } from '@ghost/users';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthGuard } from '@ghost/users';
 
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
@@ -42,7 +43,8 @@ const routes: Routes = [
     },
     {
         path: 'compte',
-        component: UserPageComponent
+        component: UserPageComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'compte/orders',
@@ -50,11 +52,13 @@ const routes: Routes = [
     },
     {
         path: 'compte/orders/:id',
-        component: UserOrdersComponent
+        component: UserOrdersComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'compte/reservation/:id',
-        component: UserReservationsComponent
+        component: UserReservationsComponent,
+        canActivate: [AuthGuard]
     },
     { path: '**', redirectTo: '' }
 ];
