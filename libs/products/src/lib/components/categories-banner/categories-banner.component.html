@@ -13,6 +13,7 @@
     </div>
   </div>
   <div class="container" *ngIf="categories.length <= 0">
+    <img src="assets/images/Infinity-2s-200px.svg" style="max-height:8vh; border-radius: 50%;"/>
     <h3>Les Données du Serveurs sont indisponibles, Patientez un petit instant...</h3>
     <p id="avertissement" style="font-size:1.2rem;z-index:50; position:relative; color:#523d08; font-weight:600">
       Si dans <span style="font-weight:600;color:darkred;font-size: 1.2em;">{{ (value > 0) ? value : 0 }}</span> secondes le serveur ne démarre pas, alors revenez plus tard.
