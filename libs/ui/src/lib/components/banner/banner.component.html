@@ -1,12 +1,22 @@
-<div class="banner animate__animated animate__fadeInUp">
-    <p-galleria [(value)]="imagesBanners" [responsiveOptions]="responsiveOptions" [numVisible]="1"
-        [showThumbnails]="false" [autoPlay]="true" [transitionInterval]="5000" [showIndicators]="true" [circular]="true" [changeItemOnIndicatorHover]="false" [showIndicatorsOnItem]="true">
+<div class="banner animate__animated animate__fadeInDown">
+    <p-galleria
+        [(value)]="imagesBanners"
+        [responsiveOptions]="responsiveOptions"
+        [numVisible]="1"
+        [showThumbnails]="false"
+        [autoPlay]="true"
+        [transitionInterval]="5000"
+        [showIndicators]="true"
+        [circular]="true"
+        [changeItemOnIndicatorHover]="false"
+        [showIndicatorsOnItem]="true"
+    >
         <ng-template pTemplate="item" let-item>
-            <img [src]="item.image" style="display: block;" />
+            <img [src]="item.image" style="display: block" />
         </ng-template>
         <ng-template pTemplate="thumbnail" let-item>
             <div class="p-grid p-nogutter p-justify-center">
-                <img [src]="item.image" style="display: block;" />
+                <img [src]="item.image" style="display: block" />
             </div>
         </ng-template>
     </p-galleria>
