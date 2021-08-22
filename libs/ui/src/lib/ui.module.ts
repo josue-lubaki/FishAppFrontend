@@ -5,10 +5,11 @@ import { ButtonModule } from 'primeng/button';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { GalleriaModule } from 'primeng/galleria';
 import { CardModule } from 'primeng/card';
+import { RippleModule } from 'primeng/ripple';
 import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
-    imports: [CommonModule, ButtonModule, GalleriaModule, CardModule],
+    imports: [CommonModule, ButtonModule, GalleriaModule, CardModule, RippleModule],
     declarations: [BannerComponent, GalleryComponent, AboutComponent],
     exports: [BannerComponent, GalleryComponent, GalleriaModule, AboutComponent]
 })
