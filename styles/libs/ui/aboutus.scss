@@ -2,20 +2,98 @@
     background-color: $primary-color-white-alt;
     position: relative;
     z-index: 5;
-    box-shadow: 0px;
+    box-shadow: none;
 
     &-text {
         margin: 0.8rem;
         font-size: 1rem;
+        line-height: 1.6rem;
+    }
+
+    &-card {
+        .p-grid {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+        }
+    }
+    .courbe .about-card > .p-card {
+        box-shadow: none;
+    }
+    .courbe .boite-card .p-card {
+        box-shadow: -2px 4px 20px 0px $primary-color-blue-dark;
+        margin-top: 1.2rem;
     }
 
     .p-card {
-        box-shadow: none;
+        .boite {
+            img {
+                max-width: 250px;
+                max-height: 250px;
+                // margin: 0 1rem;
+                border-radius: 50%;
+            }
+
+            &-card {
+                width: 65%;
+
+                &-btn {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+
+                    .p-button {
+                        background-color: $primary-color-footer;
+                        border: 1px solid $primary-color-white-alt;
+                    }
+
+                    .p-button:last-child {
+                        .pi {
+                            color: $primary-color-yellow;
+                        }
+                    }
+
+                    &-text {
+                        font-size: 1rem;
+                        margin-left: 0.75rem;
+                        color: $primary-color-black;
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+
+        &-title,
+        &-subtitle {
+            text-align: center;
+        }
     }
 
     .p-card-body {
         background-color: transparent;
         backdrop-filter: none;
+    }
+}
+
+@media (max-width: 800px) {
+    .about {
+        .p-card {
+            .boite {
+                &-card {
+                    margin: 1.2rem 0;
+                    width: 85%;
+
+                    &-btn {
+                        flex-direction: column;
+                        align-items: center;
+                        .p-button {
+                            width: 100%;
+                            margin: 0.25rem 0;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 

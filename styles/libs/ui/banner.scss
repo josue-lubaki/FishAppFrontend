@@ -1,68 +1,63 @@
-.banner{
-  margin-top: 2px;
-  height:550px;
-  width:100%;
-  border-radius: 5px;
-  overflow: hidden;
-  background-image: url(../../../libs/ui/src/lib/assets/images/banner_0.jpg);
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-attachment: fixed;
-
-  &-text{
-    color: var(--surface--700);
-    margin-top: 50px;
-
-    h1{
-      margin: 0;
-      font-size: 3em;
-      font-weight: 400;
-    }
-
-    h2{
-      margin: 0;
-      font-size: 2em;
-      font-weight: 300;
-    }
-
-  }
-
-  img{
-    max-height:550px;
+.banner {
+    margin-top: 2px;
     height: 550px;
-    width:100%;
-    transition: all 0.6s ease-in-out;
-  }
+    width: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+    background-image: url(../../../libs/assets/images/banner_0.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-attachment: fixed;
 
-  img:hover{
-    transform: scale(1.025);
-  }
+    &-text {
+        color: var(--surface--700);
+        margin-top: 50px;
 
-  &-button{
-    background-color: #fff;
-    color: $primary-color;
-    border: 1px solid $primary-color;
-    border-radius: 13px;
-    height:50px;
+        h1 {
+            margin: 0;
+            font-size: 3em;
+            font-weight: 400;
+        }
 
-    &:enabled:hover{
-      background-color: #fff;
-      color: $primary-color;
-      border: 1px solid $primary-color;
+        h2 {
+            margin: 0;
+            font-size: 2em;
+            font-weight: 300;
+        }
     }
-  }
 
+    img {
+        max-height: 550px;
+        height: 550px;
+        width: 100%;
+        transition: all 0.6s ease-in-out;
+    }
 
+    img:hover {
+        transform: scale(1.025);
+    }
+
+    &-button {
+        background-color: #fff;
+        color: $primary-color;
+        border: 1px solid $primary-color;
+        border-radius: 13px;
+        height: 50px;
+
+        &:enabled:hover {
+            background-color: #fff;
+            color: $primary-color;
+            border: 1px solid $primary-color;
+        }
+    }
 }
 
-@media only screen and (max-width: 650px)  {
-  .banner{
-    height: 285px;
-    img{
-      transition: all 0.6 ease-in-out;
-      height: 285px;
+@media only screen and (max-width: 650px) {
+    .banner {
+        height: 285px;
+        img {
+            transition: all 0.6 ease-in-out;
+            height: 285px;
+        }
     }
-  }
-
-
 }

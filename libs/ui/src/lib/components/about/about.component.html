@@ -1,19 +1,44 @@
-<div class="about">
+<div class="about animate__animated animate__fadeInLeft">
     <div class="courbe">
         <p-card
             header="À Propos de Nous"
             subheader="Pourquoi nous choisir ?"
             styleClass="p-pt-4 p-mx-auto"
-            style="text-align: center"
             class="about-card"
         >
             <div class="p-grid">
-                <div class="about-text">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore
-                    voluptate fuga itaque quia, impedit odit possimus ipsam error suscipit
-                    animi inventore tempore quod quos molestias neque perferendis hic
-                    earum. Culpa?
+                <div class="boite">
+                    <img src="assets/images/fisherman.jpg" alt="" />
                 </div>
+                <p-card class="boite-card">
+                    <div class="about-text">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore
+                        molestiae iure mollitia temporibus vel soluta perspiciatis qui?
+                        Sint accusamus laboriosam, nemo atque assumenda, eum, expedita
+                        illum eaque dicta at aliquid.
+                    </div>
+                    <div class="boite-card-btn">
+                        <p-button styleClass="p-px-3 p-mr-4" pRipple>
+                            <ng-template pTemplate="content">
+                                <img
+                                    alt="logo"
+                                    src="assets/images/truck.png"
+                                    style="width: 2rem"
+                                />
+                                <span class="boite-card-btn-text"
+                                    >Livraison Gratuite</span
+                                >
+                            </ng-template>
+                        </p-button>
+
+                        <p-button styleClass="p-px-3" pRipple>
+                            <ng-template pTemplate="content">
+                                <i class="pi pi-dollar" style="font-size: 2rem"></i>
+                                <span class="boite-card-btn-text">Paiement Facile</span>
+                            </ng-template>
+                        </p-button>
+                    </div>
+                </p-card>
             </div>
         </p-card>
     </div>
