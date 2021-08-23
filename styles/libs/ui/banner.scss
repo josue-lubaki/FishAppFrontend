@@ -9,6 +9,23 @@
     background-size: 100%;
     background-attachment: fixed;
 
+    &-btn-pause {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 65px;
+        height: 35px;
+        margin: 5px 5px 0 0;
+        .p-button,
+        .p-button:focus,
+        .p-button:enabled:active,
+        .p-button:enabled:hover {
+            background-color: transparent;
+            border: none;
+            box-shadow: none;
+        }
+    }
+
     &-text {
         color: var(--surface--700);
         margin-top: 50px;
