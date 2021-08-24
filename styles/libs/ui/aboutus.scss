@@ -1,5 +1,5 @@
 .about {
-    background-color: $primary-color-white-alt;
+    background-color: var(--surface-400);
     position: relative;
     z-index: 5;
     box-shadow: none;
@@ -8,6 +8,7 @@
         margin: 0.8rem;
         font-size: 1rem;
         line-height: 1.6rem;
+        text-align: justify;
     }
 
     &-card {
@@ -22,7 +23,7 @@
         box-shadow: none;
     }
     .courbe .boite-card .p-card {
-        box-shadow: -2px 4px 20px 0px $primary-color-blue-dark;
+        box-shadow: 0px 4px 20px 3px $primary-color-blue-dark;
         margin-top: 1.2rem;
         border-radius: 20px;
     }
@@ -32,12 +33,12 @@
             img {
                 max-width: 250px;
                 max-height: 250px;
-                // margin: 0 1rem;
                 border-radius: 50%;
             }
 
             &-card {
                 width: 65%;
+                transition: all 0.8s ease-in-out;
 
                 &-btn {
                     display: flex;
@@ -62,6 +63,11 @@
                         color: $primary-color-black;
                         font-weight: 700;
                     }
+                }
+
+                .p-card-body {
+                    background-color: $primary-color-white-alt;
+                    border-radius: 20px;
                 }
             }
         }
@@ -117,7 +123,7 @@
     width: 160px;
     height: 160px;
     position: absolute;
-    background-color: $primary-color-white-alt;
+    background-color: var(--surface-400);
     z-index: -2;
     border-radius: 50%;
     top: 0;
@@ -140,7 +146,7 @@
     width: 160px;
     height: 160px;
     position: absolute;
-    background-color: $primary-color-white-alt;
+    background-color: var(--surface-400);
     z-index: -2;
     border-radius: 50%;
     bottom: 0;

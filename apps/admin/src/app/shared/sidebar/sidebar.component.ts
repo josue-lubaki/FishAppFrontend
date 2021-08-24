@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '@ghost/users';
 import { ConfirmationService, MessageService } from 'primeng/api';
-import { timer } from 'rxjs/internal/observable/timer';
+import { timer } from 'rxjs';
 
 @Component({
     selector: 'admin-sidebar',
