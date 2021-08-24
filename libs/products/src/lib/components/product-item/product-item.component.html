@@ -1,13 +1,18 @@
 <div class="product-item animate__animated animate__zoomIn" *ngIf="product">
-  <div class="product-item-wrapper">
-    <img [routerLink]="'/products/' + product.id" [src]="product.image" class="image" alt="">
-    <h4 class="name">{{ product.name }}</h4>
-    <h5 class="price">{{ product.price | currency }}</h5>
-    <p-button
-      styleClass="p-mt-3 add-to-cart"
-      label="Add to cart"
-      icon="pi pi-shopping-cart"
-      (onClick)="addProductToCart()"
-    ></p-button>
-  </div>
+    <div class="product-item-wrapper">
+        <img
+            [routerLink]="'/products/' + product.id"
+            [src]="product.image"
+            class="image"
+            alt=""
+        />
+        <h4 class="name">{{ product.name }}</h4>
+        <h5 class="price">{{ product.price | currency }}</h5>
+        <p-button
+            styleClass="p-mt-3 add-to-cart"
+            label="Ajouter au panier"
+            icon="pi pi-shopping-cart"
+            (onClick)="addProductToCart()"
+        ></p-button>
+    </div>
 </div>

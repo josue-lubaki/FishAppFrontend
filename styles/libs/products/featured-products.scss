@@ -51,7 +51,7 @@
     content: '';
     width: 80px;
     height: 80px;
-    background-color: $primary-color-white-alt;
+    background-color: var(--surface-400);
     position: absolute;
     bottom: -1px;
     left: 0;
