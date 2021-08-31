@@ -1,20 +1,24 @@
 <div class="order-summary">
-  <h3>Récapitulatif de la commande</h3>
-  <div class="summary-price">
-    <span>Prix des articles</span>
-    <span>{{ totalPrice | currency }}</span>
-  </div>
-  <div class="summary-price">
-    <span>Emballage et expédition</span>
-    <span class="free">Gratuit</span>
-  </div>
-  <div class="to-checkout">
+    <h3>Récapitulatif de la commande</h3>
     <div class="summary-price">
-      <span>Prix total</span>
-      <span>{{ totalPrice | currency }}</span>
+        <span>Prix des articles</span>
+        <span>{{ totalPrice | currency }}</span>
     </div>
-    <div class="checkout-button" *ngIf="!isCheckoutPage">
-      <p-button label="Continuer" (onClick)="navigateToCheckout()"></p-button>
+    <div class="summary-price">
+        <span>Emballage et expédition</span>
+        <span class="free">Gratuit</span>
     </div>
-  </div>
+    <div class="to-checkout">
+        <div class="summary-price">
+            <span>Prix total</span>
+            <span>{{ totalPrice | currency }}</span>
+        </div>
+        <div class="checkout-button" *ngIf="!isCheckoutPage">
+            <p-button
+                label="Continuer"
+                (onClick)="navigateToCheckout()"
+                [disabled]="disabled"
+            ></p-button>
+        </div>
+    </div>
 </div>
