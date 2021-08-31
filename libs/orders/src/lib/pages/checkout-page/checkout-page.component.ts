@@ -20,6 +20,7 @@ export class CheckoutPageComponent implements OnInit {
     orderItems: OrderItem[] = [];
     countries: unknown[] = [];
     user: any;
+    disabled = false;
 
     constructor(
         private router: Router,
@@ -81,6 +82,12 @@ export class CheckoutPageComponent implements OnInit {
     private _getCartItems() {
         const cart = this.cartService.getCart();
         const cartClean = cart.items || [];
+        if (cart.items?.length === 0) {
+            this.disabled = true;
+        } else {
+            this.disabled = false;
+        }
+
         this.orderItems = cartClean.map((item) => {
             return {
                 product: item.productId,

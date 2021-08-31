@@ -1,5 +1,5 @@
 /* eslint-disable @nrwl/nx/enforce-module-boundaries */
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductsService } from '@ghost/products';
 import { Subject } from 'rxjs';
@@ -16,6 +16,9 @@ export class OrderSummaryComponent implements OnInit, OnDestroy {
     totalPrice!: number;
     isCheckoutPage = false;
 
+    @Input() countItem: any;
+    disabled = true;
+
     constructor(
         private cartService: CartService,
         private productsService: ProductsService,
@@ -29,11 +32,18 @@ export class OrderSummaryComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
         this._getOrderSummary();
+        this._initDisabled();
     }
 
     ngOnDestroy(): void {
         this.endSubs$.next();
         this.endSubs$.complete();
+    }
+
+    _initDisabled() {
+        if (this.countItem > 0) {
+            this.disabled = false;
+        }
     }
 
     /**
@@ -49,6 +59,9 @@ export class OrderSummaryComponent implements OnInit, OnDestroy {
                         .pipe(take(1))
                         .subscribe((product: any) => {
                             this.totalPrice += product.price * item.quantity;
+                            if (this.totalPrice === 0) {
+                                this.disabled = true;
+                            }
                         });
                 });
             }
