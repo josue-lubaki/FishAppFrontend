@@ -1,104 +1,164 @@
 <p-toast></p-toast>
 <div class="checkout-page p-mt-3">
-  <div>
-    <p-button label="Back to cart" icon="pi pi-arrow-left" (onClick)="backToCart()"></p-button>
-  </div>
-  <div class="p-grid checkout-form p-mt-3">
-    <div class="p-col-8">
-      <form [formGroup]="checkoutFormGroup">
-        <div class="p-fluid p-formgrid p-grid">
-          <div class="p-field p-col-4">
-            <label for="name">Name</label>
-            <input formControlName="name" id="name" type="text" pInputText />
-            <small *ngIf="checkoutForm.name.invalid && isSubmitted" class="p-error"
-              >Name est obligatoire</small
-            >
-          </div>
-          <div class="p-field p-col-4">
-            <label for="email">Email</label>
-            <input formControlName="email" id="email" type="text" pInputText />
-            <small *ngIf="checkoutForm.email.invalid && isSubmitted" class="p-error"
-              ><span *ngIf="checkoutForm.email.errors?.required">email est obligatoire</span>
-              <span *ngIf="checkoutForm.email.errors?.email">email is invalid</span></small
-            >
-          </div>
-          <div class="p-field p-col-4">
-            <label for="color">Phone</label><br />
-            <p-inputMask
-              mask="(999) 999-9999"
-              formControlName="phone"
-              placeholder="(999) 999-9999"
-            ></p-inputMask>
-            <small *ngIf="checkoutForm.phone.invalid && isSubmitted" class="p-error"
-              >phone est obligatoire</small
-            >
-          </div>
-        </div>
-        <div class="p-fluid p-formgrid p-grid">
-          <div class="p-field p-col-4">
-            <label for="avenue">Avenue</label>
-            <input formControlName="avenue" id="avenue" type="text" pInputText />
-            <small *ngIf="checkoutForm.avenue.invalid && isSubmitted" class="p-error"
-              >Avenue est obligatoire</small
-            >
-          </div>
-          <div class="p-field p-col-4">
-            <label for="apartment"> Apartment (Numero)</label>
-            <input formControlName="apartment" id="apartment" type="text" pInputText class="tooltip tooltiptext"/>
-            <small *ngIf="checkoutForm.apartment.invalid && isSubmitted" class="p-error"
-              >Apartment est obligatoire</small
-            >
-          </div>
-          <div class="p-field p-col-4">
-            <label for="quartier">Quartier</label>
-            <input formControlName="quartier" id="quartier" type="text" pInputText />
-            <small *ngIf="checkoutForm.quartier.invalid && isSubmitted" class="p-error"
-              >Quartier est obligatoire</small
-            >
-          </div>
-
-          <div class="p-field p-col-4">
-            <label for="commune">Commune</label>
-            <input formControlName="commune" id="commune" type="text" pInputText />
-            <small *ngIf="checkoutForm.commune.invalid && isSubmitted" class="p-error"
-              >Commune est obligatoire</small
-            >
-          </div>
-
-          <div class="p-field p-col-4">
-            <label for="city">City</label>
-            <input formControlName="city" id="city" type="text" pInputText />
-            <small *ngIf="checkoutForm.city.invalid && isSubmitted" class="p-error"
-              >City est obligatoire</small
-            >
-          </div>
-          <div class="p-field p-col-4">
-            <label for="country">Country</label><br />
-            <p-dropdown
-              [options]="countries"
-              formControlName="country"
-              optionLabel="name"
-              optionValue="id"
-              [filter]="true"
-              filterBy="name"
-              [showClear]="true"
-              placeholder="Select a Country"
-            ></p-dropdown>
-            <small *ngIf="checkoutForm.country.invalid && isSubmitted" class="p-error"
-              >Country est obligatoire</small
-            >
-          </div>
-        </div>
-      </form>
+    <div>
+        <p-button
+            label="Back to cart"
+            icon="pi pi-arrow-left"
+            (onClick)="backToCart()"
+        ></p-button>
     </div>
-    <div class="p-col-4">
-      <orders-order-summary></orders-order-summary>
-      <div class="checkout-button">
-        <p-button label="Réserver" (onClick)="placeReservation()"></p-button>
-      </div>
-      <div class="checkout-button">
-        <p-button label="Acheter Maintenant" (onClick)="placeOrder()"></p-button>
-      </div>
+    <div class="p-grid checkout-form p-mt-3">
+        <div class="p-col-8">
+            <form [formGroup]="checkoutFormGroup">
+                <div class="p-fluid p-formgrid p-grid">
+                    <div class="p-field p-col-4">
+                        <label for="name">Name</label>
+                        <input formControlName="name" id="name" type="text" pInputText />
+                        <small
+                            *ngIf="checkoutForm.name.invalid && isSubmitted"
+                            class="p-error"
+                            >Name est obligatoire</small
+                        >
+                    </div>
+                    <div class="p-field p-col-4">
+                        <label for="email">Email</label>
+                        <input
+                            formControlName="email"
+                            id="email"
+                            type="text"
+                            pInputText
+                        />
+                        <small
+                            *ngIf="checkoutForm.email.invalid && isSubmitted"
+                            class="p-error"
+                            ><span *ngIf="checkoutForm.email.errors?.required"
+                                >email est obligatoire</span
+                            >
+                            <span *ngIf="checkoutForm.email.errors?.email"
+                                >email is invalid</span
+                            ></small
+                        >
+                    </div>
+                    <div class="p-field p-col-4">
+                        <label for="color">Phone</label><br />
+                        <p-inputMask
+                            mask="(999) 999-9999"
+                            formControlName="phone"
+                            placeholder="(999) 999-9999"
+                        ></p-inputMask>
+                        <small
+                            *ngIf="checkoutForm.phone.invalid && isSubmitted"
+                            class="p-error"
+                            >phone est obligatoire</small
+                        >
+                    </div>
+                </div>
+                <div class="p-fluid p-formgrid p-grid">
+                    <div class="p-field p-col-4">
+                        <label for="avenue">Avenue</label>
+                        <input
+                            formControlName="avenue"
+                            id="avenue"
+                            type="text"
+                            pInputText
+                        />
+                        <small
+                            *ngIf="checkoutForm.avenue.invalid && isSubmitted"
+                            class="p-error"
+                            >Avenue est obligatoire</small
+                        >
+                    </div>
+                    <div class="p-field p-col-4">
+                        <label for="apartment"> Apartment (Numero)</label>
+                        <input
+                            formControlName="apartment"
+                            id="apartment"
+                            type="text"
+                            pInputText
+                            class="tooltip tooltiptext"
+                        />
+                        <small
+                            *ngIf="checkoutForm.apartment.invalid && isSubmitted"
+                            class="p-error"
+                            >Apartment est obligatoire</small
+                        >
+                    </div>
+                    <div class="p-field p-col-4">
+                        <label for="quartier">Quartier</label>
+                        <input
+                            formControlName="quartier"
+                            id="quartier"
+                            type="text"
+                            pInputText
+                        />
+                        <small
+                            *ngIf="checkoutForm.quartier.invalid && isSubmitted"
+                            class="p-error"
+                            >Quartier est obligatoire</small
+                        >
+                    </div>
+
+                    <div class="p-field p-col-4">
+                        <label for="commune">Commune</label>
+                        <input
+                            formControlName="commune"
+                            id="commune"
+                            type="text"
+                            pInputText
+                        />
+                        <small
+                            *ngIf="checkoutForm.commune.invalid && isSubmitted"
+                            class="p-error"
+                            >Commune est obligatoire</small
+                        >
+                    </div>
+
+                    <div class="p-field p-col-4">
+                        <label for="city">City</label>
+                        <input formControlName="city" id="city" type="text" pInputText />
+                        <small
+                            *ngIf="checkoutForm.city.invalid && isSubmitted"
+                            class="p-error"
+                            >City est obligatoire</small
+                        >
+                    </div>
+                    <div class="p-field p-col-4">
+                        <label for="country">Country</label><br />
+                        <p-dropdown
+                            [options]="countries"
+                            formControlName="country"
+                            optionLabel="name"
+                            optionValue="id"
+                            [filter]="true"
+                            filterBy="name"
+                            [showClear]="true"
+                            placeholder="Select a Country"
+                        ></p-dropdown>
+                        <small
+                            *ngIf="checkoutForm.country.invalid && isSubmitted"
+                            class="p-error"
+                            >Country est obligatoire</small
+                        >
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="p-col-4">
+            <orders-order-summary></orders-order-summary>
+            <div class="checkout-button">
+                <p-button
+                    label="Réserver"
+                    (onClick)="placeReservation()"
+                    [disabled]="disabled"
+                ></p-button>
+            </div>
+            <div class="checkout-button">
+                <p-button
+                    label="Acheter Maintenant"
+                    (onClick)="placeOrder()"
+                    [disabled]="disabled"
+                ></p-button>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
