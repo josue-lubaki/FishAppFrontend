@@ -14,7 +14,9 @@ import { InputMaskModule } from 'primeng/inputmask';
 import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
 import { ToastModule } from 'primeng/toast';
+import { CardModule } from 'primeng/card';
 import { ThankYouComponent } from './pages/thank-you/thank-you.component';
+import { CheckPayComponent } from './pages/check-pay/check-pay.component';
 
 const routes: Routes = [
     {
@@ -28,6 +30,10 @@ const routes: Routes = [
     {
         path: 'success',
         component: ThankYouComponent
+    },
+    {
+        path: 'check-method',
+        component: CheckPayComponent
     }
 ];
 
@@ -43,14 +49,16 @@ const routes: Routes = [
         InputMaskModule,
         InputTextModule,
         DropdownModule,
-        ToastModule
+        ToastModule,
+        CardModule
     ],
     declarations: [
         CartIconComponent,
         CartPageComponent,
         OrderSummaryComponent,
         CheckoutPageComponent,
-        ThankYouComponent
+        ThankYouComponent,
+        CheckPayComponent
     ],
     exports: [
         CartIconComponent,

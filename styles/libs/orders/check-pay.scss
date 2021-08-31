@@ -1,0 +1,68 @@
+.ckeck-pay {
+    background-color: var(--surface-400);
+    position: relative;
+    box-shadow: none;
+
+    .p-grid {
+        flex-direction: column;
+    }
+
+    .checkBoite-card .p-card {
+        margin: 0.5rem 1rem;
+        box-shadow: 0px 4px 20px 3px $primary-color-blue-dark-alt;
+    }
+
+    .checkBoite-card .p-card:hover {
+        box-shadow: 0px 4px 20px 3px $primary-color-red-secondary;
+    }
+
+    .p-card {
+        .boite {
+            img {
+                max-width: 250px;
+                max-height: 250px;
+                border-radius: 50%;
+            }
+
+            &-card {
+                width: 65%;
+                transition: all 0.8s ease-in-out;
+
+                &-btn {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+
+                    .p-button {
+                        background-color: $primary-color-footer;
+                        border: 1px solid $primary-color-white-alt;
+                        cursor: default;
+                    }
+
+                    .p-button:last-child {
+                        .pi {
+                            color: $primary-color-yellow;
+                        }
+                    }
+
+                    &-text {
+                        font-size: 1rem;
+                        margin-left: 0.75rem;
+                        color: $primary-color-black;
+                        font-weight: 700;
+                    }
+                }
+
+                .p-card-body {
+                    background-color: $primary-color-white-alt;
+                    border-radius: 20px;
+                }
+            }
+        }
+
+        &-title,
+        &-subtitle {
+            text-align: center;
+        }
+    }
+}
