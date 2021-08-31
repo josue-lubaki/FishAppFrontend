@@ -139,7 +139,7 @@ export class CheckoutPageComponent implements OnInit {
         this.orderService.createOrder(order).subscribe(
             () => {
                 // redirect to thank you page
-                this.router.navigate(['/success']);
+                this.router.navigate(['/check-method']);
                 this.cartService.emptyCart();
             },
             () => {
