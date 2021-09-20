@@ -45,6 +45,19 @@
                         }
                     }
 
+                    .confirmation button {
+                        background-color: $primary-color-red-dark;
+                    }
+
+                    .confirmation span {
+                        color: $primary-color-white-alt;
+                    }
+
+                    .confirmation button:hover {
+                        background-color: green;
+                        cursor: pointer;
+                    }
+
                     &-text {
                         font-size: 1rem;
                         margin-left: 0.75rem;

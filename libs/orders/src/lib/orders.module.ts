@@ -17,6 +17,7 @@ import { ToastModule } from 'primeng/toast';
 import { CardModule } from 'primeng/card';
 import { ThankYouComponent } from './pages/thank-you/thank-you.component';
 import { CheckPayComponent } from './pages/check-pay/check-pay.component';
+import { AuthGuard } from '@ghost/users';
 
 const routes: Routes = [
     {
@@ -25,7 +26,8 @@ const routes: Routes = [
     },
     {
         path: 'checkout',
-        component: CheckoutPageComponent
+        component: CheckoutPageComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'success',
