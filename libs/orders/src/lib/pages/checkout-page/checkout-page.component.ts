@@ -3,7 +3,13 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LocalstorageService, User, UsersService } from '@ghost/users';
-import { CartService, Order, OrderItem, OrdersService } from '@ghost/orders';
+import {
+    AchatService,
+    CartService,
+    Order,
+    OrderItem,
+    OrdersService
+} from '@ghost/orders';
 import { Reservation } from '../../models/reservation';
 import { ReservationService } from '@ghost/reservation';
 import { MessageService } from 'primeng/api';
@@ -27,6 +33,7 @@ export class CheckoutPageComponent implements OnInit {
         private userService: UsersService,
         private formBuilder: FormBuilder,
         private cartService: CartService,
+        private achatService: AchatService,
         private orderService: OrdersService,
         private reservationService: ReservationService,
         private localstorage: LocalstorageService,
@@ -136,16 +143,19 @@ export class CheckoutPageComponent implements OnInit {
             dateOrdered: `${Date.now()}`
         };
 
-        this.orderService.createOrder(order).subscribe(
-            () => {
-                // redirect to thank you page
-                this.router.navigate(['/check-method']);
-                this.cartService.emptyCart();
-            },
-            () => {
-                // display some message to user
-            }
-        );
+        this.achatService.setOrderItem(order);
+        this.router.navigate(['/check-method']);
+
+        // this.orderService.createOrder(order).subscribe(
+        //     () => {
+        //         // redirect to thank you page
+        //         this.router.navigate(['/check-method']);
+        //         this.cartService.emptyCart();
+        //     },
+        //     () => {
+        //         // display some message to user
+        //     }
+        // );
     }
 
     showWarn() {

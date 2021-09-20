@@ -4,9 +4,9 @@
             <div class="about-text">
                 Pour les Paiements de vos articles par <b>M-PESA</b><br />
                 Voici le numero de téléphone : <b>+(243) 826451701</b><br />
-                Après votre transfert, écrivez un message avec votre nom et le montant de
-                la facture. Nous vous enverrons un message en retour dès que votre
-                commande sera traitée.
+                Après votre transfert, cliquer sur le Bouton << Confirmer Transfert >> et
+                écrivez un message avec votre nom et le montant de la facture. Nous vous
+                enverrons un message en retour dès que votre commande sera traitée.
             </div>
             <div class="boite-card-btn">
                 <p-button styleClass="p-px-3 p-mr-4" pRipple>
@@ -20,10 +20,22 @@
                     </ng-template>
                 </p-button>
 
-                <p-button styleClass="p-px-3" pRipple>
+                <p-button styleClass="p-px-3 p-mr-4" pRipple>
                     <ng-template pTemplate="content">
-                        <i class="pi pi-dollar" style="font-size: 2rem"></i>
+                        <i class="pi pi-dollar" style="font-size: 2.2rem"></i>
                         <span class="boite-card-btn-text">Paiement Facile</span>
+                    </ng-template>
+                </p-button>
+
+                <p-button
+                    styleClass="p-px-3"
+                    class="confirmation"
+                    pRipple
+                    (onClick)="confirmationAchat()"
+                >
+                    <ng-template pTemplate="content">
+                        <i class="pi pi-check" style="font-size: 2.2rem"></i>
+                        <span class="boite-card-btn-text">Confirmer Transfert</span>
                     </ng-template>
                 </p-button>
             </div>
