@@ -91,7 +91,7 @@
         "eslint-config-prettier": "8.3.0",
         "eslint-plugin-cypress": "^2.10.3",
         "jest": "27.1.0",
-        "jest-preset-angular": "9.0.7",
+        "jest-preset-angular": "10.0.0",
         "ng-packagr": "^12.2.1",
         "prettier": "^2.3.1",
         "ts-jest": "27.0.5",
