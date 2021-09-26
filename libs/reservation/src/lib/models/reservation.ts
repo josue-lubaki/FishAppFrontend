@@ -3,7 +3,7 @@ export class Reservation {
     user?: any;
     orderItems?: any;
     status?: number;
-    note?: string;
+    notes?: string;
     totalPrice?: string;
     dateReservated?: string;
     avenue!: string;
