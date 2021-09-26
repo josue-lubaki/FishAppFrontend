@@ -57,7 +57,8 @@ export class CheckoutPageComponent implements OnInit {
             quartier: ['', Validators.required],
             commune: ['', Validators.required],
             apartment: ['', Validators.required],
-            avenue: ['', Validators.required]
+            avenue: ['', Validators.required],
+            notes: ['', Validators.maxLength(250)]
         });
     }
 
@@ -139,25 +140,18 @@ export class CheckoutPageComponent implements OnInit {
             country: this.checkoutForm.country.value,
             phone: this.checkoutForm.phone.value,
             status: 0,
+            notes: this.checkoutForm.notes.value,
             user: this.localstorage.getUserCurrent(),
             dateOrdered: `${Date.now()}`
         };
 
         this.achatService.setOrderItem(order);
         this.router.navigate(['/check-method']);
-
-        // this.orderService.createOrder(order).subscribe(
-        //     () => {
-        //         // redirect to thank you page
-        //         this.router.navigate(['/check-method']);
-        //         this.cartService.emptyCart();
-        //     },
-        //     () => {
-        //         // display some message to user
-        //     }
-        // );
     }
 
+    /**
+     * Toast qui signale qui le panier est vide
+     */
     showWarn() {
         this.messageService.add({
             severity: 'warn',
@@ -190,10 +184,13 @@ export class CheckoutPageComponent implements OnInit {
             quartier: this.checkoutForm.quartier.value,
             commune: this.checkoutForm.commune.value,
             country: this.checkoutForm.country.value,
+            notes: this.checkoutForm.notes.value,
             status: 0,
             user: this.localstorage.getUserCurrent(),
             dateReservated: `${Date.now()}`
         };
+
+        console.log('Valeur de notes : ' + reservation.notes);
 
         this.reservationService.createReservation(reservation).subscribe(() => {
             // redirect to thank you page

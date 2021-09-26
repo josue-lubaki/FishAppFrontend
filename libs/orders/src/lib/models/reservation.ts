@@ -10,5 +10,6 @@ export class Reservation {
     status?: number;
     totalPrice?: string;
     user?: any;
+    notes?: any;
     dateReservated?: string;
 }
