@@ -89,7 +89,7 @@
         "dotenv": "10.0.0",
         "eslint": "7.32.0",
         "eslint-config-prettier": "8.3.0",
-        "eslint-plugin-cypress": "^2.10.3",
+        "eslint-plugin-cypress": "^2.12.1",
         "jest": "27.1.0",
         "jest-preset-angular": "10.0.0",
         "ng-packagr": "^12.2.2",
