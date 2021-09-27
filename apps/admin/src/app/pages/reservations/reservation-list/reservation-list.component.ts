@@ -5,6 +5,7 @@ import { Reservation, ReservationService, RESERVATION_STATUS } from '@ghost/rese
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { Location } from '@angular/common';
 @Component({
     selector: 'admin-reservation-list',
     templateUrl: './reservation-list.component.html',
@@ -19,7 +20,8 @@ export class ReservationListComponent implements OnInit, OnDestroy {
         private reservationService: ReservationService,
         private messageService: MessageService,
         private confirmationService: ConfirmationService,
-        private router: Router
+        private router: Router,
+        private location: Location
     ) {}
 
     ngOnInit(): void {
@@ -91,5 +93,9 @@ export class ReservationListComponent implements OnInit, OnDestroy {
             },
             reject: () => {}
         });
+    }
+
+    goBack() {
+        this.location.back();
     }
 }

@@ -66,8 +66,7 @@ export class ReservationService {
      * @param reservation la reservation à créer
      * @returns void
      */
-  createReservation(reservation: Reservation): Observable<Reservation> {
-      console.log("Je suis dasn service Reservation : " + reservation.notes)
+    createReservation(reservation: Reservation): Observable<Reservation> {
         return this.http.post<Reservation>(this.apiURLReservation, reservation);
     }
 

@@ -1,71 +1,90 @@
-.admin{
-  &-wrapper{
-    height: 100%;
-    padding: 0;
-    margin: 0;
-  }
-
-  &-main{
-    width: calc(100% - 175px);
-    margin-left: 175px;
-  }
-
-  &-sidebar {
-    position: fixed;
-    width: 175px;
-    background-color: #0a1d31;
-    height: 100%;
-    top: 0;
-
-    .logo{
-      padding : 20px;
-      width: 100%;
-
-      img{
-        max-width: 100%;
-        transform: scale(1.5);
-      }
+.admin {
+    &-wrapper {
+        height: 100%;
+        padding: 0;
+        margin: 0;
     }
 
-    .links{
-      ul{
-        margin: 0;
-        padding: 0;
+    &-main {
+        width: calc(100% - 175px);
+        margin-left: 175px;
+    }
 
-        li{
-          display: block;
-          list-style: none;
-          width: 100%;
-          cursor: pointer;
+    &-sidebar {
+        position: fixed;
+        width: 175px;
+        background-color: #0a1d31;
+        height: 100%;
+        top: 0;
 
-          a{
-            color: var(--surface-a);
-            padding: 10px 15px;
-            display: block;
+        .logo {
+            padding: 20px;
             width: 100%;
 
-            &:hover{
-              background-color: var(--blue-700);
+            img {
+                max-width: 100%;
+                transform: scale(1.5);
             }
-
-            i{
-              margin-right: 8px;
-              margin-top: 0;
-              float: left;
-            }
-
-            &.logout{
-              color: var(--blue-500);
-            }
-
-          }
         }
-      }
+
+        .links {
+            ul {
+                margin: 0;
+                padding: 0;
+
+                li {
+                    display: block;
+                    list-style: none;
+                    width: 100%;
+                    cursor: pointer;
+
+                    a {
+                        color: var(--surface-a);
+                        padding: 10px 15px;
+                        display: block;
+                        width: 100%;
+
+                        &:hover {
+                            background-color: var(--blue-700);
+                        }
+
+                        i {
+                            margin-right: 8px;
+                            margin-top: 0;
+                            float: left;
+                        }
+
+                        &.logout {
+                            color: var(--blue-500);
+                        }
+                    }
+                }
+            }
+        }
     }
-  }
 
-  &-page{
-    padding:15px;
-  }
+    &-page {
+        padding: 15px;
+        .p-card-title {
+            color: $primary-color-white-blue;
+        }
 
+        .p-card .p-card-subtitle {
+            color: $primary-color-yellow-light;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .admin {
+        &-sidebar {
+            width: initial;
+            display: none;
+        }
+
+        &-main {
+            width: 100%;
+            margin-left: 0;
+        }
+    }
 }

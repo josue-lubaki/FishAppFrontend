@@ -190,8 +190,6 @@ export class CheckoutPageComponent implements OnInit {
             dateReservated: `${Date.now()}`
         };
 
-        console.log('Valeur de notes : ' + reservation.notes);
-
         this.reservationService.createReservation(reservation).subscribe(() => {
             // redirect to thank you page
             this.router.navigate(['/success']);
