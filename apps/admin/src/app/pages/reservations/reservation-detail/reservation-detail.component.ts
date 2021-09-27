@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Reservation, ReservationService, RESERVATION_STATUS } from '@ghost/reservation';
 import { MessageService } from 'primeng/api';
+import { Location } from '@angular/common';
 
 @Component({
     selector: 'admin-reservation-detail',
@@ -17,7 +18,8 @@ export class ReservationDetailComponent implements OnInit {
     constructor(
         private reservationService: ReservationService,
         private route: ActivatedRoute,
-        private messageService: MessageService
+        private messageService: MessageService,
+        private location: Location
     ) {}
 
     ngOnInit(): void {
@@ -76,5 +78,9 @@ export class ReservationDetailComponent implements OnInit {
                     });
                 }
             );
+    }
+
+    goBack() {
+        this.location.back();
     }
 }

@@ -4,7 +4,6 @@
 @import './base/fonts.scss';
 @import './base/mixins.scss';
 
-
 // bootstrap
 //@import '~bootstrap/scss/bootstrap.scss';
 
@@ -24,6 +23,6 @@
 @import './libs/ui/ui.scss';
 @import './libs/orders/order-detail.scss';
 
-
 // Libraries
-@import './libs/users/users.scss'
+@import './libs/users/users.scss';
+@import './libs/reservations/reservation.scss';

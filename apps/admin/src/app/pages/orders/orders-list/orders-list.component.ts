@@ -5,6 +5,7 @@ import { Order, OrdersService, ORDER_STATUS } from '@ghost/orders';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { Location } from '@angular/common';
 
 @Component({
     selector: 'admin-orders-list',
@@ -20,7 +21,8 @@ export class OrdersListComponent implements OnInit, OnDestroy {
         private ordersService: OrdersService,
         private messageService: MessageService,
         private confirmationService: ConfirmationService,
-        private router: Router
+        private router: Router,
+        private location: Location
     ) {}
 
     ngOnInit(): void {
@@ -88,5 +90,9 @@ export class OrdersListComponent implements OnInit, OnDestroy {
      */
     updateOrders(orderId: string) {
         this.router.navigateByUrl(`order/form/${orderId}`);
+    }
+
+    goBack() {
+        this.location.back();
     }
 }

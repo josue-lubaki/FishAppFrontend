@@ -5,6 +5,7 @@ import { User, UsersService } from '@ghost/users';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { Location } from '@angular/common';
 
 @Component({
     selector: 'admin-users-list',
@@ -19,7 +20,8 @@ export class UsersListComponent implements OnInit, OnDestroy {
         private usersService: UsersService,
         private messageService: MessageService,
         private confirmationService: ConfirmationService,
-        private router: Router
+        private router: Router,
+        private location: Location
     ) {}
 
     ngOnInit(): void {
@@ -97,5 +99,9 @@ export class UsersListComponent implements OnInit, OnDestroy {
      */
     updateUser(userId: string) {
         this.router.navigateByUrl(`users/form/${userId}`);
+    }
+
+    goBack() {
+        this.location.back();
     }
 }

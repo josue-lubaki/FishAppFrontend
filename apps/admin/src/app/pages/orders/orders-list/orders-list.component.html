@@ -1,41 +1,79 @@
-<p-toast></p-toast> <!-- placer le Toast au top de la page -->
+<p-toast></p-toast>
+<!-- placer le Toast au top de la page -->
 <div class="admin-page">
-  <p-card header="Orders" subheader="List of all orders">
-    <div class="p-grid">
-      <div class="p-col-12">
-          <p-table [value]="orders" styleClass="p-datatable-gridlines">
-              <ng-template pTemplate="header">
-                  <tr>
-                      <th pSortableColumn="name">User <p-sortIcon field="name"></p-sortIcon></th>
-                      <th pSortableColumn="totalPrice">Total Price <p-sortIcon field="totalPrice"></p-sortIcon></th>
-                      <th pSortableColumn="dateOrdered">Date Orderd <p-sortIcon field="dateOrdered"></p-sortIcon></th>
-                      <th pSortableColumn="status">Status <p-sortIcon field="status"></p-sortIcon></th>
-                      <th></th>
-                  </tr>
-              </ng-template>
-              <ng-template pTemplate="body" let-order>
-                  <tr class="animate__animated animate__fadeIn">
-                      <td>
-                        <span *ngIf="order.user && order.user.name !== ''">{{order.user.name}}</span>
-                        <span *ngIf="!order.user || order.user.name === ''">Unknown</span>
-                      </td>
-                      <td>{{order.totalPrice | currency}}</td>
-                      <td>{{order.dateOrdered | date : "short"}}</td>
-                      <td>
-                        <p-tag
-                          [value]="orderStatus[order.status].label"
-                          [severity]="orderStatus[order.status].color">
-                        </p-tag></td>
-                      <td>
-                        <p-button (click)="deleteOrder(order.id)" styleClass="p-button-danger p-mr-2" icon="pi pi-trash"></p-button>
-                         <p-button (click)="showOrder(order.id)" styleClass="p-button-success" icon="pi pi-eye"></p-button>
-                      </td>
-                  </tr>
-              </ng-template>
-          </p-table>
-      </div>
-    </div>
-  </p-card>
+    <p-card header="Commandes" subheader="Liste des Commandes">
+        <div class="p-grid p-mb-4">
+            <div class="p-col-12">
+                <p-toolbar>
+                    <div class="p-toolbar-group-left"></div>
+                    <div class="p-toolbar-group-right">
+                        <p-button
+                            label="Back"
+                            icon="pi pi-arrow-circle-left"
+                            styleClass="p-button-secondary"
+                            (click)="goBack()"
+                        ></p-button>
+                    </div>
+                </p-toolbar>
+            </div>
+        </div>
+        <div class="p-grid">
+            <div class="p-col-12">
+                <p-table [value]="orders" styleClass="p-datatable-gridlines">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th pSortableColumn="name">
+                                User <p-sortIcon field="name"></p-sortIcon>
+                            </th>
+                            <th pSortableColumn="totalPrice">
+                                Prix<p-sortIcon field="totalPrice"></p-sortIcon>
+                            </th>
+                            <th pSortableColumn="dateOrdered">
+                                Date <p-sortIcon field="dateOrdered"></p-sortIcon>
+                            </th>
+                            <th pSortableColumn="status">
+                                Etat <p-sortIcon field="status"></p-sortIcon>
+                            </th>
+                            <th></th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-order>
+                        <tr class="animate__animated animate__fadeIn" id="ligneListe">
+                            <td>
+                                <span *ngIf="order.user && order.user.name !== ''">{{
+                                    order.user.name
+                                }}</span>
+                                <span *ngIf="!order.user || order.user.name === ''"
+                                    >Unknown</span
+                                >
+                            </td>
+                            <td>{{ order.totalPrice | currency }}</td>
+                            <td>{{ order.dateOrdered | date: 'short' }}</td>
+                            <td>
+                                <p-tag
+                                    [value]="orderStatus[order.status].label"
+                                    [severity]="orderStatus[order.status].color"
+                                >
+                                </p-tag>
+                            </td>
+                            <td>
+                                <p-button
+                                    (click)="deleteOrder(order.id)"
+                                    styleClass="p-button-danger p-mr-2"
+                                    icon="pi pi-trash"
+                                ></p-button>
+                                <p-button
+                                    (click)="showOrder(order.id)"
+                                    styleClass="p-button-success"
+                                    icon="pi pi-eye"
+                                ></p-button>
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </div>
+    </p-card>
 </div>
 
 <!-- Dialog de Confirmation de Suppression -->
@@ -44,12 +82,24 @@
 <!-- <p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text"></p-confirmDialog> -->
 
 <!-- 2ème Methode -->
-<p-confirmDialog #cd [style]="{width: '50vw'}">
+<p-confirmDialog #cd [style]="{ width: '50vw' }">
     <ng-template pTemplate="header">
         <h3>Delete Category</h3>
     </ng-template>
     <ng-template pTemplate="footer">
-        <p-button styleClass="p-button-success" type="button" icon="pi pi-times" label="No" (click)="cd.reject()"></p-button>
-        <p-button styleClass="p-button-danger" type="button" icon="pi pi-check" label="Yes" (click)="cd.accept()"></p-button>
+        <p-button
+            styleClass="p-button-success"
+            type="button"
+            icon="pi pi-times"
+            label="No"
+            (click)="cd.reject()"
+        ></p-button>
+        <p-button
+            styleClass="p-button-danger"
+            type="button"
+            icon="pi pi-check"
+            label="Yes"
+            (click)="cd.accept()"
+        ></p-button>
     </ng-template>
 </p-confirmDialog>

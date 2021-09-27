@@ -1,40 +1,56 @@
 <div class="admin-sidebar">
-  <div class="logo">
-      <img src="/assets/images/logoO.svg" alt="logo"  >
-  </div>
-  <div class="links">
-    <ul>
-      <li>
-        <a routerLink="/"><i class="pi pi-home"></i>Dashboard</a>
-      </li>
-       <li>
-        <a routerLink="/products"><i class="pi pi-briefcase"></i>Products</a>
-      </li>
-       <li>
-        <a routerLink="/categories"><i class="pi pi-list"></i>Categories</a>
-      </li>
-       <li>
-        <a routerLink="/orders"><i class="pi pi-shopping-cart"></i>Orders</a>
-      </li>
-      <li>
-        <a routerLink="/reservations"><i class="pi pi-calendar"></i>Reservations</a>
-      </li>
-       <li>
-        <a routerLink="/users"><i class="pi pi-users"></i>Users</a>
-      </li>
-       <li>
-        <a class="logout" (click)="logoutUser()"><i class="pi pi-sign-out"></i>Logout</a>
-      </li>
-    </ul>
-  </div>
+    <div class="logo">
+        <img src="/assets/images/logoO.svg" alt="logo" />
+    </div>
+    <div class="links">
+        <ul>
+            <li>
+                <a routerLink="/"><i class="pi pi-home"></i>Tableau de Bord</a>
+            </li>
+            <li>
+                <a routerLink="/products"><i class="pi pi-briefcase"></i>Produits</a>
+            </li>
+            <li>
+                <a routerLink="/categories"><i class="pi pi-list"></i>Categories</a>
+            </li>
+            <li>
+                <a routerLink="/orders"><i class="pi pi-shopping-cart"></i>Commandes</a>
+            </li>
+            <li>
+                <a routerLink="/reservations"
+                    ><i class="pi pi-calendar"></i>Réservations</a
+                >
+            </li>
+            <li>
+                <a routerLink="/users"><i class="pi pi-users"></i>Utilisateurs</a>
+            </li>
+            <li>
+                <a class="logout" (click)="logoutUser()"
+                    ><i class="pi pi-sign-out"></i>Déconnexion</a
+                >
+            </li>
+        </ul>
+    </div>
 </div>
 
-<p-confirmDialog #logout [style]="{width: '50vw'}">
+<p-confirmDialog #logout [style]="{ width: '50vw' }">
     <ng-template pTemplate="header">
         <h3>Déconnexion</h3>
     </ng-template>
     <ng-template pTemplate="footer">
-        <p-button styleClass="p-button-success" type="button" icon="pi pi-times" label="Non" (click)="logout.reject()"></p-button>
-        <p-button styleClass="p-button-danger" type="button" icon="pi pi-check" label="Oui" (click)="logout.accept()"></p-button>
+        <p-button
+            styleClass="p-button-success"
+            type="button"
+            icon="pi pi-times"
+            label="Non"
+            (click)="logout.reject()"
+        ></p-button>
+        <p-button
+            styleClass="p-button-danger"
+            type="button"
+            icon="pi pi-check"
+            label="Oui"
+            (click)="logout.accept()"
+        ></p-button>
     </ng-template>
 </p-confirmDialog>

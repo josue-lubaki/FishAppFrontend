@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Order, OrdersService, ORDER_STATUS } from '@ghost/orders';
 import { MessageService } from 'primeng/api';
+import { Location } from '@angular/common';
 
 @Component({
     selector: 'admin-orders-detail',
@@ -17,7 +18,8 @@ export class OrdersDetailComponent implements OnInit {
     constructor(
         private orderService: OrdersService,
         private route: ActivatedRoute,
-        private messageService: MessageService
+        private messageService: MessageService,
+        private location: Location
     ) {}
 
     ngOnInit(): void {
@@ -77,5 +79,8 @@ export class OrdersDetailComponent implements OnInit {
                     });
                 }
             );
+    }
+    goBack() {
+        this.location.back();
     }
 }

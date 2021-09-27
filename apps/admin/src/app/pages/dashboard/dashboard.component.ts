@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { OrdersService } from '@ghost/orders';
 import { ProductsService } from '@ghost/products';
 import { ReservationService } from '@ghost/reservation';
@@ -19,7 +20,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
         private usersService: UsersService,
         private orderService: OrdersService,
         private productService: ProductsService,
-        private reservationService: ReservationService
+        private reservationService: ReservationService,
+        private router: Router
     ) {}
 
     ngOnInit(): void {
@@ -40,5 +42,9 @@ export class DashboardComponent implements OnInit, OnDestroy {
     ngOnDestroy(): void {
         this.endSubs$.next();
         this.endSubs$.complete();
+    }
+
+    goTo(route: string) {
+        this.router.navigate([`/${route}`]);
     }
 }

@@ -5,6 +5,7 @@ import { CategoriesService, Product, ProductsService } from '@ghost/products';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { Location } from '@angular/common';
 
 @Component({
     selector: 'admin-products-list',
@@ -19,7 +20,8 @@ export class ProductsListComponent implements OnInit, OnDestroy {
         private categoriesService: CategoriesService,
         private messageService: MessageService,
         private confirmationService: ConfirmationService,
-        private router: Router
+        private router: Router,
+        private location: Location
     ) {}
 
     ngOnInit(): void {
@@ -78,5 +80,9 @@ export class ProductsListComponent implements OnInit, OnDestroy {
      */
     updateProduct(productId: string) {
         this.router.navigateByUrl(`products/form/${productId}`);
+    }
+
+    goBack() {
+        this.location.back();
     }
 }

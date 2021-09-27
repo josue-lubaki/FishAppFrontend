@@ -4,6 +4,7 @@ import { CategoriesService, Category } from '@ghost/products';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { Location } from '@angular/common';
 
 @Component({
     selector: 'admin-categories-list',
@@ -18,7 +19,8 @@ export class CategoriesListComponent implements OnInit, OnDestroy {
         private categoriesService: CategoriesService,
         private messageService: MessageService,
         private confirmationService: ConfirmationService,
-        private router: Router
+        private router: Router,
+        private location: Location
     ) {}
 
     ngOnDestroy(): void {
@@ -82,5 +84,8 @@ export class CategoriesListComponent implements OnInit, OnDestroy {
      */
     updateCategory(categoryId: string) {
         this.router.navigateByUrl(`categories/form/${categoryId}`);
+    }
+    goBack() {
+        this.location.back();
     }
 }

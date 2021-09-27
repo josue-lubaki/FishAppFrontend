@@ -1,92 +1,105 @@
 <div class="admin-page" *ngIf="statistics.length">
-  <p-card header="Dashboard" subheader="Latest Updates">
-    <div class="p-grid">
-      <div class="p-col-3">
-        <p-card styleClass="d-orders animate__animated animate__fadeIn">
-          <div class="d-item">
-            <div>
-              <i class="pi pi-shopping-cart"></i><br/>
-              <span class="name">Orders</span>
+    <p-card header="Tableau de Bord" subheader="Dernière mise à jour">
+        <div class="p-grid">
+            <div class="p-col-3">
+                <p-card
+                    styleClass="d-orders animate__animated animate__fadeIn"
+                    (click)="goTo('orders')"
+                >
+                    <div class="d-item">
+                        <div>
+                            <i class="pi pi-shopping-cart"></i><br />
+                            <span class="name">Commandes</span>
+                        </div>
+                        <span class="number">{{ statistics[0] }}</span>
+                    </div>
+                </p-card>
             </div>
-            <span class="number">{{ statistics[0] }}</span>
-          </div>
-        </p-card>
-      </div>
 
-      <div class="p-col-3">
-        <p-card styleClass="d-products animate__animated animate__fadeIn">
-          <div class="d-item">
-            <div>
-              <i class="pi pi-briefcase"></i><br/>
-              <span class="name">Products</span>
+            <div class="p-col-3">
+                <p-card
+                    styleClass="d-products animate__animated animate__fadeIn"
+                    (click)="goTo('products')"
+                >
+                    <div class="d-item">
+                        <div>
+                            <i class="pi pi-briefcase"></i><br />
+                            <span class="name">Produits</span>
+                        </div>
+                        <span class="number">{{ statistics[1] }}</span>
+                    </div>
+                </p-card>
             </div>
-            <span class="number">{{ statistics[1] }}</span>
-          </div>
-        </p-card>
-      </div>
 
-      <div class="p-col-3">
-        <p-card styleClass="d-users animate__animated animate__fadeIn">
-          <div class="d-item">
-            <div>
-              <i class="pi pi-users"></i><br/>
-              <span class="name">Users</span>
+            <div class="p-col-3">
+                <p-card
+                    styleClass="d-users animate__animated animate__fadeIn"
+                    (click)="goTo('users')"
+                >
+                    <div class="d-item">
+                        <div>
+                            <i class="pi pi-users"></i><br />
+                            <span class="name">Utilisateurs</span>
+                        </div>
+                        <span class="number">{{ statistics[2] }}</span>
+                    </div>
+                </p-card>
             </div>
-            <span class="number">{{ statistics[2] }}</span>
-          </div>
-        </p-card>
-      </div>
 
-      <div class="p-col-3">
-        <p-card styleClass="d-reservation animate__animated animate__fadeIn">
-          <div class="d-item">
-            <div>
-              <i class="pi pi-calendar"></i><br/>
-              <span class="name">Reservations</span>
+            <div class="p-col-3">
+                <p-card
+                    styleClass="d-reservation animate__animated animate__fadeIn"
+                    (click)="goTo('reservations')"
+                >
+                    <div class="d-item">
+                        <div>
+                            <i class="pi pi-calendar"></i><br />
+                            <span class="name">Réservations</span>
+                        </div>
+                        <span class="number">{{ statistics[4] }}</span>
+                    </div>
+                </p-card>
             </div>
-            <span class="number">{{ statistics[4] }}</span>
-          </div>
-        </p-card>
-      </div>
-    </div>
+        </div>
 
-
-    <div class="p-grid">
-      <div class="p-col-4">
-        <p-card styleClass="d-totalsales animate__animated animate__fadeIn">
-          <div class="d-item">
-            <div>
-              <i class="pi pi-dollar"></i><br/>
-              <span class="name">Total Vendus</span>
+        <div class="p-grid">
+            <div class="p-col-4">
+                <p-card styleClass="d-totalsales animate__animated animate__fadeIn">
+                    <div class="d-item">
+                        <div>
+                            <i class="pi pi-dollar"></i><br />
+                            <span class="name">Total Vendus</span>
+                        </div>
+                        <span class="number">{{ statistics[3] | currency }}</span>
+                    </div>
+                </p-card>
             </div>
-            <span class="number">{{ statistics[3] | currency}}</span>
-          </div>
-        </p-card>
-      </div>
 
-      <div class="p-col-4">
-        <p-card styleClass="d-totalreserved animate__animated animate__fadeIn">
-          <div class="d-item">
-            <div>
-              <i class="pi pi-dollar"></i><br/>
-              <span class="name">Total Reserved</span>
+            <div class="p-col-4">
+                <p-card styleClass="d-totalreserved animate__animated animate__fadeIn">
+                    <div class="d-item">
+                        <div>
+                            <i class="pi pi-dollar"></i><br />
+                            <span class="name">Total Reservés</span>
+                        </div>
+                        <span class="number">{{ statistics[5] | currency }}</span>
+                    </div>
+                </p-card>
             </div>
-            <span class="number">{{ statistics[5] | currency}}</span>
-          </div>
-        </p-card>
-      </div>
 
-       <div class="p-col-4">
-        <p-card styleClass="d-totaux animate__animated animate__fadeInUpBig">
-          <div class="d-item">
-            <div>
-              <i class="pi pi-dollar"></i><br/>
-              <span class="name">Totaux</span>
+            <div class="p-col-4">
+                <p-card styleClass="d-totaux animate__animated animate__fadeInUpBig">
+                    <div class="d-item">
+                        <div>
+                            <i class="pi pi-dollar"></i><br />
+                            <span class="name">Totaux</span>
+                        </div>
+                        <span class="number">{{
+                            statistics[3] + statistics[5] | currency
+                        }}</span>
+                    </div>
+                </p-card>
             </div>
-            <span class="number">{{ statistics[3] + statistics[5] | currency}}</span>
-          </div>
-        </p-card>
-      </div>
-    </div>
-  </p-card>
+        </div>
+    </p-card>
 </div>

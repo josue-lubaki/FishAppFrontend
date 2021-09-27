@@ -9,12 +9,20 @@ html {
 }
 
 .p-card-body {
-    background-color: rgba(255, 255, 255, 0.175);
+    //background-color: rgba(255, 255, 255, 0.175);
     backdrop-filter: blur(5px);
+    box-shadow: -3px -3px 5px rgba(255, 255, 255, 0.24), 3px 3px 5px rgba(0, 0, 0, 0.808);
+    border-radius: 30px;
 }
 
 .p-card {
     background-color: #ffffff00;
+    color: #000;
+    border-radius: 30px;
+}
+
+.p-fieldset {
+    background-color: #f7f7f7d7;
     color: #000;
 }
 
@@ -33,7 +41,7 @@ input {
 
 .p-inputtext,
 .p-dropdown {
-    background-color: rgba(196, 196, 196, 0.504);
+    background-color: rgba(255, 255, 255, 0.85);
 }
 
 .p-editor-container .p-editor-content .ql-editor {
