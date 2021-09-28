@@ -8,6 +8,10 @@
                 .p-col-4:nth-last-child(2) {
                     width: 65%;
                 }
+
+                .totalPrice {
+                    width: 50% !important;
+                }
             }
         }
     }
@@ -29,6 +33,9 @@
                 flex-direction: column;
                 .p-col-4 {
                     width: 100%;
+                }
+                .totalPrice {
+                    width: 100% !important;
                 }
                 .p-col-2 {
                     width: auto;

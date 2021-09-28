@@ -31,6 +31,7 @@ import { TableModule } from 'primeng/table';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { TagModule } from 'primeng/tag';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 import { DropdownModule } from 'primeng/dropdown';
 import { UserPageComponent } from './pages/user-page/user-page.component';
 import { UserOrdersComponent } from './pages/user-orders/user-orders.component';
@@ -99,7 +100,8 @@ gsap.registerPlugin(ScrollTrigger);
         DropdownModule,
         FormsModule,
         ReactiveFormsModule,
-        ConfirmDialogModule
+        ConfirmDialogModule,
+        InputTextareaModule
     ],
     providers: [
         FormBuilder,
