@@ -54,6 +54,18 @@ export class OrdersDetailComponent implements OnInit {
                     .updateNotesOrder({ notes: notes }, params.id)
                     .subscribe((order) => {
                         this.notesStarted = order.notes;
+                        this.messageService.add({
+                            severity: 'success',
+                            summary: 'Success',
+                            detail: `Message ajouté`
+                        }),
+                            () => {
+                                this.messageService.add({
+                                    severity: 'error',
+                                    summary: 'Error',
+                                    detail: 'Error message'
+                                });
+                            };
                     });
             }
         });
