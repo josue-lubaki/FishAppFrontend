@@ -13,7 +13,7 @@ import { CategoriesFormComponent } from './pages/categories/categories-form/cate
 import { CategoriesService } from '@ghost/products';
 import { ProductsListComponent } from './pages/products/products-list/products-list.component';
 import { ProductsFormComponent } from './pages/products/products-form/products-form.component';
-import { UsersModule, JwtInterceptor } from '@ghost/users';
+import { UsersModule } from '@ghost/users';
 
 import { CardModule } from 'primeng/card';
 import { ToolbarModule } from 'primeng/toolbar';
@@ -94,11 +94,11 @@ const UX_MODULE = [
         CategoriesService,
         MessageService,
         ConfirmationService,
-        {
-            provide: HTTP_INTERCEPTORS,
-            useClass: JwtInterceptor,
-            multi: true // Token utilisé pour toutes les requêtes
-        },
+        // {
+        //     provide: HTTP_INTERCEPTORS,
+        //     useClass: JwtInterceptor,
+        //     multi: true // Token utilisé pour toutes les requêtes
+        // },
         GalleriaModule
     ], // ces services seront utilisés par dependance Injection
     bootstrap: [AppComponent],
