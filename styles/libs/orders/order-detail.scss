@@ -75,3 +75,9 @@
         }
     }
 }
+
+.admin-page {
+    .p-card-body .p-card-content {
+        display: none;
+    }
+}
