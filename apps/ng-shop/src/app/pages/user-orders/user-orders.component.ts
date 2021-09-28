@@ -1,5 +1,6 @@
 /* eslint-disable @angular-eslint/no-empty-lifecycle-method */
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { OrdersService, ORDER_STATUS } from '@ghost/orders';
 import { MessageService } from 'primeng/api';
@@ -13,15 +14,26 @@ export class UserOrdersComponent implements OnInit {
     order: any;
     orderStatuses = ORDER_STATUS;
     selectedStatus: any;
+    formNotes!: FormGroup;
+    isSubmitted = false;
+    notesRecues?: string;
 
     constructor(
         private orderService: OrdersService,
         private route: ActivatedRoute,
-        private messageService: MessageService
+        private messageService: MessageService,
+        private formBuilder: FormBuilder
     ) {}
 
     ngOnInit(): void {
         this._getOrder();
+        this.initFormNotes();
+    }
+
+    private initFormNotes() {
+        this.formNotes = this.formBuilder.group({
+            notes: ['', Validators.maxLength(250)]
+        });
     }
 
     /**
@@ -35,6 +47,7 @@ export class UserOrdersComponent implements OnInit {
                 this.orderService.getOrder(params.id).subscribe((order) => {
                     this.order = order;
                     this.selectedStatus = order.status;
+                    this.notesRecues = order.notes;
                 });
             }
         });
@@ -63,5 +76,15 @@ export class UserOrdersComponent implements OnInit {
                     });
                 }
             );
+    }
+
+    voirNotes() {}
+
+    /**
+     * Getter du formulaire form
+     * @returns form.Controls
+     */
+    get formCheck() {
+        return this.formNotes.controls;
     }
 }

@@ -1,84 +1,67 @@
-<p-toast></p-toast> <!-- placer le Toast au top de la page -->
+<p-toast></p-toast>
+<!-- placer le Toast au top de la page -->
 <div class="admin-page" *ngIf="reservation">
-  <p-card
-    [header]="'Détail de ma Réservation'"
-   >
-  </p-card>
+    <p-card [header]="'Détail de ma Réservation'"> </p-card>
 
-  <p-fieldset legend="Détail réservation" [toggleable]="true"  styleClass="p-my-4">
-    <div class="p-grid">
-      <div class="p-col-4">
-        <h5>ID Réservation</h5>
-        <p>{{reservation.id}}</p>
-      </div>
+    <p-fieldset
+        legend="Détail réservation"
+        [toggleable]="true"
+        styleClass="p-my-4"
+        class="p-fieldset-reservationDetails"
+    >
+        <div class="p-grid">
+            <div class="p-col-4">
+                <h5>ID Réservation</h5>
+                <p>{{ reservation.id }}</p>
+            </div>
 
-      <div class="p-col-4">
-        <h5>Date de la Réservation</h5>
-        <p>{{reservation.dateReservated | date}}</p>
-      </div>
+            <div class="p-col-4">
+                <h5>Date de la Réservation</h5>
+                <p>{{ reservation.dateReservated | date }}</p>
+            </div>
 
-      <div class="p-col-4">
-        <h5>Status de la Réservation</h5>
-        <p-tag
-          [value]="reservationStatuses[reservation.status].label"
-          [severity]="reservationStatuses[reservation.status].color">
-        </p-tag>
-      </div>
+            <div class="p-col-4">
+                <h5>Status de la Réservation</h5>
+                <p-tag
+                    [value]="reservationStatuses[reservation.status].label"
+                    [severity]="reservationStatuses[reservation.status].color"
+                >
+                </p-tag>
+            </div>
 
-      <div class="p-col-4">
-        <h5>Prix Total</h5>
-        <p>{{reservation.totalPrice | currency}}</p>
-      </div>
-    </div>
-  </p-fieldset>
+            <div class="p-col-4">
+                <h5>Prix Total</h5>
+                <p>{{ reservation.totalPrice | currency }}</p>
+            </div>
+        </div>
+    </p-fieldset>
 
-  <p-fieldset legend="Contenus de la réservation" [toggleable]="true"  styleClass="p-mb-4">
-    <div class="p-grid p-mb-5">
-      <div class="p-col-3 p-text-bold">Nom du produit</div>
-      <div class="p-col-3 p-text-bold">Categorie</div>
-      <div class="p-col-2 p-text-bold">Prix</div>
-      <div class="p-col-2 p-text-bold">Quantité</div>
-      <div class="p-col-2 p-text-bold">Sous-total</div>
-    </div>
-    <div class="p-grid p-mb-5" *ngFor="let orderItem of reservation.orderItems">
-      <div class="p-col-3">{{orderItem.product.name}}</div>
-      <div class="p-col-3">{{orderItem.product.category.name}}</div>
-      <div class="p-col-2">{{orderItem.product.price | currency}}</div>
-      <div class="p-col-2">{{orderItem.quantity}}</div>
-      <div class="p-col-2">{{orderItem.product.price * orderItem.quantity | currency}}</div>
-    </div>
-    <hr>
-    <div class="p-grid p-text-bold" style="color:green; font-size: 1.25rem">
-      <div class="p-col-2 p-offset-8">Total Price</div>
-      <div class="p-col-2">{{reservation.totalPrice | currency}}</div>
-    </div>
-  </p-fieldset>
-
-  <!-- <p-fieldset legend="Order Address" [toggleable]="true"  styleClass="p-mb-4">
-    <div class="p-grid">
-       <div class="p-col-4">
-        <h5>Order Address</h5>
-        <p>
-          #{{reservation.apartment}} {{reservation.avenue}}<br/>
-          {{reservation.quartier}}, {{reservation.commune}} {{reservation.city}}<br/>
-          {{reservation.country}}<br/>
-        </p>
-      </div>
-
-        <div class="p-col-4" *ngIf="reservation.user">
-        <h5>Customer Info</h5>
-        <p class="p-mb-1">{{reservation.user.name}}</p>
-         <p class="p-mt-1">{{reservation.user.email}}</p>
-
-      </div>
-
-      <div class="p-col-4" *ngIf="order.user">
-        <h5>Contact Info</h5>
-        <p>
-          {{order.user.phone}}
-        </p>
-      </div>
-    </div>
-  </p-fieldset> -->
-
+    <p-fieldset
+        legend="Contenus de la réservation"
+        [toggleable]="true"
+        styleClass="p-mb-4"
+        class="p-fieldset-reservationItems"
+    >
+        <div class="p-grid p-mb-5">
+            <div class="p-col-3 p-text-bold">Nom du produit</div>
+            <div class="p-col-3 p-text-bold">Categorie</div>
+            <div class="p-col-2 p-text-bold">Prix</div>
+            <div class="p-col-2 p-text-bold">Quantité</div>
+            <div class="p-col-2 p-text-bold">Sous-total</div>
+        </div>
+        <div class="p-grid p-mb-5" *ngFor="let orderItem of reservation.orderItems">
+            <div class="p-col-3">{{ orderItem.product.name }}</div>
+            <div class="p-col-3">{{ orderItem.product.category.name }}</div>
+            <div class="p-col-2">{{ orderItem.product.price | currency }}</div>
+            <div class="p-col-2">{{ orderItem.quantity }}</div>
+            <div class="p-col-2">
+                {{ orderItem.product.price * orderItem.quantity | currency }}
+            </div>
+        </div>
+        <hr />
+        <div class="p-grid p-text-bold" style="color: green">
+            <div class="p-col-2 p-offset-8">Total Price</div>
+            <div class="p-col-2">{{ reservation.totalPrice | currency }}</div>
+        </div>
+    </p-fieldset>
 </div>
