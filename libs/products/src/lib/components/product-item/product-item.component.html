@@ -9,10 +9,19 @@
         <h4 class="name">{{ product.name }}</h4>
         <h5 class="price">{{ product.price | currency }}</h5>
         <p-button
-            styleClass="p-mt-3 add-to-cart"
+            styleClass="p-my-3 add-to-cart"
             label="Ajouter au panier"
             icon="pi pi-shopping-cart"
             (onClick)="addProductToCart()"
+            [disabled]="isRupture"
         ></p-button>
+        <p-tag
+            *ngIf="isRupture"
+            value="Rupture de stock"
+            icon="pi pi-info"
+            severity="danger"
+            [rounded]="true"
+            styleClass="p-mb-3"
+        ></p-tag>
     </div>
 </div>

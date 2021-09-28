@@ -14,6 +14,7 @@ export class ProductItemComponent implements OnInit {
     @Input()
     product!: Product;
     skeletonNumber?: number[];
+    isRupture = false;
 
     constructor(private cartService: CartService) {}
 
@@ -21,13 +22,21 @@ export class ProductItemComponent implements OnInit {
         this.skeletonNumber = Array(4)
             .fill(0)
             .map((x, i) => i);
+
+        if (this.product.countInStock <= 0) {
+            this.isRupture = true;
+        } else {
+            this.isRupture = false;
+        }
     }
 
     addProductToCart() {
-        const cartItem: CartItem = {
-            productId: this.product.id,
-            quantity: 1
-        };
-        this.cartService.setCartItem(cartItem);
+        if (!this.isRupture) {
+            const cartItem: CartItem = {
+                productId: this.product.id,
+                quantity: 1
+            };
+            this.cartService.setCartItem(cartItem);
+        }
     }
 }

@@ -10,7 +10,7 @@ export class Product {
     brand?: string;
     price?: string;
     category?: Category;
-    countInStock?: number;
+    countInStock!: number;
     rating?: number;
     numReviews?: number;
     isFeatured?: boolean;
