@@ -44,6 +44,10 @@ html {
     padding: 10px 0;
     margin: 0 auto;
     background-color: var(--surface-400);
+    //backdrop-filter: blur(15px);
+    // background-color: transparent;
+    box-shadow: -5px -5px 10px 2px rgba(255, 255, 255, 0.25),
+        5px 5px 10px rgba(0, 0, 0, 0.7);
 }
 
 @media only screen and (max-width: 480px) {

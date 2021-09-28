@@ -168,6 +168,9 @@
 }
 
 .admin-page {
+    .p-card-body .p-card-content {
+        display: none;
+    }
     .dashboard {
         display: none;
     }
@@ -192,7 +195,6 @@
 }
 
 @media (max-width: 600px) {
-    
     .admin-page {
         .dashboard {
             display: block;
