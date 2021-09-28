@@ -1,30 +1,59 @@
 <div class="products-page">
-  <div class="p-grid">
-    <div class="p-col-3 products-page-categories" *ngIf="!iscategoryPage">
-      <h4>Categories</h4>
-      <div class="p-field-checkbox" *ngFor="let category of categories">
-          <p-checkbox [(ngModel)]="category.checked" [binary]="true" [inputId]="category.id" (onChange)="categoryFilter()"></p-checkbox>
-          <label for="{{category.id}}">{{category.name}}</label>
-      </div>
-    </div>
-    <div [ngClass]="{'p-col-9': !iscategoryPage, 'p-col-12': iscategoryPage}">
-      <div class="p-grid list-product-pGrid" *ngIf="products">
-        <div
-        [ngClass]="{'p-col-4': !iscategoryPage, 'p-col-3': iscategoryPage}"
-        *ngFor="let product of products">
-          <products-product-item [product]="product"></products-product-item>
+    <div class="p-grid">
+        <div class="p-col-3 products-page-categories" *ngIf="!iscategoryPage">
+            <h4>Categories</h4>
+            <div class="p-field-checkbox" *ngFor="let category of categories">
+                <p-checkbox
+                    [(ngModel)]="category.checked"
+                    [binary]="true"
+                    [inputId]="category.id"
+                    (onChange)="categoryFilter()"
+                ></p-checkbox>
+                <label for="{{ category.id }}">{{ category.name }}</label>
+            </div>
         </div>
-        <div *ngIf="categories.length <= 0">
-          <h3>Les Données du Serveurs sont indisponibles, Patientez un petit instant...</h3>
-          <p id="avertissement" style="font-size:1.2rem;z-index:50; position:relative; color:#523d08; font-weight:600">
-            Si dans <span style="font-weight:600;color:darkred;font-size: 1.2em;">{{ (value > 0) ? value : 0 }}
-            </span> secondes le serveur ne démarre pas, alors revenez plus tard.
-            <span (click)="reloadNavigator()" *ngIf="value===0" style="font-size:1.1rem;cursor:pointer;color:blue; text-decoration:underline">Réessayer</span>
-          </p>
+        <div [ngClass]="{ 'p-col-9': !iscategoryPage, 'p-col-12': iscategoryPage }">
+            <div class="p-grid list-product-pGrid" *ngIf="products">
+                <div
+                    [ngClass]="{ 'p-col-4': !iscategoryPage, 'p-col-3': iscategoryPage }"
+                    *ngFor="let product of products"
+                >
+                    <products-product-item [product]="product"></products-product-item>
+                </div>
+                <div *ngIf="categories.length <= 0">
+                    <h3>
+                        Les Données du Serveurs sont indisponibles, Patientez un petit
+                        instant...
+                    </h3>
+                    <p
+                        id="avertissement"
+                        style="
+                            font-size: 1.2rem;
+                            z-index: 50;
+                            position: relative;
+                            color: #523d08;
+                            font-weight: 600;
+                        "
+                    >
+                        Si dans
+                        <span style="font-weight: 600; color: darkred; font-size: 1.2em"
+                            >{{ value > 0 ? value : 0 }}
+                        </span>
+                        secondes le serveur ne démarre pas, alors revenez plus tard.
+                        <span
+                            (click)="reloadNavigator()"
+                            *ngIf="value === 0"
+                            style="
+                                font-size: 1.1rem;
+                                cursor: pointer;
+                                color: blue;
+                                text-decoration: underline;
+                            "
+                            >Réessayer</span
+                        >
+                    </p>
+                </div>
+            </div>
         </div>
-      </div>
-
     </div>
-
-  </div>
 </div>

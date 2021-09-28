@@ -36,6 +36,17 @@ export class ProductsService {
     }
 
     /**
+     * Methode qui permet la récupération du nombre de Produit en stock depuis le Backend via son ID
+     * @param productID l'ID du Produit à récupérer
+     * @returns Observable<Product>
+     */
+    getProductCount(productId: string): Observable<number> {
+        return this.http
+            .get<number>(`${this.apiURLProducts}/get/count/${productId}`)
+            .pipe(map((objectValue: any) => objectValue.productCount));
+    }
+
+    /**
      * Methode qui permet la récupération un Produit depuis le Backend via son ID
      * @param productID l'ID du Produit à récupérer
      * @returns Observable<Product>
