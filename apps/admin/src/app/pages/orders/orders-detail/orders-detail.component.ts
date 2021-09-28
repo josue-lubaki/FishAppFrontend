@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Order, OrdersService, ORDER_STATUS } from '@ghost/orders';
 import { MessageService } from 'primeng/api';
 import { Location } from '@angular/common';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
     selector: 'admin-orders-detail',
@@ -12,19 +13,50 @@ import { Location } from '@angular/common';
 })
 export class OrdersDetailComponent implements OnInit {
     order!: Order;
+    formNotes!: FormGroup;
+    isSubmitted = false;
     orderStatuses: any = [];
     selectedStatus: any;
+    notesStarted?: string;
 
     constructor(
         private orderService: OrdersService,
         private route: ActivatedRoute,
         private messageService: MessageService,
-        private location: Location
+        private location: Location,
+        private formBuilder: FormBuilder
     ) {}
 
     ngOnInit(): void {
         this._mapOrderStatus();
         this._getOrder();
+        this.initFormNotes();
+    }
+
+    private initFormNotes() {
+        this.formNotes = this.formBuilder.group({
+            notes: ['', Validators.maxLength(250)]
+        });
+    }
+
+    sendNotes() {
+        this.isSubmitted = true;
+        if (this.formNotes.invalid) {
+            return;
+        }
+
+        const notes: string = this.formCheck.notes.value;
+
+        // envoyer la note via le service
+        this.route.params.subscribe((params) => {
+            if (params.id) {
+                this.orderService
+                    .updateNotesOrder({ notes: notes }, params.id)
+                    .subscribe((order) => {
+                        this.notesStarted = order.notes;
+                    });
+            }
+        });
     }
 
     /**
@@ -51,6 +83,7 @@ export class OrdersDetailComponent implements OnInit {
                 this.orderService.getOrder(params.id).subscribe((order) => {
                     this.order = order;
                     this.selectedStatus = order.status;
+                    this.notesStarted = order.notes;
                 });
             }
         });
@@ -82,5 +115,13 @@ export class OrdersDetailComponent implements OnInit {
     }
     goBack() {
         this.location.back();
+    }
+
+    /**
+     * Getter du formulaire form
+     * @returns form.Controls
+     */
+    get formCheck() {
+        return this.formNotes.controls;
     }
 }

@@ -4,8 +4,9 @@ import { Router } from '@angular/router';
 import { OrdersService } from '@ghost/orders';
 import { ProductsService } from '@ghost/products';
 import { ReservationService } from '@ghost/reservation';
-import { UsersService } from '@ghost/users';
-import { combineLatest, Subject } from 'rxjs';
+import { AuthService, UsersService } from '@ghost/users';
+import { ConfirmationService, MessageService } from 'primeng/api';
+import { combineLatest, Subject, timer } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 @Component({
@@ -21,7 +22,10 @@ export class DashboardComponent implements OnInit, OnDestroy {
         private orderService: OrdersService,
         private productService: ProductsService,
         private reservationService: ReservationService,
-        private router: Router
+        private router: Router,
+        private messageService: MessageService,
+        private authService: AuthService,
+        private confirmationService: ConfirmationService
     ) {}
 
     ngOnInit(): void {
@@ -46,5 +50,36 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
     goTo(route: string) {
         this.router.navigate([`/${route}`]);
+    }
+    /**
+     * Methode qi permet de déconnecter un utilisateur
+     */
+    logoutUser() {
+        this.confirmationService.confirm({
+            message: 'Voulez-vous vraiment Quitter ?',
+            header: 'Déconnexion',
+            icon: 'pi pi-exclamation-triangle',
+            accept: () => {
+                this.authService.logout();
+                this.messageService.add({
+                    severity: 'success',
+                    summary: 'Success',
+                    detail: 'Déconnexion réussi'
+                });
+                timer(1500)
+                    .toPromise()
+                    .then(() => {
+                        this.router.navigate(['/login']);
+                    });
+                () => {
+                    this.messageService.add({
+                        severity: 'error',
+                        summary: 'Error',
+                        detail: 'Impossible de se déconnecter'
+                    });
+                };
+            },
+            reject: () => {}
+        });
     }
 }

@@ -1,5 +1,21 @@
 <div class="admin-page" *ngIf="statistics.length">
     <p-card header="Tableau de Bord" subheader="Dernière mise à jour">
+        <div class="p-grid dashboard p-mb-3">
+            <div class="p-col-12">
+                <p-toolbar>
+                    <div class="p-toolbar-group-right">
+                        <p-button
+                            label="Déconnexion"
+                            icon="pi pi-sign-out"
+                            styleClass="p-button-danger"
+                            (onClick)="logoutUser()"
+                        >
+                        </p-button>
+                    </div>
+                </p-toolbar>
+            </div>
+        </div>
+
         <div class="p-grid">
             <div class="p-col-3">
                 <p-card

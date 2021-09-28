@@ -5,6 +5,9 @@
                 .p-col-4 {
                     width: 50%;
                 }
+                .p-col-4:nth-last-child(2) {
+                    width: 65%;
+                }
             }
         }
     }
@@ -24,6 +27,12 @@
         .p-fieldset-content {
             .p-grid {
                 flex-direction: column;
+                .p-col-4 {
+                    width: 100%;
+                }
+                .p-col-2 {
+                    width: auto;
+                }
             }
         }
     }

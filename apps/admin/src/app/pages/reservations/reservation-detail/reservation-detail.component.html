@@ -5,10 +5,17 @@
         [header]="'Vue des Reservations'"
         subheader="Vous pouvez modifier l'état des réservations"
     >
-        <div class="p-grid p-mb-4">
+        <div class="p-grid">
             <div class="p-col-12">
                 <p-toolbar>
-                    <div class="p-toolbar-group-left"></div>
+                    <div class="p-toolbar-group-left">
+                        <p-button
+                            label="Accueil"
+                            icon="pi pi-home"
+                            styleClass="p-button-info"
+                            routerLink="/"
+                        ></p-button>
+                    </div>
                     <div class="p-toolbar-group-right">
                         <p-button
                             label="Back"

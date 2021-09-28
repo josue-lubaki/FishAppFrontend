@@ -167,6 +167,12 @@
     color: $primary-color-black;
 }
 
+.admin-page {
+    .dashboard {
+        display: none;
+    }
+}
+
 @media (max-width: 768px) {
     .admin-page {
         .p-card-body {
@@ -186,7 +192,15 @@
 }
 
 @media (max-width: 600px) {
+    
     .admin-page {
+        .dashboard {
+            display: block;
+
+            .p-toolbar {
+                justify-content: flex-end;
+            }
+        }
         .p-card-body {
             .p-card-content {
                 .p-grid {
