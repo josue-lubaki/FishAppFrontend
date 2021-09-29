@@ -51,6 +51,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
     goTo(route: string) {
         this.router.navigate([`/${route}`]);
     }
+
     /**
      * Methode qi permet de déconnecter un utilisateur
      */

@@ -1,9 +1,9 @@
 /* eslint-disable @angular-eslint/no-empty-lifecycle-method */
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { OrdersService, ORDER_STATUS } from '@ghost/orders';
 import { MessageService } from 'primeng/api';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
     selector: 'ngshop-user-orders',
@@ -53,6 +53,16 @@ export class UserOrdersComponent implements OnInit {
         });
     }
 
+    voirNotes() {}
+
+    /**
+     * Getter du formulaire form
+     * @returns form.Controls
+     */
+    get formCheck() {
+        return this.formNotes.controls;
+    }
+
     /**
      * Methode qui écoute les changements de la DropDown
      * @param event nouveau status choisi par l'Utilisateur
@@ -76,15 +86,5 @@ export class UserOrdersComponent implements OnInit {
                     });
                 }
             );
-    }
-
-    voirNotes() {}
-
-    /**
-     * Getter du formulaire form
-     * @returns form.Controls
-     */
-    get formCheck() {
-        return this.formNotes.controls;
     }
 }
