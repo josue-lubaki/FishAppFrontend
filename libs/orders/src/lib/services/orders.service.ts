@@ -69,7 +69,7 @@ export class OrdersService {
     }
 
     /**
-     * Methode qui permet de mettre à jour le status d'une commande
+     * * Methode qui permet de mettre à jour le status d'une commande
      * @param orderStatus la mise à jour su status de la commande
      * @param orderId ID de la commande à mettre à jour
      * @returns void
@@ -85,7 +85,6 @@ export class OrdersService {
      * @returns void
      */
     updateNotesOrder(orderNotes: { notes: string }, orderId: string): Observable<Order> {
-        console.log('le service reçoit notes : ', orderNotes);
         return this.http.put<Order>(`${this.apiURLOrders}/notes/${orderId}`, orderNotes);
     }
 

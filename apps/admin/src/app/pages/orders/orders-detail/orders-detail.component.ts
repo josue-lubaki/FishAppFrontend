@@ -13,10 +13,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class OrdersDetailComponent implements OnInit {
     order!: Order;
-    formNotes!: FormGroup;
-    isSubmitted = false;
     orderStatuses: any = [];
     selectedStatus: any;
+    formNotes!: FormGroup;
+    isSubmitted = false;
     notesStarted?: string;
 
     constructor(
@@ -128,7 +128,6 @@ export class OrdersDetailComponent implements OnInit {
     goBack() {
         this.location.back();
     }
-
     /**
      * Getter du formulaire form
      * @returns form.Controls

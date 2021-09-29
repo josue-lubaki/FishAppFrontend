@@ -13,8 +13,8 @@ import { ProductPageComponent } from './pages/product-page/product-page.componen
 import { RatingModule } from 'primeng/rating';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { SkeletonModule } from 'primeng/skeleton';
-import { TagModule } from 'primeng/tag';
 import { UiModule } from '@ghost/ui';
+import { TagModule } from 'primeng/tag';
 
 const routes: Routes = [
     {
