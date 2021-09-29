@@ -69,8 +69,8 @@ export class ReservationListComponent implements OnInit, OnDestroy {
      */
     deleteReservation(reservationID: string) {
         this.confirmationService.confirm({
-            message: 'Do you want to Delete this reservation ?',
-            header: 'Delete Reservations',
+            message: 'Voulez-vous supprimer cette réservation ?',
+            header: 'Suppression Reservation',
             icon: 'pi pi-exclamation-triangle',
             accept: () => {
                 this.reservationService.deleteReservation(reservationID).subscribe(
@@ -79,14 +79,14 @@ export class ReservationListComponent implements OnInit, OnDestroy {
                         this.messageService.add({
                             severity: 'success',
                             summary: 'Success',
-                            detail: 'Reservation is deleted'
+                            detail: 'Reservation supprimée'
                         });
                     },
                     () => {
                         this.messageService.add({
                             severity: 'error',
                             summary: 'Error',
-                            detail: 'Reservation is not deleted !'
+                            detail: 'Reservation non supprimée !'
                         });
                     }
                 );

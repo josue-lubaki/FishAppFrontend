@@ -39,11 +39,11 @@ export class UsersListComponent implements OnInit, OnDestroy {
      */
     deleteUser(user: User) {
         this.confirmationService.confirm({
-            message: `Do you want to Delete
+            message: `Voulez-vous supprimer
             <strong>
-              ${user.name ? user.name : 'this user'}
+              ${user.name ? user.name : 'cet utilisateur'}
             </strong> ?`,
-            header: 'Delete User',
+            header: 'Suppression Utilisateur',
             icon: 'pi pi-exclamation-triangle',
             accept: () => {
                 this.usersService.deleteUser(user.id).subscribe(
@@ -52,14 +52,14 @@ export class UsersListComponent implements OnInit, OnDestroy {
                         this.messageService.add({
                             severity: 'success',
                             summary: 'Success',
-                            detail: 'User is deleted'
+                            detail: 'Utilisateur supprimé'
                         });
                     },
                     () => {
                         this.messageService.add({
                             severity: 'error',
                             summary: 'Error',
-                            detail: 'User is not deleted !'
+                            detail: 'Utilisateur non supprimé !'
                         });
                     }
                 );

@@ -38,8 +38,8 @@ export class CategoriesListComponent implements OnInit, OnDestroy {
      */
     deleteCategory(categoryId: string) {
         this.confirmationService.confirm({
-            message: 'Do you want to Delete this category ?',
-            header: 'Delete Category',
+            message: 'Voulez-vous quitter supprimer cette categorie ?',
+            header: 'Suppression Categorie',
             icon: 'pi pi-exclamation-triangle',
             accept: () => {
                 this.categoriesService.deleteCategory(categoryId).subscribe(
@@ -48,14 +48,14 @@ export class CategoriesListComponent implements OnInit, OnDestroy {
                         this.messageService.add({
                             severity: 'success',
                             summary: 'Success',
-                            detail: 'Category is deleted'
+                            detail: 'Categorie supprimée'
                         });
                     },
                     () => {
                         this.messageService.add({
                             severity: 'error',
                             summary: 'Error',
-                            detail: 'Category is not deleted !'
+                            detail: 'Categorie non supprimée !'
                         });
                     }
                 );
