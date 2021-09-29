@@ -40,8 +40,8 @@ export class OrdersListComponent implements OnInit, OnDestroy {
      */
     deleteOrder(orderId: string) {
         this.confirmationService.confirm({
-            message: 'Do you want to Delete this order ?',
-            header: 'Delete Orders',
+            message: 'Voulez-vous supprimer cette commande ?',
+            header: 'Suppression commande',
             icon: 'pi pi-exclamation-triangle',
             accept: () => {
                 this.ordersService.deleteOrder(orderId).subscribe(
@@ -50,14 +50,14 @@ export class OrdersListComponent implements OnInit, OnDestroy {
                         this.messageService.add({
                             severity: 'success',
                             summary: 'Success',
-                            detail: 'Order is deleted'
+                            detail: 'Commande supprimée'
                         });
                     },
                     () => {
                         this.messageService.add({
                             severity: 'error',
                             summary: 'Error',
-                            detail: 'Order is not deleted !'
+                            detail: 'Commande non supprimée !'
                         });
                     }
                 );
