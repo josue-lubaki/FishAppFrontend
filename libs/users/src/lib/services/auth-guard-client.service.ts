@@ -35,7 +35,7 @@ export class AuthGuardClient implements CanActivate {
      * @param expiration la date d'expiration du token (timestamp)
      * @returns boolean
      */
-    private _tokenExpired(expiration: number): boolean {
+    _tokenExpired(expiration: number): boolean {
         return Math.floor(new Date().getTime() / 1000) >= expiration;
     }
 }

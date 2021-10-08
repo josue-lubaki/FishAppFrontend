@@ -42,7 +42,6 @@ export class ProductsFormComponent implements OnInit {
     initForm() {
         this.form = this.formBuilder.group({
             name: ['', Validators.required],
-            brand: ['', Validators.required],
             price: ['', Validators.required],
             category: ['', Validators.required],
             countInStock: ['', Validators.required],
@@ -78,7 +77,6 @@ export class ProductsFormComponent implements OnInit {
                 this.productsService.getProduct(params.id).subscribe((product) => {
                     this.productForm.name.setValue(product.name);
                     this.productForm.description.setValue(product.description);
-                    this.productForm.brand.setValue(product.brand);
                     this.productForm.price.setValue(product.price);
                     this.productForm.category.setValue(product.category?.id);
                     this.productForm.countInStock.setValue(product.countInStock);
