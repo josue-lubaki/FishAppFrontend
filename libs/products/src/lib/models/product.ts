@@ -7,7 +7,6 @@ export class Product {
     richDescription?: string;
     image?: string;
     images!: string[];
-    brand?: string;
     price?: string;
     category?: Category;
     countInStock!: number;

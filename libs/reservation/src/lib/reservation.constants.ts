@@ -4,7 +4,7 @@ export const RESERVATION_STATUS = [
         color: 'primary'
     },
     {
-        label: 'Impossible',
+        label: 'No Disponible',
         color: 'warning'
     },
     {

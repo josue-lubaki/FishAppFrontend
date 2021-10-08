@@ -22,13 +22,13 @@
                 <p-table [value]="reservations" styleClass="p-datatable-gridlines">
                     <ng-template pTemplate="header">
                         <tr>
-                            <th pSortableColumn="name">
-                                User <p-sortIcon field="name"></p-sortIcon>
+                            <th pSortableColumn="user.name">
+                                User <p-sortIcon field="user.name"></p-sortIcon>
                             </th>
                             <th pSortableColumn="totalPrice">
-                                Total Price <p-sortIcon field="totalPrice"></p-sortIcon>
+                                Total Prix <p-sortIcon field="totalPrice"></p-sortIcon>
                             </th>
-                            <th pSortableColumn="dateOrdered">
+                            <th pSortableColumn="dateReservated">
                                 Date Reservation
                                 <p-sortIcon field="dateReservated"></p-sortIcon>
                             </th>
