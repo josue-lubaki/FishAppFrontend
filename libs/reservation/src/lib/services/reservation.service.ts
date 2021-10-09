@@ -87,6 +87,22 @@ export class ReservationService {
     }
 
     /**
+     * Methode qui permet de créer une Commande
+     * @param orderNotes la mise à jour de la note de la commande
+     * @param orderId ID de la commande à mettre à jour
+     * @returns void
+     */
+    updateNotesReservation(
+        reservationNotes: { notes: string },
+        reservationId: string
+    ): Observable<Reservation> {
+        return this.http.put<Reservation>(
+            `${this.apiURLReservation}/notes/${reservationId}`,
+            reservationNotes
+        );
+    }
+
+    /**
      * Methode qui permet de supprimer une reservation
      * @param reservationId id de la reservation à supprimer
      */

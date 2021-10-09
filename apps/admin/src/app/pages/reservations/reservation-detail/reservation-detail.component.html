@@ -63,6 +63,41 @@
                 <p>{{ reservation.totalPrice | currency }}</p>
             </div>
         </div>
+        <div class="p-col-8">
+            <h5>Notes pour le Client</h5>
+            <form [formGroup]="formNotes">
+                <div class="p-fluid p-formgrid p-grid">
+                    <div class="p-field p-col-12">
+                        <!-- <label for="notes">Notes pour l'acheteur</label> -->
+                        <textarea
+                            rows="5"
+                            cols="20"
+                            pInputTextarea
+                            formControlName="notes"
+                            id="notes"
+                            [autoResize]="true"
+                            [(ngModel)]="notesStarted"
+                        >
+                        </textarea>
+                        <small
+                            *ngIf="formCheck.notes.invalid && isSubmitted"
+                            class="p-error"
+                            >La Note est trop longue</small
+                        >
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="p-col-2">
+            <p-button
+                label="envoyer"
+                icon="pi pi-check"
+                styleClass="p-button-success"
+                (onClick)="sendNotes()"
+            >
+            </p-button>
+        </div>
     </p-fieldset>
 
     <p-fieldset
