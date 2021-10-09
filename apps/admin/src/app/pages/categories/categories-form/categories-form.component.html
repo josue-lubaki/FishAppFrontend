@@ -21,11 +21,7 @@
                 <input formControlName="name" id="name" type="text" pInputText>
                 <small *ngIf="categoryForm.name.invalid && isSubmitted" class="p-error">Name is required</small>
               </div>
-              <div class="p-field p-col">
-                <label for="icon">Icon</label>
-                <input formControlName="icon" id="icon" type="text" pInputText>
-                <small *ngIf="categoryForm.icon.invalid && isSubmitted" class="p-error">Name is required</small>
-              </div>
+            
               <div class="p-field p-col">
                 <label for="color">Color</label><br>
                 <p-colorPicker formControlName="color"></p-colorPicker>

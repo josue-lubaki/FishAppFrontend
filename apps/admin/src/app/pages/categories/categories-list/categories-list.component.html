@@ -32,7 +32,6 @@
                             <th pSortableColumn="name">
                                 Name <p-sortIcon field="name"></p-sortIcon>
                             </th>
-                            <th>Icon</th>
                             <th>Color</th>
                             <th></th>
                         </tr>
@@ -40,13 +39,6 @@
                     <ng-template pTemplate="body" let-category>
                         <tr class="animate__animated animate__fadeIn">
                             <td>{{ category.name }}</td>
-                            <td>
-                                <i
-                                    class="pi"
-                                    [ngClass]="'pi-' + category.icon"
-                                    style="font-size: 2rem"
-                                ></i>
-                            </td>
                             <td>
                                 <i
                                     class="pi pi-circle-on"

@@ -5,7 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { LocalstorageService, User, UsersService } from '@ghost/users';
 import { MessageService } from 'primeng/api';
 import { timer } from 'rxjs';
-
+import { Buffer } from 'buffer';
 @Component({
     selector: 'admin-users-form',
     templateUrl: './users-form.component.html',
@@ -75,31 +75,30 @@ export class UsersFormComponent implements OnInit {
             if (params.id) {
                 this.editMode = true;
                 const currentUserToken = this.localstorageToken.getToken();
+                let tokenDecode: any;
                 if (currentUserToken && typeof currentUserToken !== 'undefined') {
                     // Décoder le token si existe
-                    const tokenDecode = JSON.parse(atob(currentUserToken.split('.')[1]));
-
-                    this.usersService.getUser(params.id).subscribe((user) => {
-                        this.userForm.name.setValue(user.name);
-                        this.userForm.email.setValue(user.email);
-                        this.userForm.isAdmin.setValue(tokenDecode.isAdmin);
-                        this.userForm.avenue.setValue(user.avenue);
-                        this.userForm.apartment.setValue(user.apartment);
-                        this.userForm.phone.setValue(user.phone);
-                        this.userForm.quartier.setValue(user.quartier);
-                        this.userForm.commune.setValue(user.commune);
-                        this.userForm.city.setValue(user.city);
-                        this.userForm.country.setValue(user.country);
-
-                        console.log('ckeck user', user);
-
-                        /** Enlever l'obligation du password et phone donnée sur @method initUserForm */
-                        this.userForm.password.setValidators([]);
-                        this.userForm.password.updateValueAndValidity();
-                        this.userForm.phone.setValidators([]);
-                        this.userForm.phone.updateValueAndValidity();
-                    });
+                    tokenDecode = JSON.parse(atob(currentUserToken.split('.')[1]));
                 }
+
+                this.usersService.getUser(params.id).subscribe((user) => {
+                    this.userForm.name.setValue(user.name);
+                    this.userForm.email.setValue(user.email);
+                    this.userForm.isAdmin.setValue(tokenDecode.isAdmin);
+                    this.userForm.avenue.setValue(user.avenue);
+                    this.userForm.apartment.setValue(user.apartment);
+                    this.userForm.phone.setValue(user.phone);
+                    this.userForm.quartier.setValue(user.quartier);
+                    this.userForm.commune.setValue(user.commune);
+                    this.userForm.city.setValue(user.city);
+                    this.userForm.country.setValue(user.country);
+
+                    /** Enlever l'obligation du password et phone donnée sur @method initUserForm */
+                    this.userForm.password.setValidators([]);
+                    this.userForm.password.updateValueAndValidity();
+                    this.userForm.phone.setValidators([]);
+                    this.userForm.phone.updateValueAndValidity();
+                });
             }
         });
     }

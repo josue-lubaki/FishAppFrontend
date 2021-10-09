@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ORDER_STATUS } from '@ghost/orders';
 import { ReservationService } from '@ghost/reservation';
@@ -13,15 +14,26 @@ export class UserReservationsComponent implements OnInit {
     reservation: any;
     reservationStatuses = ORDER_STATUS;
     selectedStatus: any;
+    formNotes!: FormGroup;
+    isSubmitted = false;
+    notesRecues?: string;
 
     constructor(
         private route: ActivatedRoute,
-      private messageService: MessageService,
-        private reservationService: ReservationService
+        private messageService: MessageService,
+        private reservationService: ReservationService,
+        private formBuilder: FormBuilder
     ) {}
 
     ngOnInit(): void {
         this._getReservation();
+        this.initFormNotes();
+    }
+
+    private initFormNotes() {
+        this.formNotes = this.formBuilder.group({
+            notes: ['', Validators.maxLength(250)]
+        });
     }
 
     /**
@@ -31,11 +43,14 @@ export class UserReservationsComponent implements OnInit {
      */
     private _getReservation() {
         this.route.params.subscribe((params) => {
-            if (params.id) {;
-              this.reservationService.getReservation(params.id).subscribe((reservation => {
-                this.reservation = reservation
-                this.selectedStatus = reservation.status;
-              }));
+            if (params.id) {
+                this.reservationService
+                    .getReservation(params.id)
+                    .subscribe((reservation) => {
+                        this.reservation = reservation;
+                        this.selectedStatus = reservation.status;
+                        this.notesRecues = reservation.notes;
+                    });
             }
         });
     }

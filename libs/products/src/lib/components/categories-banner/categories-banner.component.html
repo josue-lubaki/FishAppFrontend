@@ -4,14 +4,19 @@
     </div>
     <h3>Categories</h3>
     <div class="p-grid categories-pGrid" *ngIf="categories">
-        <div class="p-col-2 categories-pGrid-pCol2" *ngFor="let category of categories">
-            <div
-                class="category"
-                [routerLink]="'/category/' + category.id"
-                [style]="{ '--color-category': category.color || '#fff' }"
-            >
-                <div class="category-name">
-                    {{ category.name }}
+        <div
+            class="p-col-3 categories-pGrid-pCol3"
+            *ngFor="let category of categories; index as idx"
+        >
+            <div *ngIf="idx < 4">
+                <div
+                    class="category"
+                    [routerLink]="'/category/' + category.id"
+                    [style]="{ '--color-category': category.color || '#fff' }"
+                >
+                    <div class="category-name">
+                        {{ category.name }}
+                    </div>
                 </div>
             </div>
         </div>

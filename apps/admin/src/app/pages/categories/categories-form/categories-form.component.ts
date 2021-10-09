@@ -45,7 +45,6 @@ export class CategoriesFormComponent implements OnInit {
                 this.currentCategoryId = params.id;
                 this.categoriesService.getCategory(params.id).subscribe((category) => {
                     this.categoryForm.name.setValue(category.name);
-                    this.categoryForm.icon.setValue(category.icon);
                     this.categoryForm.color.setValue(category.color);
                 });
             }
@@ -60,7 +59,6 @@ export class CategoriesFormComponent implements OnInit {
     initForm() {
         this.form = this.formBuilder.group({
             name: ['', Validators.required],
-            icon: ['', Validators.required],
             color: ['#ffffff']
         });
     }
@@ -79,7 +77,6 @@ export class CategoriesFormComponent implements OnInit {
         const category: Category = {
             id: this.currentCategoryId,
             name: this.categoryForm.name.value,
-            icon: this.categoryForm.icon.value,
             color: this.categoryForm.color.value
         };
 

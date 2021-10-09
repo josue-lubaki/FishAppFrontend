@@ -1,48 +1,89 @@
+<head>
+    <meta
+        name="description"
+        content="Page de connexion pour le site Poisson-Kin"
+    />
+</head>
 <p-toast></p-toast>
 <div class="login-register">
-  <div class="login-register-panel">
-    <div class="p-grid">
-      <div class="p-col-6" style="padding:0px">
-        <img src="./assets/images/login-register.jpg">
-      </div>
-       <div class="p-col-6 p-p-5">
-        <h3>Bienvenue !</h3>
-        <h2>Login Page</h2>
-        <form [formGroup]="loginFormGroup">
-          <div class="p-grid p-mt-6">
-            <div class="p-col-12">
-              <div class="p-inputgroup">
-                  <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-                  <input type="text" formControlName="email" pInputText placeholder="Email">
-              </div>
-              <small *ngIf="loginForm.email.invalid && isSubmitted" class="p-error">
-                  <span *ngIf="loginForm.email.errors?.required">Email est obligatoire</span>
-                  <span *ngIf="loginForm.email.errors?.email">Email est invalide</span>
-              </small>
+    <div class="login-register-panel">
+        <div class="p-grid">
+            <div class="p-col-6" style="padding: 0px">
+                <img src="./assets/images/login-register.jpg" alt="image du login" />
             </div>
-            <div class="p-col-12">
-               <div class="p-inputgroup">
-                  <span class="p-inputgroup-addon"><i class="pi pi-lock"></i></span>
-                  <input type="password" formControlName="password" pInputText placeholder="Password">
-              </div>
-              <small *ngIf="loginForm.password.invalid && isSubmitted" class="p-error">
-                  <span *ngIf="loginForm.password.errors?.required">Email est obligatoire</span>
-              </small>
-            </div>
-            <div class="p-col-12">
-              <p-button label="Submit" styleClass="full-btn" (onClick)="onSubmit()"></p-button>
-            </div>
-            <div class="p-col-12" *ngIf="isSubmitted">
-              <small class="p-error" *ngIf="authError">{{authErrorMessage}}</small>
-            </div>
+            <div class="p-col-6 p-p-5">
+                <h3>Bienvenue !</h3>
+                <h2>Login Page</h2>
+                <form [formGroup]="loginFormGroup">
+                    <div class="p-grid p-mt-6">
+                        <div class="p-col-12">
+                            <div class="p-inputgroup">
+                                <span class="p-inputgroup-addon"
+                                    ><i class="pi pi-user"></i
+                                ></span>
+                                <input
+                                    type="text"
+                                    formControlName="email"
+                                    pInputText
+                                    placeholder="Email"
+                                />
+                            </div>
+                            <small
+                                *ngIf="loginForm.email.invalid && isSubmitted"
+                                class="p-error"
+                            >
+                                <span *ngIf="loginForm.email.errors?.required"
+                                    >Email est obligatoire</span
+                                >
+                                <span *ngIf="loginForm.email.errors?.email"
+                                    >Email est invalide</span
+                                >
+                            </small>
+                        </div>
+                        <div class="p-col-12">
+                            <div class="p-inputgroup">
+                                <span class="p-inputgroup-addon"
+                                    ><i class="pi pi-lock"></i
+                                ></span>
+                                <input
+                                    type="password"
+                                    formControlName="password"
+                                    pInputText
+                                    placeholder="Password"
+                                />
+                            </div>
+                            <small
+                                *ngIf="loginForm.password.invalid && isSubmitted"
+                                class="p-error"
+                            >
+                                <span *ngIf="loginForm.password.errors?.required"
+                                    >Email est obligatoire</span
+                                >
+                            </small>
+                        </div>
+                        <div class="p-col-12">
+                            <p-button
+                                label="Submit"
+                                styleClass="full-btn"
+                                (onClick)="onSubmit()"
+                            ></p-button>
+                        </div>
+                        <div class="p-col-12" *ngIf="isSubmitted">
+                            <small class="p-error" *ngIf="authError">{{
+                                authErrorMessage
+                            }}</small>
+                        </div>
 
-            <div class="p-col-12" style="text-align:left">
-              <p>Si vous n'avez pas de compte, <a routerLink="../register">S'incrire</a></p>
-              <p>Mot de passe <a routerLink="../forgot">oublié</a></p>
+                        <div class="p-col-12" style="text-align: left">
+                            <p>
+                                Si vous n'avez pas de compte,
+                                <a routerLink="../register">S'incrire</a>
+                            </p>
+                            <p>Mot de passe <a routerLink="../forgot">oublié</a></p>
+                        </div>
+                    </div>
+                </form>
             </div>
-          </div>
-        </form>
-      </div>
+        </div>
     </div>
-  </div>
 </div>

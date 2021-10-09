@@ -100,8 +100,8 @@
     justify-content: space-evenly;
     margin-bottom: 20px;
 
-    &-pCol2 {
-        width: 20%;
+    &-pCol3 {
+        width: 25%;
     }
 
     div {
@@ -139,8 +139,8 @@
         justify-content: center;
         flex-direction: column;
 
-        &-pCol2,
-        .p-col-2 {
+        &-pCol3,
+        .p-col-3 {
             width: 90%;
             align-self: center;
         }

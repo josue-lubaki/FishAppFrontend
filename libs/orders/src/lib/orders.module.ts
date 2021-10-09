@@ -15,6 +15,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
 import { ToastModule } from 'primeng/toast';
 import { CardModule } from 'primeng/card';
+import { ToolbarModule } from 'primeng/toolbar';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { ThankYouComponent } from './pages/thank-you/thank-you.component';
 import { CheckPayComponent } from './pages/check-pay/check-pay.component';
@@ -54,7 +55,8 @@ const routes: Routes = [
         DropdownModule,
         ToastModule,
         CardModule,
-        InputTextareaModule
+        InputTextareaModule,
+        ToolbarModule
     ],
     declarations: [
         CartIconComponent,

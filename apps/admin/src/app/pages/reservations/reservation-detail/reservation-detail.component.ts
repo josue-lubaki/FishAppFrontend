@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Reservation, ReservationService, RESERVATION_STATUS } from '@ghost/reservation';
 import { MessageService } from 'primeng/api';
 import { Location } from '@angular/common';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
     selector: 'admin-reservation-detail',
@@ -14,17 +15,22 @@ export class ReservationDetailComponent implements OnInit {
     reservation?: Reservation;
     reservationStatuses: any = [];
     selectedStatus: any;
+    formNotes!: FormGroup;
+    isSubmitted = false;
+    notesStarted?: string;
 
     constructor(
         private reservationService: ReservationService,
         private route: ActivatedRoute,
         private messageService: MessageService,
-        private location: Location
+        private location: Location,
+        private formBuilder: FormBuilder
     ) {}
 
     ngOnInit(): void {
         this._getReservation();
         this._mapReservationStatus();
+        this.initFormNotes();
     }
 
     /**
@@ -40,6 +46,7 @@ export class ReservationDetailComponent implements OnInit {
                     .subscribe((reservation) => {
                         this.reservation = reservation;
                         this.selectedStatus = reservation.status;
+                        this.notesStarted = reservation.notes;
                     });
             }
         });
@@ -82,5 +89,51 @@ export class ReservationDetailComponent implements OnInit {
 
     goBack() {
         this.location.back();
+    }
+
+    private initFormNotes() {
+        this.formNotes = this.formBuilder.group({
+            notes: ['', Validators.maxLength(250)]
+        });
+    }
+
+    /**
+     * Getter du formulaire form
+     * @returns form.Controls
+     */
+    get formCheck() {
+        return this.formNotes.controls;
+    }
+
+    sendNotes() {
+        this.isSubmitted = true;
+        if (this.formNotes.invalid) {
+            return;
+        }
+
+        const notes: string = this.formCheck.notes.value;
+
+        // envoyer la note via le service
+        this.route.params.subscribe((params) => {
+            if (params.id) {
+                this.reservationService
+                    .updateNotesReservation({ notes: notes }, params.id)
+                    .subscribe((reservation) => {
+                        this.notesStarted = reservation.notes;
+                        this.messageService.add({
+                            severity: 'success',
+                            summary: 'Success',
+                            detail: `Message ajouté`
+                        }),
+                            () => {
+                                this.messageService.add({
+                                    severity: 'error',
+                                    summary: 'Error',
+                                    detail: 'Error message'
+                                });
+                            };
+                    });
+            }
+        });
     }
 }

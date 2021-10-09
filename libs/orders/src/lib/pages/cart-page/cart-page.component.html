@@ -1,13 +1,33 @@
+<head>
+    <meta
+        name="description"
+        content="La page du site web Poisson-Kin contenant les details d'un produit"
+    />
+</head>
 <div class="cart-page">
     <div class="p-grid p-mt-4 cart-page-pGrid">
         <div class="p-col-8">
-            <div>
-                <p-button
-                    label="Continuer vos achats"
-                    icon="pi pi-arrow-left"
-                    (onClick)="backToShop()"
-                ></p-button>
+            <div class="p-col-12">
+                <p-toolbar>
+                    <div class="p-toolbar-group-left p-mb-1">
+                        <p-button
+                            label="Voir nos produits"
+                            icon="pi pi-arrow-circle-left"
+                            styleClass="p-button-warning"
+                            (onClick)="backToShop()"
+                        ></p-button>
+                    </div>
+                    <div class="p-toolbar-group-right p-mb-1">
+                        <p-button
+                            label="Continuer"
+                            icon="pi pi-arrow-circle-right"
+                            styleClass="p-button-success"
+                            routerLink="/checkout"
+                        ></p-button>
+                    </div>
+                </p-toolbar>
             </div>
+
             <div>
                 <h4>Mon panier : {{ cartCount }} Article(s)</h4>
             </div>

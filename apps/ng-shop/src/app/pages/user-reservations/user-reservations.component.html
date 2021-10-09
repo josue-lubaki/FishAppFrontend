@@ -33,6 +33,26 @@
                 <h5>Prix Total</h5>
                 <p>{{ reservation.totalPrice | currency }}</p>
             </div>
+
+            <div class="p-col-4">
+                <h5>Notes du Vendeur</h5>
+                <form [formGroup]="formNotes">
+                    <div class="p-fluid p-formgrid p-grid">
+                        <div class="p-field p-col-12">
+                            <!-- <label for="notes">Notes pour l'acheteur</label> -->
+                            <textarea
+                                type="text"
+                                pInputTextarea
+                                rows="5"
+                                cols="30"
+                                formControlName="notes"
+                                [(ngModel)]="notesRecues"
+                                [disabled]="true"
+                            ></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </p-fieldset>
 
