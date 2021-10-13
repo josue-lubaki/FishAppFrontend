@@ -2,7 +2,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { OrdersService } from '@ghost/orders';
-import { ProductsService } from '@ghost/products';
+import { CategoriesService, ProductsService } from '@ghost/products';
 import { ReservationService } from '@ghost/reservation';
 import { AuthService, UsersService } from '@ghost/users';
 import { ConfirmationService, MessageService } from 'primeng/api';
@@ -22,6 +22,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
         private orderService: OrdersService,
         private productService: ProductsService,
         private reservationService: ReservationService,
+        private categoriesService: CategoriesService,
         private router: Router,
         private messageService: MessageService,
         private authService: AuthService,
@@ -35,7 +36,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
             this.usersService.getUsersCount(),
             this.orderService.getOrdersTotalSales(),
             this.reservationService.getReservationCount(),
-            this.reservationService.getReservationTotalReserved()
+            this.reservationService.getReservationTotalReserved(),
+            this.categoriesService.getCategoriesCount()
         ])
             .pipe(takeUntil(this.endSubs$))
             .subscribe((values) => {

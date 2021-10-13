@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Category } from '../models/category';
 import { Observable } from 'rxjs';
 import { environment } from '@env/environment';
+import { map } from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root'
@@ -18,6 +19,17 @@ export class CategoriesService {
      */
     getCategories(): Observable<Category[]> {
         return this.http.get<Category[]>(this.apiURLCategories);
+    }
+
+    /**
+     * Methode qui permet la récupération du nombre de categories en stock depuis le Backend via son ID
+     * @param productID l'ID du Categorie à récupérer
+     * @returns Observable<Categorie>
+     */
+    getCategoriesCount(): Observable<number> {
+        return this.http
+            .get<number>(`${this.apiURLCategories}/get/count/`)
+            .pipe(map((objectValue: any) => objectValue.categorieCount));
     }
 
     /**

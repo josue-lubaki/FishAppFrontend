@@ -32,7 +32,8 @@
 .d-orders .p-card-body:hover,
 .d-products .p-card-body:hover,
 .d-users .p-card-body:hover,
-.d-reservation .p-card-body:hover {
+.d-reservation .p-card-body:hover,
+.d-categories .p-card-body:hover {
     box-shadow: -3px -3px 5px rgba(255, 255, 255, 0.45) inset,
         3px 3px 5px rgba(0, 0, 0, 0.75) inset;
     cursor: pointer;
@@ -88,6 +89,24 @@
         .number {
             font-size: 1.75em;
         }
+    }
+}
+
+.d-categories {
+    .p-card-body {
+        background-color: #97b3f7;
+        background-image: linear-gradient(132deg, #97b3f7 0%, #c091ed 100%);
+
+        .number {
+            font-size: 1.75em;
+        }
+    }
+}
+
+.d-categories:hover {
+    .p-card-body {
+        background: #97b3f7;
+        background: linear-gradient(90deg, #9396e0 0%, #ae97f7 35%, #c091ed 100%);
     }
 }
 
@@ -171,7 +190,8 @@
     // .p-card-body .p-card-content {
     //     display: none;
     // }
-    .dashboard {
+    .dashboard,
+    #statisticsTotal .p-col-4:first-child {
         display: none;
     }
 }
@@ -206,6 +226,9 @@
             .p-toolbar {
                 justify-content: flex-end;
             }
+        }
+        #statisticsTotal .p-col-4:first-child {
+            display: block;
         }
         .p-card-body {
             .p-card-content {
