@@ -1,3 +1,4 @@
+<p-toast></p-toast>
 <div class="admin-page" *ngIf="statistics.length">
     <p-card header="Tableau de Bord" subheader="Dernière mise à jour">
         <div class="p-grid dashboard p-mb-3">
@@ -77,7 +78,22 @@
             </div>
         </div>
 
-        <div class="p-grid">
+        <div class="p-grid" id="statisticsTotal">
+            <div class="p-col-4">
+                <p-card
+                    styleClass="d-categories animate__animated animate__fadeIn"
+                    (click)="goTo('categories')"
+                >
+                    <div class="d-item">
+                        <div>
+                            <i class="pi pi-palette"></i><br />
+                            <span class="name">Categories</span>
+                        </div>
+                        <span class="number">{{ statistics[6] }}</span>
+                    </div>
+                </p-card>
+            </div>
+
             <div class="p-col-4">
                 <p-card styleClass="d-totalsales animate__animated animate__fadeIn">
                     <div class="d-item">
@@ -118,3 +134,26 @@
         </div>
     </p-card>
 </div>
+
+<!-- 2ème Methode -->
+<p-confirmDialog #cd [style]="{ width: '50vw' }">
+    <ng-template pTemplate="header">
+        <h3>Avertissement</h3>
+    </ng-template>
+    <ng-template pTemplate="footer">
+        <p-button
+            styleClass="p-button-success"
+            type="button"
+            icon="pi pi-times"
+            label="No"
+            (click)="cd.reject()"
+        ></p-button>
+        <p-button
+            styleClass="p-button-danger"
+            type="button"
+            icon="pi pi-check"
+            label="Yes"
+            (click)="cd.accept()"
+        ></p-button>
+    </ng-template>
+</p-confirmDialog>
