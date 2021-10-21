@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import { environment } from '@env/environment';
 import { Observable } from 'rxjs';
 import { User } from '../models/user';
@@ -12,11 +11,7 @@ import { LocalstorageService } from './localstorage.service';
 export class AuthService {
     apiURLUsers = environment.apiURL + 'users';
 
-    constructor(
-        private http: HttpClient,
-        private localstorage: LocalstorageService,
-        private router: Router
-    ) {}
+    constructor(private http: HttpClient, private localstorage: LocalstorageService) {}
 
     /**
      * methode qui permet à l'Utilisateur de se connecter via son email et password
@@ -56,7 +51,6 @@ export class AuthService {
      * @returns
      */
     verifyResponse(reponse: string, id: string): Observable<any> {
-        console.log('service id reçu : ', id);
         return this.http.post<any>(
             `${this.apiURLUsers}/compte/forgot/get/response/${id}`,
             { reponse }

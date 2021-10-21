@@ -1,10 +1,8 @@
 /* eslint-disable @angular-eslint/no-empty-lifecycle-method */
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { MessageService } from 'primeng/api';
+import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
-import { LocalstorageService } from '../../services/localstorage.service';
 
 @Component({
     selector: 'users-password-forgot',
@@ -26,10 +24,7 @@ export class PasswordForgotComponent implements OnInit {
     constructor(
         private formBuilder: FormBuilder,
         private auth: AuthService,
-        private localstorageService: LocalstorageService,
-        private router: Router,
         private route: ActivatedRoute,
-        private messageService: MessageService
     ) {}
 
     ngOnInit(): void {
