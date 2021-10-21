@@ -1,8 +1,5 @@
 <head>
-    <meta
-        name="description"
-        content="Page de connexion pour le site Poisson-Kin"
-    />
+    <meta name="description" content="Page de connexion pour le site Poisson-Kin" />
 </head>
 <p-toast></p-toast>
 <div class="login-register">
@@ -13,7 +10,7 @@
             </div>
             <div class="p-col-6 p-p-5">
                 <h3>Bienvenue !</h3>
-                <h2>Login Page</h2>
+                <h2>Page de Connexion</h2>
                 <form [formGroup]="loginFormGroup">
                     <div class="p-grid p-mt-6">
                         <div class="p-col-12">
@@ -63,7 +60,7 @@
                         </div>
                         <div class="p-col-12">
                             <p-button
-                                label="Submit"
+                                label="Envoyer"
                                 styleClass="full-btn"
                                 (onClick)="onSubmit()"
                             ></p-button>
@@ -79,7 +76,10 @@
                                 Si vous n'avez pas de compte,
                                 <a routerLink="../register">S'incrire</a>
                             </p>
-                            <p>Mot de passe <a routerLink="../forgot">oublié</a></p>
+                            <p>
+                                Mot de passe
+                                <a routerLink="/password-forgot">oublié</a>
+                            </p>
                         </div>
                     </div>
                 </form>

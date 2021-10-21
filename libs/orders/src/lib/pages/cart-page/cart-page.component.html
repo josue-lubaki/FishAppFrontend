@@ -22,7 +22,8 @@
                             label="Continuer"
                             icon="pi pi-arrow-circle-right"
                             styleClass="p-button-success"
-                            routerLink="/checkout"
+                            (onClick)="goToChechout()"
+                            [disabled]="cartCount === 0"
                         ></p-button>
                     </div>
                 </p-toolbar>
