@@ -24,6 +24,10 @@
                 color: rgba(0, 0, 0, 0.7);
                 font-weight: 600;
                 font-size: 0.8em;
+                transition: all 0.4s ease;
+            }
+            &-link:hover {
+                color: $primary-color-yellow;
             }
         }
 
@@ -34,6 +38,12 @@
                 margin: 0 5px;
                 color: $primary-color-blue-dark;
                 font-size: 20px;
+                transition: all 0.4s ease;
+            }
+
+            i:hover {
+                color: $primary-color-yellow;
+                transform: scale(1.3);
             }
 
             .footer__title {
