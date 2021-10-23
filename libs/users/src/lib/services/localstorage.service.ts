@@ -38,6 +38,24 @@ export class LocalstorageService {
     }
 
     /**
+     * Methode qui permet de sauvergarder un token dans le localStorage
+     * @param key la clé de l'objet à sauvergarder
+     * @param value la valeur de l'objet à sauvergarder
+     */
+    setVariable(key: string, value: any) {
+        localStorage.setItem(key, value);
+    }
+
+    /**
+     * Methode qui permet de récupérer un token dans le localStorage
+     * @param key la clé de l'objet à récupérer
+     * @param value la valeur de l'objet à récupérer
+     */
+    getVariable(key: string) {
+        return localStorage.getItem(key);
+    }
+
+    /**
      * Methode qui permet de supprimer le token de l'utilisateur current
      */
     removeToken() {

@@ -13,7 +13,7 @@ declare function showMenu(navId: any): void;
     styleUrls: []
 })
 export class HeaderComponent implements OnInit, OnDestroy {
-    myName?: string;
+    myName?: any;
     endSubs$: Subject<any> = new Subject();
     constructor(
         private localstorageService: LocalstorageService,

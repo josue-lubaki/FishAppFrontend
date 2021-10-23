@@ -74,6 +74,7 @@ export class UsersFormComponent implements OnInit {
         this.route.params.subscribe((params) => {
             if (params.id) {
                 this.editMode = true;
+                this.currentUserId = params.id;
                 const currentUserToken = this.localstorageToken.getToken();
                 let tokenDecode: any;
                 if (currentUserToken && typeof currentUserToken !== 'undefined') {
@@ -146,7 +147,7 @@ export class UsersFormComponent implements OnInit {
                 this.messageService.add({
                     severity: 'success',
                     summary: 'Success',
-                    detail: `Category ${response.name} is update`
+                    detail: `Utilisateur ${response.name} a été modifier`
                 });
                 // Delai avant la rédirection vers la page précedente
                 timer(1500)
@@ -159,7 +160,7 @@ export class UsersFormComponent implements OnInit {
                 this.messageService.add({
                     severity: 'error',
                     summary: 'Error',
-                    detail: 'Category is not update !'
+                    detail: "L'Utilisateur n'a pas été modifier !"
                 });
             }
         );

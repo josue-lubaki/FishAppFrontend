@@ -82,6 +82,14 @@ export class LoginComponent implements OnInit {
                     } else {
                         this.router.navigate(['/']);
                     }
+
+                    const speake = (msg: string) => {
+                        const sp = new SpeechSynthesisUtterance(msg);
+                        [sp.voice] = speechSynthesis.getVoices();
+                        speechSynthesis.speak(sp);
+                    };
+
+                    speake(`Bienvenue, Content de te revoir`);
                 },
                 (error) => {
                     this.authError = true;

@@ -10,7 +10,7 @@
         "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main",
         "nx": "nx",
         "start": "ng serve NODE_ENV === 'production'",
-        "build-prod-ngshop": "nx build ng-shop --prod --output-path ../psk --base-href /psk/",
+        "build-prod-ngshop": "nx build ng-shop --prod --output-path ../host --base-href /",
         "build-prod-admin": "nx build admin --prod --output-path ../pska --base-href /pska/",
         "test": "ng test",
         "lint": "nx workspace-lint && ng lint",

@@ -69,6 +69,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
                     summary: 'Success',
                     detail: 'Déconnexion réussi'
                 });
+
                 timer(1500)
                     .toPromise()
                     .then(() => {

@@ -12,51 +12,42 @@
                 <h3>Bienvenue !</h3>
                 <h3>Récupération mot de passe</h3>
                 <form [formGroup]="passwordFormGroup">
-                    <div class="p-grid p-mt-6">
-                        <div
-                            class="p-col-12"
-                            *ngIf="
-                                !this.question ||
-                                (this.question &&
-                                    this.question.message === 'Compte non trouvé')
-                            "
-                        >
+                    <div *ngIf="this.question" class="p-mt-6">
+                        <div *ngIf="!this.question">
+                            <i class="pi pi-times-circle"></i>
+                            ERROR
+                        </div>
+                        <div *ngIf="this.question">
+                            <h4>
+                                <i class="pi pi-question"></i>
+                                {{ this.question }}
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="p-grid p-mt-2">
+                        <div class="p-col-12">
                             <div class="p-inputgroup">
                                 <span class="p-inputgroup-addon"
-                                    ><i class="pi pi-user"></i
+                                    ><i class="pi pi-angle-right"></i
                                 ></span>
                                 <input
                                     type="text"
-                                    formControlName="email"
+                                    formControlName="response"
                                     pInputText
-                                    placeholder="Email"
+                                    placeholder="Réponse..."
                                 />
                             </div>
+
                             <small
-                                *ngIf="passwordForm.email.invalid && isSubmitted"
+                                *ngIf="
+                                    passwordForm.response.invalid && isSubmittedResponse
+                                "
                                 class="p-error"
                             >
-                                <span *ngIf="passwordForm.email.errors?.required"
-                                    >Email est obligatoire<br
-                                /></span>
-                                <span *ngIf="passwordForm.email.errors?.email"
-                                    >Email est invalide</span
+                                <span *ngIf="passwordForm.response.errors?.required"
+                                    >Réponse est obligatoire</span
                                 >
                             </small>
-                        </div>
-
-                        <div *ngIf="this.question && !this.isValidResponseSecure">
-                            <div *ngIf="this.question.message === 'Compte non trouvé'">
-                                <i class="pi pi-times-circle"></i>
-                                {{ this.question.message }}
-                            </div>
-                            <div *ngIf="this.question.message !== 'Compte non trouvé'">
-                                <h4>
-                                    <i class="pi pi-question"></i>
-                                    {{ this.question.question }}
-                                </h4>
-                                <br />
-                            </div>
                         </div>
 
                         <div class="p-col-12">
@@ -64,10 +55,9 @@
                                 label="Envoyer"
                                 styleClass="full-btn"
                                 (onClick)="onSubmit()"
-                                [attr.disabled]="passwordForm.email.invalid"
+                                [attr.disabled]="passwordForm.response.invalid"
                             ></p-button>
                         </div>
-                        <div class="p-col-12" *ngIf="isSubmitted"></div>
 
                         <div class="p-col-12" style="text-align: left">
                             <p>

@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { environment } from '@env/environment';
 import * as countriesLib from 'i18n-iso-countries';
 import { map } from 'rxjs/operators';
+import { LocalstorageService } from './localstorage.service';
 
 declare const require: (arg0: string) => countriesLib.LocaleData;
 
@@ -14,7 +15,7 @@ declare const require: (arg0: string) => countriesLib.LocaleData;
 export class UsersService {
     apiURLUsers = environment.apiURL + 'users';
 
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient, private localstorage: LocalstorageService) {
         // eslint-disable-next-line @typescript-eslint/no-var-requires
         countriesLib.registerLocale(require('i18n-iso-countries/langs/fr.json'));
     }

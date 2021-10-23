@@ -78,22 +78,22 @@
                             >
                         </div>
                         <div class="p-field p-col-4">
-                            <label for="phone">Téléphone</label><br />
-                            <p-inputMask
+                            <label for="phone">Téléphone *</label><br />
+                            <input
                                 formControlName="phone"
-                                mask="(999) 999-9999"
+                                autocomplete
                                 [placeholder]="
                                     userForm.phone && userForm.phone.value !== ''
                                         ? userForm.phone.value
-                                        : '(999) 999-9999'
+                                        : '+ (code pays) 9999-99-999'
                                 "
-                            >
-                            </p-inputMask>
+                                pInputText
+                            />
                             <small
                                 *ngIf="userForm.phone.invalid && isSubmitted"
                                 class="p-error"
-                                >Phone est obligatoire</small
-                            >
+                                style="color: red"
+                                >Phone est obligatoire</small>
                         </div>
                         <div class="p-field p-col-4">
                             <label for="isAdmin">Est Administrateur</label><br />
