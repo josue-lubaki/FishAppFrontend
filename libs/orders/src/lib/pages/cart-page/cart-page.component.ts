@@ -66,6 +66,13 @@ export class CartPageComponent implements OnInit, OnDestroy {
     }
 
     /**
+     * Methode qui permet d'aller vers checkout page
+     */
+    goToChechout() {
+        this.router.navigate(['/checkout']);
+    }
+
+    /**
      * Methode qui permet de supprimer un article de ls liste des articles prêt à l'achat
      * @param cartItem la cartItem à supprimer
      */

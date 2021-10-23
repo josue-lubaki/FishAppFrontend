@@ -1,6 +1,6 @@
 # FishApp Frontend [![wakatime](https://wakatime.com/badge/github/josue-lubaki/FishAppFrontend.svg)](https://wakatime.com/badge/github/josue-lubaki/FishAppFrontend)
-# FishApp Backend API <a href="https://fish-sales-application.herokuapp.com/" target="_blank"><img src="https://raw.githubusercontent.com/josue-lubaki/FishAppFrontend/508783585250019d2e7beac362aa46ba49475f1a/images/api.svg" width="65px"></a>
-Previews : [not yet deploy]
+## <b>FishApp Backend API</b><a href="https://fish-sales-application.herokuapp.com/" target="_blank"><img src="https://raw.githubusercontent.com/josue-lubaki/FishAppFrontend/508783585250019d2e7beac362aa46ba49475f1a/images/api.svg" width="65px">Documentation</a><br>
+### website online : www.poisson-kin.com
 ---------
 <p>Site web partie Administrateur -> <a href="https://josue-lubaki.github.io/pska/"><b>View Website</b></a></p>
 <img src="https://github.com/josue-lubaki/FishAppFrontend/blob/main/apps/admin/src/assets/images/preview1.png?raw=true" width=800px height=420px /> <br><br><br>
@@ -8,7 +8,7 @@ Previews : [not yet deploy]
 <img src="https://github.com/josue-lubaki/FishAppFrontend/blob/main/apps/admin/src/assets/images/preview3.png?raw=true" width=800px height=460px /> <br><br><br>
 <p>Site web partie Client -> <a href="https://josue-lubaki.github.io/psk/"><b>View Website</b></a></p>
 <img src="https://github.com/josue-lubaki/FishAppFrontend/blob/main/apps/admin/src/assets/images/previews1.png?raw=true" width=800px height=420px /> <br><br><br>
-<img src="https://github.com/josue-lubaki/FishAppFrontend/blob/main/apps/admin/src/assets/images/previews2.png?raw=true" width=800px height=420px /> <br><br><br>
+<img src="https://github.com/josue-lubaki/FishAppFrontend/blob/main/apps/admin/src/assets/images/previews2.png?raw=true" width=800px height=420px /> <br>
 
 MIT License
 
