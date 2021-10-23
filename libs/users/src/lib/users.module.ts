@@ -15,6 +15,8 @@ import { DropdownModule } from 'primeng/dropdown';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { RegisterComponent } from './pages/register/register.component';
 import { PasswordForgotComponent } from './pages/password-forgot/password-forgot.component';
+import { PassawordResponseComponent } from './pages/passaword-response/passaword-response.component';
+import { PassawordResetComponent } from './pages/passaword-reset/passaword-reset.component';
 
 export const usersRoutes: Route[] = [
     {
@@ -28,6 +30,14 @@ export const usersRoutes: Route[] = [
     {
         path: 'password-forgot',
         component: PasswordForgotComponent
+    },
+    {
+        path: 'password-response/:idUser/:question',
+        component: PassawordResponseComponent
+    },
+    {
+        path: 'password-reset/:idUser',
+        component: PassawordResetComponent
     }
 ];
 
@@ -47,7 +57,18 @@ export const usersRoutes: Route[] = [
         DropdownModule,
         InputSwitchModule
     ],
-    declarations: [LoginComponent, RegisterComponent, PasswordForgotComponent],
-    exports: [RegisterComponent, PasswordForgotComponent]
+    declarations: [
+        LoginComponent,
+        RegisterComponent,
+        PasswordForgotComponent,
+        PassawordResponseComponent,
+        PassawordResetComponent
+    ],
+    exports: [
+        RegisterComponent,
+        PasswordForgotComponent,
+        PassawordResponseComponent,
+        PassawordResetComponent
+    ]
 })
 export class UsersModule {}

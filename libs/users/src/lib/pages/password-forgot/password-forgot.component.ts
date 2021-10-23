@@ -1,7 +1,7 @@
 /* eslint-disable @angular-eslint/no-empty-lifecycle-method */
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -12,8 +12,7 @@ import { AuthService } from '../../services/auth.service';
 export class PasswordForgotComponent implements OnInit {
     passwordFormGroup!: FormGroup;
     isSubmitted = false;
-    isSubmittedResponse = false;
-    isSubmittedPassword = false;
+
     authErrorMessage = 'Email or Phone number are wrong';
     goToAnotherPage: any;
     question: any;
@@ -25,6 +24,7 @@ export class PasswordForgotComponent implements OnInit {
         private formBuilder: FormBuilder,
         private auth: AuthService,
         private route: ActivatedRoute,
+        private router: Router
     ) {}
 
     ngOnInit(): void {
@@ -36,9 +36,10 @@ export class PasswordForgotComponent implements OnInit {
 
     private _initLoginForm() {
         this.passwordFormGroup = this.formBuilder.group({
-            email: ['', [Validators.required, Validators.email]],
-            response: ['', Validators.required],
-            newPassword: ['', Validators.required]
+            email: [
+                { value: '', disabled: false },
+                [Validators.required, Validators.email]
+            ]
         });
     }
 
@@ -52,8 +53,6 @@ export class PasswordForgotComponent implements OnInit {
      */
     onSubmit() {
         if (this.passwordForm.email.valid) this._requestQuestion();
-        if (this.passwordForm.response.valid) this._requestResponse();
-        if (this.passwordForm.newPassword.valid) this._changePassword();
     }
 
     private _requestQuestion() {
@@ -65,6 +64,15 @@ export class PasswordForgotComponent implements OnInit {
                 (response) => {
                     this.idUser = response.id;
                     this.question = response;
+                    this.passwordForm.email.reset();
+                    console.log('response.question', response.question);
+                    // this.router.navigate([
+                    //     `/password-response/`,
+                    //     { question: response.question, id: this.idUser }
+                    // ]);
+                    this.router.navigate([
+                        `/password-response/${this.idUser}/${response.question}`
+                    ]);
                 },
                 (error) => {
                     if (error.status !== 400)
@@ -73,43 +81,42 @@ export class PasswordForgotComponent implements OnInit {
                     else this.authErrorMessage = error.error;
                 }
             );
-        this.passwordForm.email.reset();
     }
 
-    private _requestResponse() {
-        this.isSubmittedResponse = true;
-        if (this.passwordForm.response.value === '') return;
-        this.auth.verifyResponse(this.passwordForm.response.value, this.idUser).subscribe(
-            (response) => {
-                this.isValidResponseSecure = response.success;
-            },
-            (error) => {
-                if (error.status !== 400)
-                    this.authErrorMessage = 'Error in the server, please try again later';
-                else this.authErrorMessage = error.error;
-            }
-        );
-        this.passwordForm.response.reset();
-    }
+    // private _requestResponse() {
+    //     this.isSubmittedResponse = true;
+    //     if (this.passwordForm.response.value === '') return;
+    //     this.auth.verifyResponse(this.passwordForm.response.value, this.idUser).subscribe(
+    //         (response) => {
+    //             this.isValidResponseSecure = response.success;
+    //         },
+    //         (error) => {
+    //             if (error.status !== 400)
+    //                 this.authErrorMessage = 'Error in the server, please try again later';
+    //             else this.authErrorMessage = error.error;
+    //         }
+    //     );
+    //     this.passwordForm.response.reset();
+    // }
 
-    private _changePassword() {
-        this.isSubmittedPassword = true;
-        if (this.passwordForm.newPassword.value === '') return;
+    // private _changePassword() {
+    //     this.isSubmittedPassword = true;
+    //     if (this.passwordForm.newPassword.value === '') return;
 
-        this.auth
-            .resetPassword(this.passwordForm.newPassword.value, this.idUser)
-            .subscribe(
-                (message) => {
-                    this.messageFinale = message;
-                },
-                (error) => {
-                    if (error.status !== 400)
-                        this.authErrorMessage =
-                            'Error in the server, please try again later';
-                    else this.authErrorMessage = error.error;
-                }
-            );
+    //     this.auth
+    //         .resetPassword(this.passwordForm.newPassword.value, this.idUser)
+    //         .subscribe(
+    //             (message) => {
+    //                 this.messageFinale = message;
+    //             },
+    //             (error) => {
+    //                 if (error.status !== 400)
+    //                     this.authErrorMessage =
+    //                         'Error in the server, please try again later';
+    //                 else this.authErrorMessage = error.error;
+    //             }
+    //         );
 
-        this.passwordForm.newPassword.reset();
-    }
+    //     this.passwordForm.newPassword.reset();
+    // }
 }

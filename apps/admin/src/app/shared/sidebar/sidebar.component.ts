@@ -32,6 +32,7 @@ export class SidebarComponent {
                     summary: 'Success',
                     detail: 'Déconnexion réussi'
                 });
+              
                 timer(1500)
                     .toPromise()
                     .then(() => {
