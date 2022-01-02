@@ -100,7 +100,7 @@ export class CategoriesFormComponent implements OnInit {
                     detail: `Category ${response.name} is update`
                 });
                 // Delai avant la rédirection vers la page précedente
-                timer(1500)
+                timer(1000)
                     .toPromise()
                     .then(() => {
                         this.goBack();
@@ -130,7 +130,7 @@ export class CategoriesFormComponent implements OnInit {
                     detail: `Category ${response.name} is created`
                 });
                 // Delai avant la rédirection vers la page précedente
-                timer(1500)
+                timer(1000)
                     .toPromise()
                     .then(() => {
                         this.goBack();

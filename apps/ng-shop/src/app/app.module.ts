@@ -36,6 +36,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { UserPageComponent } from './pages/user-page/user-page.component';
 import { UserOrdersComponent } from './pages/user-orders/user-orders.component';
 import { UserReservationsComponent } from './pages/user-reservations/user-reservations.component';
+import { TermsComponent } from './pages/terms/terms.component';
 
 const routes: Routes = [
     {
@@ -61,6 +62,10 @@ const routes: Routes = [
         component: UserReservationsComponent,
         canActivate: [AuthGuardClient]
     },
+    {
+        path: 'terms',
+        component: TermsComponent
+    },
     { path: '**', redirectTo: '' }
 ];
 
@@ -77,7 +82,8 @@ gsap.registerPlugin(ScrollTrigger);
         MessagesComponent,
         UserPageComponent,
         UserOrdersComponent,
-        UserReservationsComponent
+        UserReservationsComponent,
+        TermsComponent
     ],
     imports: [
         BrowserModule,
@@ -120,7 +126,8 @@ gsap.registerPlugin(ScrollTrigger);
         MessagesComponent,
         UserPageComponent,
         UserOrdersComponent,
-        UserReservationsComponent
+        UserReservationsComponent,
+        TermsComponent
     ]
 })
 export class AppModule {}

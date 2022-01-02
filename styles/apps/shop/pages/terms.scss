@@ -1,0 +1,42 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 2rem;
+    text-align: justify;
+    p {
+        margin-top: 0.4rem;
+    }
+    h4 {
+        margin-bottom: 0.3rem;
+    }
+    .header {
+        &-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--primary-500);
+            line-height: 0;
+        }
+
+        .subtitle {
+            font-weight: bold;
+            color: var(--primary-500);
+            margin-bottom: 0.5em;
+        }
+    }
+
+    .boldText {
+        font-weight: bold;
+        font-size: 0rem;
+        margin-top: 0.7em;
+    }
+
+    .boldTextSub {
+        font-weight: bold;
+        padding-bottom: 0.5rem;
+        display: block;
+    }
+
+    .blocRetrait {
+        margin-left: 2rem;
+    }
+}

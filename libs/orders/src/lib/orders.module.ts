@@ -19,7 +19,7 @@ import { ToolbarModule } from 'primeng/toolbar';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { ThankYouComponent } from './pages/thank-you/thank-you.component';
 import { CheckPayComponent } from './pages/check-pay/check-pay.component';
-import { AuthGuard } from '@ghost/users';
+import { AuthGuardClient } from '@ghost/users';
 
 const routes: Routes = [
     {
@@ -29,7 +29,7 @@ const routes: Routes = [
     {
         path: 'checkout',
         component: CheckoutPageComponent,
-        canActivate: [AuthGuard]
+        canActivate: [AuthGuardClient]
     },
     {
         path: 'success',

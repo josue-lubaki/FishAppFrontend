@@ -8,6 +8,7 @@ import { ProductsService } from '@ghost/products';
 import { CartItemDetails } from '../../models/cart';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { LocalstorageService, UsersService } from '@ghost/users';
 
 @Component({
     selector: 'orders-cart-page',

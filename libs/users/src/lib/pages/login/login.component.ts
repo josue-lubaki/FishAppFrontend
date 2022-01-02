@@ -3,11 +3,19 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
+import { timer } from 'rxjs';
 import { AuthService } from '../../services/auth.service';
 import { LocalstorageService } from '../../services/localstorage.service';
 
-declare const FB: any;
-
+const speake = (msg: string) => {
+    const sp = new SpeechSynthesisUtterance(msg);
+    [sp.voice] = speechSynthesis.getVoices();
+    // dimuneur le volume
+    sp.volume = 0.6;
+    //dimunuer la vitesse de la prononciation
+    sp.pitch = 0.5;
+    speechSynthesis.speak(sp);
+};
 @Component({
     selector: 'users-login',
     templateUrl: './login.component.html',
@@ -81,15 +89,13 @@ export class LoginComponent implements OnInit {
                         this.router.navigate(['checkout']);
                     } else {
                         this.router.navigate(['/']);
+                        timer(100)
+                            .toPromise()
+                            .then(() => {
+                                location.reload();
+                            });
+                        speake(`Bienvenue`);
                     }
-
-                    const speake = (msg: string) => {
-                        const sp = new SpeechSynthesisUtterance(msg);
-                        [sp.voice] = speechSynthesis.getVoices();
-                        speechSynthesis.speak(sp);
-                    };
-
-                    speake(`Bienvenue, Content de te revoir`);
                 },
                 (error) => {
                     this.authError = true;
