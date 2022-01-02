@@ -1,0 +1,1 @@
+const showMenu=e=>{document.getElementById(e).classList.toggle("show-mobile")};function linkAction(){document.getElementById("blocMenu").classList.toggle("show-mobile")}function startTimer(e,t){var n,o=e;setInterval(function(){n=(n=parseInt(o%15,10))<10?"0"+n:n,document.getElementById(t).innerText(n),--o<0&&(o=e)},1e3)}
