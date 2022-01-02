@@ -20,7 +20,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { OrdersModule } from '@ghost/orders';
 import { ToastModule } from 'primeng/toast';
-import { MessageService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { MessagesComponent } from './shared/messages/messages.component';
 import { GalleriaModule } from 'primeng/galleria';
@@ -63,7 +63,7 @@ const routes: Routes = [
         canActivate: [AuthGuardClient]
     },
     {
-        path: 'terms',
+        path: 'terms-confidentiality',
         component: TermsComponent
     },
     { path: '**', redirectTo: '' }
@@ -119,7 +119,8 @@ gsap.registerPlugin(ScrollTrigger);
             provide: HTTP_INTERCEPTORS,
             useClass: JwtInfoUser,
             multi: true // Token utilisé pour toutes les requêtes
-        }
+        },
+        ConfirmationService
     ],
     bootstrap: [AppComponent],
     exports: [
