@@ -1,204 +1,182 @@
-header{
-  margin: 0;
-  background-color: $primary-color-blue-dark;
-  border-radius: 0 0 5px 5px;
+header {
+    margin: 0;
+    background-color: $primary-color-blue-dark;
+    border-radius: 0 0 5px 5px;
 
-  .header-pGrid{
-    text-align: center;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 2.5em 0 1em;
-  }
-
-  .p-badge{
-    font-size: .6em;
-  }
-
-  .logo{
-
-    img{
-      width: 60px;
-      clip-path: circle(45.75%);
+    .header-pGrid {
+        text-align: center;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 2.5em 0 1em;
     }
-  }
 
-  .navigation{
-    display: flex;
-    align-items: center;
-
-    ngshop-nav .nav__list{
-      display:flex;
-      justify-content: space-between;
-
-      .hide-menu{
-        display: none;
-      }
-
-      .nav__item{
-        margin: 10px;
-
-        a{
-           color: #fff;
-        }
-
-      }
+    .p-badge {
+        font-size: 0.6em;
     }
-  }
 
-  .search{
-    padding-top: 2.5%;
-  }
-
-  .tools{
-   align-items: center;
-   display: flex;
-
-    ngshop-nav .nav__list{
-      position: fixed;
-      width: 40%;
-      top: 0;
-      right: 0;
-      text-align: left;
-      background-color: rgba(36,41,44,.3);
-      height: 100%;
-      z-index: 25;
-      padding-top: 2.5em;
-      backdrop-filter: blur(10px);
-
-        .exit-btn{
-          display: block;
-          color: white;
-          margin: 1em;
-          margin-top: -1.3em;
-          margin-bottom: 1.1em;
-          text-align: right;
-          padding: 0 1.2em;
-
-          a{
-            padding-left:90%;
-          }
+    .logo {
+        img {
+            width: 60px;
+            clip-path: circle(45.75%);
         }
+    }
 
-        .nav__item:not(:first-child){
-          display: block;
+    .navigation {
+        display: flex;
+        align-items: center;
 
-          &:hover{
-            background-color: $primary-color-yellow;
-            a{
-              color: black;
-              font-weight: bold;
+        ngshop-nav .nav__list {
+            display: flex;
+            justify-content: space-between;
+
+            .hide-menu {
+                display: none;
             }
-          }
 
-          a{
-            text-decoration: none;
-            color: white;
-            font-size: 1.1em;
-            padding: 1em 1.2em;
-            display: block;
-          }
+            .nav__item {
+                margin: 10px;
+
+                a {
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+    .search {
+        padding-top: 2.5%;
+    }
+
+    .tools {
+        align-items: center;
+        display: flex;
+
+        ngshop-nav .nav__list {
+            position: fixed;
+            width: 40%;
+            top: 0;
+            right: 0;
+            text-align: left;
+            background-color: rgba(36, 41, 44, 0.3);
+            height: 100%;
+            z-index: 25;
+            padding-top: 2.5em;
+            backdrop-filter: blur(10px);
+
+            .exit-btn {
+                display: block;
+                color: white;
+                margin: 1em;
+                margin-top: -1.3em;
+                margin-bottom: 1.1em;
+                text-align: right;
+                padding: 0 1.2em;
+
+                a {
+                    padding-left: 90%;
+                }
+            }
+
+            .nav__item:not(:first-child) {
+                display: block;
+
+                &:hover {
+                    background-color: $primary-color-yellow;
+                    a {
+                        color: black;
+                        font-weight: bold;
+                    }
+                }
+
+                a {
+                    text-decoration: none;
+                    color: white;
+                    font-size: 1.1em;
+                    padding: 1em 1.2em;
+                    display: block;
+                }
+            }
         }
 
-
-      }
-
-    .pi{
-      margin-right: 5px;
-      font-size: 1.2rem;
-      color: #fff;
-      margin-left: 5px;
+        .pi {
+            margin-right: 5px;
+            font-size: 1.2rem;
+            color: #fff;
+            margin-left: 5px;
+        }
     }
 
-  }
+    @media only screen and (max-width: 650px) {
+        .header-pGrid {
+            .p-col-2 {
+                width: 20%;
+            }
+        }
 
-  @media only screen and (max-width: 650px) {
+        .hide-desktop {
+            display: none;
+        }
 
-    .header-pGrid{
+        .show-mobile {
+            display: inline-block;
+        }
 
-      .p-col-2{
-        width: 20%;
-      }
+        .p-grid {
+            justify-content: space-between;
+        }
+
+        .header-pGrid .search {
+            width: 35%;
+            transition: all 0.7s ease-in-out;
+        }
     }
 
-    .hide-desktop{
-      display: none;
+    @media only screen and (max-width: 720px) {
+        .pi {
+            font-size: 1.2rem !important;
+            transition: all 0.7s ease-in-out;
+            align-self: center;
+        }
+
+        .header-pGrid .search {
+            width: 55%;
+            transition: all 0.7s ease-in-out;
+        }
+
+        .p-badge {
+            min-width: 1rem;
+            height: 1rem;
+            line-height: 1rem;
+        }
     }
 
-    .show-mobile{
-      display: inline-block;
+    @media only screen and (max-width: 500px) {
+        // .pi-user, .pi-shopping-cart{
+        //   display: none;
+        // }
+
+        .pi {
+            font-size: 1.5em !important;
+            align-self: center;
+        }
+
+        .tools #menu {
+            font-size: 2.5em !important;
+            margin-right: 0;
+        }
     }
-
-    .p-grid{
-      justify-content: space-between;
-    }
-
-    .header-pGrid .search{
-      width: 35%;
-      transition: all .7s ease-in-out;
-    }
-
-
-  }
-
-  @media only screen and (max-width: 720px) {
-
-    .pi{
-      font-size: 1.2rem !important;
-      transition: all .7s ease-in-out;
-      align-self: center;
-    }
-
-    .header-pGrid .search{
-      width: 55%;
-      transition: all .7s ease-in-out;
-
-    }
-
-    .p-badge{
-      min-width: 1rem;
-      height: 1rem;
-      line-height: 1rem;
-    }
-
-  }
-
-  @media only screen and (max-width: 500px) {
-    // .pi-user, .pi-shopping-cart{
-    //   display: none;
-    // }
-
-    .pi{
-      font-size: 1.5em !important;
-      align-self: center;
-    }
-
-    .tools #menu{
-      font-size: 2.5em !important;
-      margin-right: 0;
-    }
-
-  }
 
     @media only screen and (max-width: 290px) {
-
-
-      .header{
-         &-pGrid{
-          .p-col-2{
-            width: 24%;
-          }
+        .header {
+            &-pGrid {
+                .p-col-2 {
+                    width: 24%;
+                }
+            }
         }
-      }
 
-      ngshop-nav #nav{
-        width: 50% !important;
-      }
-
+        ngshop-nav #nav {
+            width: 50% !important;
+        }
     }
-
-
-
-
-
-
 }

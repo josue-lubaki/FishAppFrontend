@@ -10,7 +10,7 @@ const showMenu = (navId) => {
 /****  Remove menu mobile ****/
 function linkAction() {
     const blocMenu = document.getElementById('blocMenu');
-    blocMenu.classList.remove('show-mobile');
+    blocMenu.classList.toggle('show-mobile');
 }
 
 function startTimer(duration, display) {

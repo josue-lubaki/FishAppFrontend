@@ -1,9 +1,20 @@
 <ul id="nav" class="nav__list">
-  <li class="exit-btn hide-desktop nav__item" id="exit" (click)="openMenuBar()">
-    <a> <i class="pi pi-times"></i></a>
-	</li>
-  <li class="nav__item" (click)="closeMenuBar()"><a routerLink='/' class="nav__link">Accueil</a></li>
-  <li class="nav__item" (click)="closeMenuBar()"><a routerLink='/products' class="nav__link">Produits</a></li>
-  <li class="nav__item" (click)="closeMenuBar()"><a routerLink='/compte' class="nav__link show-menu hide-menu">Compte</a></li>
-  <li class="nav__item" (click)="closeMenuBar()"><a routerLink='/cart' class="nav__link show-menu hide-menu">Panier</a></li>
+    <li class="exit-btn hide-desktop nav__item" id="exit" (click)="openMenuBar()">
+        <a> <i class="pi pi-times"></i></a>
+    </li>
+    <li class="nav__item" (click)="closeMenuBar()">
+        <a routerLink="/" class="nav__link">Accueil</a>
+    </li>
+    <li class="nav__item" (click)="closeMenuBar()">
+        <a routerLink="/products" class="nav__link">Produits</a>
+    </li>
+    <li class="nav__item" (click)="closeMenuBar()">
+        <a routerLink="/compte" class="nav__link show-menu hide-menu">Compte</a>
+    </li>
+    <li class="nav__item" (click)="closeMenuBar()">
+        <a routerLink="/cart" class="nav__link show-menu hide-menu">Panier</a>
+    </li>
+    <li class="nav__item" (click)="logoutUser()" *ngIf="existUser">
+        <a routerLink="/" class="nav__link show-menu hide-menu">Déconnexion</a>
+    </li>
 </ul>

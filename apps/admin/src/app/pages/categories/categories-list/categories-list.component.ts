@@ -38,7 +38,7 @@ export class CategoriesListComponent implements OnInit, OnDestroy {
      */
     deleteCategory(categoryId: string) {
         this.confirmationService.confirm({
-            message: 'Voulez-vous quitter supprimer cette categorie ?',
+            message: 'Voulez-vous supprimer cette categorie ?',
             header: 'Suppression Categorie',
             icon: 'pi pi-exclamation-triangle',
             accept: () => {
@@ -54,7 +54,7 @@ export class CategoriesListComponent implements OnInit, OnDestroy {
                     () => {
                         this.messageService.add({
                             severity: 'error',
-                            summary: 'Error',
+                            summary: 'Erreur',
                             detail: 'Categorie non supprimée !'
                         });
                     }
