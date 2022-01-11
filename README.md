@@ -38,3 +38,24 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+
+<!-- - npx create-nx-workspace --preset=angular
+- nx generate @nrwl/angular:app admin
+- nx g component home-page --project=ngshop --dry-run
+- npx nx g @nrwl/workspace:lib ui
+- npm install @angular/cdk --save
+- nx build ng-shop --output-path docs --base-href /repo_name/
+
+* Dependancies
+- multer
+- nodemon
+- morgan
+- bcrypt
+- express-jwt
+- cors
+- jsonwebtoken
+- express
+- mongoose
+- prettier
+- dotenv -->
