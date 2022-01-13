@@ -1,35 +1,52 @@
 <header id="header">
     <div class="p-grid header-pGrid">
-          <div>
+        <div>
             <div class="logo">
-              <img src="assets/images/logoT.png" routerLink="/" class="animate__animated animate__fadeInLeft" alt="logo">
+                <img
+                    src="assets/images/fish.png"
+                    routerLink="/"
+                    class="animate__animated animate__rotateIn"
+                    alt="logo"
+                />
             </div>
-          </div>
+        </div>
 
-          <div class="navigation nav_menu hide-desktop show-desktop" id="nav-menu">
-              <ngshop-nav></ngshop-nav>
-          </div>
-          <div class="tools">
-            <span routerLink="/compte"
-              class="show-name hide-name"
-              *ngIf="myName"
-              style="color: #EAC362;
-                font-weight: bold;
-                font-size:1rem;
-                text-transform:capitalize;
-                cursor: pointer;">
-                {{myName}}
+        <div class="navigation nav_menu hide-desktop show-desktop" id="nav-menu">
+            <ngshop-nav></ngshop-nav>
+        </div>
+        <div class="tools">
+            <span
+                routerLink="/compte"
+                class="show-name hide-name"
+                *ngIf="myName"
+                style="
+                    color: #eac362;
+                    font-weight: bold;
+                    font-size: 1rem;
+                    text-transform: capitalize;
+                    cursor: pointer;
+                "
+            >
+                {{ myName }}
             </span>
-            <i class="pi pi-user p-text-secondary" style="font-size: 1.5rem;color: #fff; padding-left:.4rem" id="user" [routerLink]="['/compte']" routerLinkActive="router-link-active" ></i>
-            <orders-cart-icon style="display:flex"></orders-cart-icon>
-            <i class="pi pi-bars hide-desktop show-mobile menu"
-              style="font-size: 1.5rem"
-              id="menu"
-              (click)="openMenuBar()"></i>
+            <i
+                class="pi pi-user p-text-secondary"
+                style="font-size: 1.5rem; color: #fff; padding-left: 0.4rem"
+                id="user"
+                [routerLink]="['/compte']"
+                routerLinkActive="router-link-active"
+            ></i>
+            <orders-cart-icon style="display: flex"></orders-cart-icon>
+            <i
+                class="pi pi-bars hide-desktop show-mobile menu"
+                style="font-size: 1.5rem"
+                id="menu"
+                (click)="openMenuBar()"
+            ></i>
 
             <div class="hide-desktop" id="blocMenu">
-              <ngshop-nav></ngshop-nav>
+                <ngshop-nav></ngshop-nav>
             </div>
-          </div>
-      </div>
+        </div>
+    </div>
 </header>
