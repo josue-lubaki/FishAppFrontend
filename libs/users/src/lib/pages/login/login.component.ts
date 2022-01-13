@@ -7,11 +7,11 @@ import { timer } from 'rxjs';
 import { AuthService } from '../../services/auth.service';
 import { LocalstorageService } from '../../services/localstorage.service';
 
-const speake = (msg: string) => {
+const speak = (msg: string) => {
     const sp = new SpeechSynthesisUtterance(msg);
     [sp.voice] = speechSynthesis.getVoices();
     // dimuneur le volume
-    sp.volume = 0.6;
+    sp.volume = 0.2;
     //dimunuer la vitesse de la prononciation
     sp.pitch = 0.5;
     speechSynthesis.speak(sp);
@@ -94,7 +94,7 @@ export class LoginComponent implements OnInit {
                             .then(() => {
                                 location.reload();
                             });
-                        speake(`Bienvenue`);
+                        // speak(`Bienvenue`);
                     }
                 },
                 (error) => {
