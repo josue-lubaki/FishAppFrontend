@@ -10,4 +10,4 @@ updates:
     schedule:
       interval: "daily"
     versioning-strategy: widen
-    open-pull-requests-limit: 10
+    open-pull-requests-limit: 20
