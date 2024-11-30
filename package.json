@@ -52,7 +52,7 @@
     "bootstrap": "^5.1.0",
     "boxicons": "^2.0.9",
     "gsap": "^3.7.1",
-    "i18n-iso-countries": "^6.8.0",
+    "i18n-iso-countries": "^7.6.0",
     "jquery": "^3.6.0",
     "mail": "^0.2.3",
     "ngx-bootstrap": "^7.0.0",
